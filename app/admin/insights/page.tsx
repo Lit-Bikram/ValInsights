@@ -160,6 +160,13 @@ export default function AdminInsightsPage() {
 
           <div className="flex items-center gap-4">
             <Link
+              href="/admin/enquiries"
+              className="text-sm font-semibold text-primary hover:text-secondary"
+            >
+              Enquiries
+            </Link>
+
+            <Link
               href="/insights"
               target="_blank"
               className="text-sm font-semibold text-primary hover:text-secondary"

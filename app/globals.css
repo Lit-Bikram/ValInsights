@@ -5163,3 +5163,79 @@ a {
     justify-content: space-between;
   }
 }
+
+
+
+/* =========================================================
+   CONTACT FORM — PHASE 1 SUBMISSION STATES
+   ========================================================= */
+
+.contact-form__honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.contact-form label span {
+  color: #c99d4f;
+}
+
+.contact-form__button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.contact-form__error {
+  margin: -2px 0 0;
+  padding: 12px 14px;
+  border: 1px solid #e5c5c5;
+  background: #fff6f6;
+  color: #8d3030;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.contact-form-success {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.contact-form-success__mark {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border: 1px solid #c99d4f;
+  border-radius: 50%;
+  color: #c99d4f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.contact-form-success h3 {
+  margin: 10px 0 14px;
+  color: #0a2637;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.contact-form-success > p:not(.contact-label) {
+  max-width: 520px;
+  margin: 0 0 26px;
+  color: #50627a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.75;
+}

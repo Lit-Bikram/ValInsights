@@ -2,14 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-
-const enquiryTypes = [
-  "Valuation assignment",
-  "Transaction",
-  "Financial reporting",
-  "Dispute or litigation",
-  "Other requirement",
-];
+import ContactForm from "../components/contact/ContactForm";
 
 export default function ContactPage() {
   return (
@@ -66,62 +59,7 @@ export default function ContactPage() {
               <p className="contact-label">Enquiry</p>
               <h2>Tell Us About Your Requirement</h2>
 
-              <form className="contact-form">
-                <div className="contact-form__row">
-                  <label>
-                    Name
-                    <input type="text" name="name" placeholder="Your name" />
-                  </label>
-
-                  <label>
-                    Organisation
-                    <input
-                      type="text"
-                      name="organisation"
-                      placeholder="Company / organisation"
-                    />
-                  </label>
-                </div>
-
-                <div className="contact-form__row">
-                  <label>
-                    Email
-                    <input type="email" name="email" placeholder="Your email" />
-                  </label>
-
-                  <label>
-                    Phone
-                    <input type="tel" name="phone" placeholder="Your phone" />
-                  </label>
-                </div>
-
-                <label>
-                  Requirement
-                  <select name="requirement" defaultValue="">
-                    <option value="" disabled>
-                      Select an area
-                    </option>
-                    {enquiryTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-
-                <label>
-                  Message
-                  <textarea
-                    name="message"
-                    rows={6}
-                    placeholder="Briefly describe the matter, asset, transaction, or dispute."
-                  />
-                </label>
-
-                <button type="submit" className="contact-form__button">
-                  Send Enquiry
-                </button>
-              </form>
+              <ContactForm />
             </div>
 
             <aside className="contact-details">
