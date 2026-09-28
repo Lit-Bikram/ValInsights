@@ -34,7 +34,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-surface px-6 py-12">
+    <main className="flex min-h-screen items-center justify-center bg-surface px-6 py-12 admin-login-root">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="mb-8 text-center">

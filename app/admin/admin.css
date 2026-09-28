@@ -1,0 +1,638 @@
+/* =========================================================
+   VALINSIGHT CMS — ADMIN DESIGN SYSTEM
+   Scope: /admin/* only
+   ========================================================= */
+
+:root {
+  --admin-navy: #08263a;
+  --admin-navy-2: #0d334b;
+  --admin-gold: #c99d4f;
+  --admin-gold-soft: #ead9b7;
+  --admin-ink: #173449;
+  --admin-muted: #718293;
+  --admin-border: #dce4e9;
+  --admin-surface: #f4f7f9;
+  --admin-white: #ffffff;
+  --admin-danger: #b42318;
+  --admin-danger-bg: #fff3f2;
+  --admin-success: #1d6b4f;
+  --admin-success-bg: #edf8f3;
+  --admin-warning: #8a6116;
+  --admin-warning-bg: #fff8e8;
+}
+
+.admin-loading-root {
+  background: var(--admin-surface) !important;
+  color: var(--admin-ink);
+}
+
+/* ---------- Shared ---------- */
+.admin-login-root,
+.admin-dashboard-root,
+.admin-editor-root {
+  color: var(--admin-ink);
+  background: var(--admin-surface) !important;
+}
+
+.admin-login-root a,
+.admin-dashboard-root a,
+.admin-editor-root a {
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+/* ---------- Login ---------- */
+.admin-login-root {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(201,157,79,.13), transparent 28%),
+    radial-gradient(circle at 85% 80%, rgba(8,38,58,.12), transparent 30%),
+    #f4f7f9 !important;
+}
+
+.admin-login-root::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 7px;
+  background: var(--admin-gold);
+}
+
+.admin-login-root > div {
+  position: relative;
+  z-index: 1;
+}
+
+.admin-login-root > div > div:first-child {
+  margin-bottom: 28px !important;
+}
+
+.admin-login-root > div > div:first-child a {
+  display: inline-block;
+  color: var(--admin-navy) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px !important;
+  font-weight: 400 !important;
+  letter-spacing: -.02em;
+}
+
+.admin-login-root > div > div:first-child a span {
+  color: var(--admin-gold) !important;
+}
+
+.admin-login-root > div > div:first-child p {
+  margin-top: 7px !important;
+  color: var(--admin-muted) !important;
+  font-size: 10px !important;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.admin-login-root > div > div:nth-child(2) {
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 2px !important;
+  background: rgba(255,255,255,.97) !important;
+  padding: 38px !important;
+  box-shadow: 0 24px 70px rgba(8,38,58,.10) !important;
+}
+
+.admin-login-root h1 {
+  color: var(--admin-navy) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 31px !important;
+  font-weight: 400 !important;
+  letter-spacing: -.02em;
+}
+
+.admin-login-root h1 + p {
+  color: var(--admin-muted) !important;
+  line-height: 1.7;
+}
+
+.admin-login-root label {
+  color: var(--admin-ink) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.admin-login-root input {
+  height: 46px;
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: var(--admin-ink) !important;
+  box-shadow: none !important;
+}
+
+.admin-login-root input:focus {
+  border-color: var(--admin-gold) !important;
+  box-shadow: 0 0 0 3px rgba(201,157,79,.12) !important;
+}
+
+.admin-login-root button[type="submit"] {
+  height: 46px;
+  border-radius: 0 !important;
+  background: var(--admin-navy) !important;
+  font-size: 10px !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.admin-login-root button[type="submit"]:hover {
+  background: var(--admin-navy-2) !important;
+}
+
+.admin-login-root .text-red-700 {
+  border-color: #f0c9c5 !important;
+  border-radius: 0 !important;
+  background: var(--admin-danger-bg) !important;
+  color: var(--admin-danger) !important;
+}
+
+.admin-login-root > div > div:nth-child(2) > a {
+  color: var(--admin-muted) !important;
+  font-size: 10px !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.admin-login-root > div > div:nth-child(2) > a:hover {
+  color: var(--admin-gold) !important;
+}
+
+/* ---------- Admin top bar ---------- */
+.admin-dashboard-root > header,
+.admin-editor-root > header {
+  position: relative;
+  border-bottom: 1px solid var(--admin-border) !important;
+  background: var(--admin-navy) !important;
+  color: #fff;
+}
+
+.admin-dashboard-root > header::after,
+.admin-editor-root > header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--admin-gold), transparent);
+}
+
+.admin-dashboard-root > header > div,
+.admin-editor-root > header > div {
+  min-height: 82px;
+}
+
+.admin-dashboard-root > header a,
+.admin-editor-root > header a {
+  color: #fff !important;
+}
+
+.admin-dashboard-root > header a:first-child,
+.admin-editor-root > header a:first-child {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px !important;
+  font-weight: 400 !important;
+}
+
+.admin-dashboard-root > header a:first-child span,
+.admin-editor-root > header a:first-child span {
+  color: var(--admin-gold) !important;
+}
+
+.admin-dashboard-root > header p,
+.admin-editor-root > header p {
+  color: rgba(255,255,255,.62) !important;
+  font-size: 9px !important;
+  letter-spacing: .16em;
+}
+
+.admin-dashboard-root > header .text-primary:hover,
+.admin-editor-root > header .text-primary:hover {
+  color: var(--admin-gold) !important;
+}
+
+.admin-dashboard-root > header button {
+  border-color: rgba(255,255,255,.22) !important;
+  border-radius: 0 !important;
+  color: #fff !important;
+  background: transparent !important;
+  font-size: 9px !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.admin-dashboard-root > header button:hover {
+  border-color: var(--admin-gold) !important;
+  background: rgba(255,255,255,.05) !important;
+}
+
+/* ---------- Dashboard ---------- */
+.admin-dashboard-root > section {
+  max-width: 1320px !important;
+  padding-top: 54px !important;
+  padding-bottom: 80px !important;
+}
+
+.admin-dashboard-root > section > div:first-child {
+  padding-bottom: 4px;
+}
+
+.admin-dashboard-root > section > div:first-child p:first-child {
+  color: var(--admin-gold) !important;
+  font-size: 9px !important;
+  letter-spacing: .2em;
+}
+
+.admin-dashboard-root h1 {
+  color: var(--admin-navy) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 4vw, 52px) !important;
+  font-weight: 400 !important;
+  letter-spacing: -.03em;
+}
+
+.admin-dashboard-root h1 + p {
+  color: var(--admin-muted) !important;
+  line-height: 1.7;
+}
+
+.admin-dashboard-root > section > div:first-child > a {
+  min-height: 44px;
+  border-radius: 0 !important;
+  background: var(--admin-navy) !important;
+  padding: 0 22px !important;
+  font-size: 9px !important;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.admin-dashboard-root > section > div:first-child > a:hover {
+  background: var(--admin-navy-2) !important;
+  transform: translateY(-1px);
+}
+
+.admin-dashboard-root > section > div:nth-child(2) {
+  border-color: #efc9c4 !important;
+  border-radius: 0 !important;
+  background: var(--admin-danger-bg) !important;
+  color: var(--admin-danger) !important;
+}
+
+.admin-dashboard-root > section > div:last-child {
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 2px !important;
+  background: #fff !important;
+  box-shadow: 0 12px 45px rgba(8,38,58,.055) !important;
+}
+
+.admin-dashboard-root table thead {
+  background: #f7f9fa !important;
+  border-bottom-color: var(--admin-border) !important;
+}
+
+.admin-dashboard-root table th {
+  color: #718293 !important;
+  font-size: 8px !important;
+  letter-spacing: .13em;
+}
+
+.admin-dashboard-root table tbody tr {
+  transition: background-color .15s ease;
+}
+
+.admin-dashboard-root table tbody tr:hover {
+  background: #fbfcfd;
+}
+
+.admin-dashboard-root table td {
+  border-color: var(--admin-border) !important;
+}
+
+.admin-dashboard-root table td:first-child p:first-child {
+  color: var(--admin-navy) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.admin-dashboard-root table td:first-child p:last-child {
+  color: #8a98a5 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+}
+
+.admin-dashboard-root table td .bg-green-50 {
+  border: 1px solid #cbe7da;
+  border-radius: 999px !important;
+  background: var(--admin-success-bg) !important;
+  color: var(--admin-success) !important;
+  font-size: 8px !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.admin-dashboard-root table td .bg-yellow-50 {
+  border: 1px solid #efdfb7;
+  border-radius: 999px !important;
+  background: var(--admin-warning-bg) !important;
+  color: var(--admin-warning) !important;
+  font-size: 8px !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.admin-dashboard-root table td a {
+  color: var(--admin-navy) !important;
+  font-size: 9px !important;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.admin-dashboard-root table td a:hover {
+  color: var(--admin-gold) !important;
+}
+
+.admin-dashboard-root table td button {
+  color: #b42318 !important;
+  font-size: 9px !important;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.admin-dashboard-root table td button:hover {
+  color: #8d1710 !important;
+}
+
+/* Empty state */
+.admin-dashboard-root .text-center h2 {
+  color: var(--admin-navy) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.admin-dashboard-root .text-center a {
+  border-radius: 0 !important;
+  background: var(--admin-navy) !important;
+  font-size: 9px !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* ---------- Editor pages ---------- */
+.admin-editor-root > div {
+  max-width: 1180px !important;
+  padding-top: 48px !important;
+  padding-bottom: 80px !important;
+}
+
+.admin-editor-root > div > div:first-child {
+  margin-bottom: 30px !important;
+}
+
+.admin-editor-root > div > div:first-child h1 {
+  color: var(--admin-navy) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4vw, 48px) !important;
+  font-weight: 400 !important;
+  letter-spacing: -.03em;
+}
+
+.admin-editor-root > div > div:first-child p {
+  color: var(--admin-muted) !important;
+}
+
+.admin-editor-root > div > div:nth-child(2) > section {
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 2px !important;
+  background: #fff !important;
+  padding: 30px !important;
+  box-shadow: 0 9px 34px rgba(8,38,58,.045) !important;
+}
+
+.admin-editor-root section h2 {
+  color: var(--admin-navy) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+}
+
+.admin-editor-root section h3,
+.admin-editor-root section label {
+  color: var(--admin-ink) !important;
+}
+
+.admin-editor-root section > p,
+.admin-editor-root section h2 + p {
+  color: var(--admin-muted) !important;
+  line-height: 1.65;
+}
+
+.admin-editor-root input:not([type="checkbox"]),
+.admin-editor-root textarea,
+.admin-editor-root select {
+  border-color: var(--admin-border) !important;
+  border-radius: 0 !important;
+  color: var(--admin-ink) !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+.admin-editor-root input:not([type="checkbox"]):focus,
+.admin-editor-root textarea:focus,
+.admin-editor-root select:focus {
+  border-color: var(--admin-gold) !important;
+  box-shadow: 0 0 0 3px rgba(201,157,79,.10) !important;
+  outline: none !important;
+}
+
+.admin-editor-root textarea {
+  line-height: 1.65;
+}
+
+/* Image picker */
+.admin-editor-root label[for="cover-image"] {
+  border: 1px dashed #bccbd4 !important;
+  border-radius: 2px !important;
+  background: #fafcfd;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+
+.admin-editor-root label[for="cover-image"]:hover {
+  border-color: var(--admin-gold) !important;
+  background: #fffdf8 !important;
+}
+
+.admin-editor-root label[for="cover-image"] .text-primary {
+  color: var(--admin-navy) !important;
+}
+
+/* Tiptap */
+.admin-editor-root .tiptap {
+  min-height: 430px !important;
+  padding: 30px !important;
+  color: #263e4e;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.admin-editor-root .tiptap h2 {
+  margin: 1.5em 0 .55em;
+  color: var(--admin-navy) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 29px !important;
+  line-height: 1.2;
+}
+
+.admin-editor-root .tiptap p {
+  margin: .8em 0;
+}
+
+.admin-editor-root .tiptap blockquote {
+  border-left: 3px solid var(--admin-gold);
+  padding-left: 20px;
+  color: #5f7180;
+}
+
+.admin-editor-root .tiptap ul,
+.admin-editor-root .tiptap ol {
+  padding-left: 28px;
+}
+
+.admin-editor-root .tiptap:focus {
+  outline: none;
+}
+
+/* Toolbar buttons */
+.admin-editor-root .tiptap + * {}
+.admin-editor-root .border-border.bg-surface.p-3 {
+  border-bottom-color: var(--admin-border) !important;
+  background: #f7f9fa !important;
+  padding: 10px !important;
+}
+
+.admin-editor-root .border-border.bg-surface.p-3 button {
+  min-width: 38px;
+  min-height: 34px;
+  border: 1px solid transparent;
+  border-radius: 0 !important;
+  color: var(--admin-ink) !important;
+  background: #fff !important;
+  font-size: 9px !important;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.admin-editor-root .border-border.bg-surface.p-3 button:hover {
+  border-color: var(--admin-gold);
+}
+
+.admin-editor-root .border-border.bg-surface.p-3 button.bg-primary {
+  border-color: var(--admin-navy) !important;
+  background: var(--admin-navy) !important;
+  color: #fff !important;
+}
+
+/* Classification */
+.admin-editor-root input[type="checkbox"] {
+  accent-color: var(--admin-navy);
+}
+
+.admin-editor-root label:has(input[type="checkbox"]) {
+  border-color: var(--admin-border) !important;
+  border-radius: 0 !important;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+
+.admin-editor-root label:has(input[type="checkbox"]):hover {
+  border-color: #b9c7d0 !important;
+  background: #fafcfd !important;
+}
+
+/* Status/action section */
+.admin-editor-root section:last-child {
+  position: sticky;
+  bottom: 16px;
+  z-index: 10;
+  background: rgba(255,255,255,.96) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(8,38,58,.12) !important;
+}
+
+.admin-editor-root section:last-child .border-border.bg-surface {
+  border-radius: 0 !important;
+  background: var(--admin-danger-bg) !important;
+}
+
+.admin-editor-root section:last-child a,
+.admin-editor-root section:last-child button {
+  min-height: 44px;
+  border-radius: 0 !important;
+  font-size: 9px !important;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.admin-editor-root section:last-child button.bg-primary {
+  background: var(--admin-navy) !important;
+}
+
+.admin-editor-root section:last-child button.bg-primary:hover {
+  background: var(--admin-navy-2) !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .admin-login-root > div > div:nth-child(2) {
+    padding: 28px !important;
+  }
+
+  .admin-dashboard-root > section,
+  .admin-editor-root > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .admin-editor-root > div > div:nth-child(2) > section {
+    padding: 22px !important;
+  }
+
+  .admin-editor-root .tiptap {
+    padding: 22px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-login-root {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .admin-login-root > div > div:nth-child(2) {
+    padding: 24px !important;
+  }
+
+  .admin-dashboard-root > header > div,
+  .admin-editor-root > header > div {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .admin-dashboard-root > header > div > div:last-child {
+    gap: 10px;
+  }
+
+  .admin-dashboard-root > header a[target="_blank"] {
+    display: none;
+  }
+
+  .admin-editor-root section:last-child {
+    position: static;
+  }
+}

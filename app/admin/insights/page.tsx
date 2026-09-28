@@ -38,9 +38,7 @@ export default function AdminInsightsPage() {
 
     const { data, error } = await supabase
       .from("insights")
-      .select(
-        "id, title, slug, author, status, published_at, updated_at"
-      )
+      .select("id, title, slug, author, status, published_at, updated_at")
       .order("updated_at", { ascending: false });
 
     if (error) {
@@ -64,7 +62,7 @@ export default function AdminInsightsPage() {
 
   async function handleDelete(id: string, title: string) {
     const confirmed = window.confirm(
-      `Are you sure you want to delete "${title}"? This cannot be undone.`
+      `Are you sure you want to delete "${title}"? This cannot be undone.`,
     );
 
     if (!confirmed) {
@@ -88,39 +86,32 @@ export default function AdminInsightsPage() {
      * If Storage cleanup fails, we stop here so the database record is not
      * deleted while its associated image is left behind.
      */
-    const { data: storageFiles, error: storageListError } = await supabase
-      .storage
-      .from("insight-covers")
-      .list("insights", {
+    const { data: storageFiles, error: storageListError } =
+      await supabase.storage.from("insight-covers").list("insights", {
         limit: 1000,
       });
 
     if (storageListError) {
       console.error(storageListError);
       setError(
-        "Unable to delete the insight because its cover image could not be checked."
+        "Unable to delete the insight because its cover image could not be checked.",
       );
       return;
     }
 
     const filesToDelete = (storageFiles ?? [])
-      .filter(
-        (file) =>
-          file.name === id ||
-          file.name.startsWith(`${id}.`)
-      )
+      .filter((file) => file.name === id || file.name.startsWith(`${id}.`))
       .map((file) => `insights/${file.name}`);
 
     if (filesToDelete.length > 0) {
-      const { error: storageDeleteError } = await supabase
-        .storage
+      const { error: storageDeleteError } = await supabase.storage
         .from("insight-covers")
         .remove(filesToDelete);
 
       if (storageDeleteError) {
         console.error(storageDeleteError);
         setError(
-          "Unable to delete the insight because its cover image could not be removed."
+          "Unable to delete the insight because its cover image could not be removed.",
         );
         return;
       }
@@ -144,26 +135,21 @@ export default function AdminInsightsPage() {
     if (databaseDeleteError) {
       console.error(databaseDeleteError);
       setError(
-        "The cover image was removed, but the insight could not be deleted from the database. Please try again."
+        "The cover image was removed, but the insight could not be deleted from the database. Please try again.",
       );
       return;
     }
 
-    setInsights((current) =>
-      current.filter((insight) => insight.id !== id)
-    );
+    setInsights((current) => current.filter((insight) => insight.id !== id));
   }
 
   return (
-    <main className="min-h-screen bg-surface">
+    <main className="min-h-screen bg-surface admin-dashboard-root">
       {/* Header */}
       <header className="border-b border-border bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
           <div>
-            <Link
-              href="/"
-              className="text-2xl font-bold text-primary"
-            >
+            <Link href="/" className="text-2xl font-bold text-primary">
               Val<span className="text-secondary">Insight</span>
             </Link>
 
@@ -211,7 +197,7 @@ export default function AdminInsightsPage() {
 
           <Link
             href="/admin/insights/new"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary-light"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-3 text-sm font-semibold !text-white hover:bg-primary-light"
           >
             + Add Insight
           </Link>
@@ -304,13 +290,14 @@ export default function AdminInsightsPage() {
                       </td>
 
                       <td className="px-6 py-5 text-sm text-muted">
-                        {new Date(
-                          insight.updated_at
-                        ).toLocaleDateString("en-IN", {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                        })}
+                        {new Date(insight.updated_at).toLocaleDateString(
+                          "en-IN",
+                          {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                          },
+                        )}
                       </td>
 
                       <td className="px-6 py-5">
@@ -325,10 +312,7 @@ export default function AdminInsightsPage() {
                           <button
                             type="button"
                             onClick={() =>
-                              handleDelete(
-                                insight.id,
-                                insight.title
-                              )
+                              handleDelete(insight.id, insight.title)
                             }
                             className="text-sm font-semibold text-red-600 hover:text-red-700"
                           >

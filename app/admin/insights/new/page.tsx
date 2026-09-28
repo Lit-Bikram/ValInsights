@@ -308,14 +308,14 @@ export default function NewInsightPage() {
 
   if (checkingAuth) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-surface">
+      <main className="flex min-h-screen items-center justify-center bg-surface admin-loading-root">
         <p className="text-sm text-muted">Checking authentication...</p>
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-surface">
+    <main className="min-h-screen bg-surface admin-editor-root">
       {/* Header */}
       <header className="border-b border-border bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">

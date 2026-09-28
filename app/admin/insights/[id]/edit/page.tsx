@@ -550,7 +550,7 @@ export default function EditInsightPage() {
 
   if (loading) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-surface">
+      <main className="flex min-h-screen items-center justify-center bg-surface admin-loading-root">
         <p className="text-sm text-muted">Loading insight...</p>
       </main>
     );
@@ -558,7 +558,7 @@ export default function EditInsightPage() {
 
   if (error || !insight) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-surface px-6">
+      <main className="flex min-h-screen items-center justify-center bg-surface px-6 admin-loading-root">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-primary">
             Unable to load insight
@@ -580,7 +580,7 @@ export default function EditInsightPage() {
   }
 
   return (
-    <main className="min-h-screen bg-surface">
+    <main className="min-h-screen bg-surface admin-editor-root">
       {/* Header */}
       <header className="border-b border-border bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
