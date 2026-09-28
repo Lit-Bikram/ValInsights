@@ -1,243 +1,516 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import Hero from "./components/sections/Hero";
+
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import PageContainer from "./components/layout/PageContainer";
-import SectionHeading from "./components/sections/SectionHeading";
-import CTASection from "./components/sections/CTASection";
-import StatsSection from "./components/sections/StatsSection";
-
+import { useEffect, useRef, useState } from "react";
 const solutions = [
   {
-    title: "Financial Asset Valuation",
+    title: "Valuation of Securities & Financial Assets",
     description:
-      "Valuation expertise across securities, financial assets, and complex instruments.",
+      "Businesses, equity and debt securities, intangible assets, intellectual property, and complex instruments.",
+    image: "/images/solutions/securities-financial-assets.jpg",
+    href: "/solutions/securities-financial-assets",
   },
   {
-    title: "Real Estate Valuation",
+    title: "Valuation of Real Estate",
     description:
-      "Independent valuation support across real estate and infrastructure assets.",
+      "Commercial, residential, industrial, hospitality, infrastructure-linked assets, portfolios and development interests.",
+    image: "/images/solutions/real-estate.jpg",
+    href: "/solutions/real-estate",
   },
   {
-    title: "Tangible Asset Valuation",
+    title: "Valuation of Tangible Assets",
     description:
-      "Valuation of tangible assets to support transactions, reporting, and decision-making.",
+      "Plant, machinery, specialised equipment, production lines, infrastructure assets, and other physical assets.",
+    image: "/images/solutions/tangible-assets.jpg",
+    href: "/solutions/tangible-assets",
   },
   {
-    title: "Disputes & Litigations",
+    title: "Disputes & Litigation Support",
     description:
-      "Independent valuation expertise supporting disputes, litigation, and related requirements.",
+      "Valuation, damages analysis, financial modelling, and independent analysis for contested matters across asset classes.",
+    image: "/images/solutions/litigation-support.jpg",
+    href: "/solutions/disputes-litigation-support",
   },
 ];
 
 const sectors = [
-  "Technology and Digital",
-  "Energy",
-  "Real Estate and Infrastructure",
-  "Financial Services",
-  "Manufacturing and Industrial",
+  {
+    title: "Technology and Digital",
+    description:
+      "Software, SaaS, digital platforms, and technology-enabled businesses where recurring revenue, customer economics, intellectual property, and rapid change influence value.",
+    image: "/images/sectors/technology-and-digital.jpg",
+    href: "/sectors/technology-digital",
+  },
+  {
+    title: "Financial Services",
+    description:
+      "Banks, non-banking financial companies, fintech businesses, funds, and intermediaries where capital, asset quality, funding, and regulation affect value.",
+    image: "/images/sectors/financial-services.jpg",
+    href: "/sectors/financial-services",
+  },
+  {
+    title: "Real Estate and Infrastructure",
+    description:
+      "Development projects, income-producing property, and infrastructure investments where location, leases, contracts, and long-term cash flows are central to value.",
+    image: "/images/sectors/real-estate-and-infrastructure.jpg",
+    href: "/sectors/real-estate-infrastructure",
+  },
+  {
+    title: "Manufacturing and Industrial",
+    description:
+      "Manufacturing enterprises, industrial platforms, and specialised assets where capacity, technology, product mix, cost structures, and supply-chain conditions determine value.",
+    image: "/images/sectors/manufacturing-and-industrial.jpg",
+    href: "/sectors/manufacturing-industrial",
+  },
+  {
+    title: "Energy",
+    description:
+      "Conventional and renewable energy businesses, projects, and assets where resource quality, operating performance, contracts, commodity prices, and policy exposure shape value.",
+    image: "/images/sectors/energy.jpg",
+    href: "/sectors/energy",
+  },
 ];
 
-const audiences = [
-  "Listed and Privately Held Businesses",
-  "Family Offices",
-  "Private Equity and Venture Capital Funds",
-  "Start Ups",
-  "Founders and Promoters",
-  "Boards and Audit Committees",
-  "Legal Teams and Dispute Stakeholders",
-  "NBFCs and Financial Institutions",
-  "Cross Border Transaction Parties",
-];
+function DragRail({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const railRef = useRef<HTMLDivElement>(null);
+
+  const dragging = useRef(false);
+  const startX = useRef(0);
+  const startScrollLeft = useRef(0);
+
+  const lastX = useRef(0);
+  const lastTime = useRef(0);
+  const velocity = useRef(0);
+
+  const animationFrame = useRef<number | null>(null);
+  const didDrag = useRef(false);
+
+  const stopMomentum = () => {
+    if (animationFrame.current !== null) {
+      cancelAnimationFrame(animationFrame.current);
+      animationFrame.current = null;
+    }
+  };
+
+  const startMomentum = () => {
+    const rail = railRef.current;
+
+    if (!rail) return;
+
+    stopMomentum();
+
+    const friction = 0.94;
+    const minimumVelocity = 0.15;
+
+    const animate = () => {
+      if (!rail) return;
+
+      velocity.current *= friction;
+
+      if (Math.abs(velocity.current) < minimumVelocity) {
+        animationFrame.current = null;
+        return;
+      }
+
+      rail.scrollLeft -= velocity.current;
+
+      animationFrame.current = requestAnimationFrame(animate);
+    };
+
+    animationFrame.current = requestAnimationFrame(animate);
+  };
+
+  const handlePointerDown = (
+    event: React.PointerEvent<HTMLDivElement>
+  ) => {
+    const rail = railRef.current;
+
+    if (!rail) return;
+
+    if (
+      event.pointerType === "mouse" &&
+      event.button !== 0
+    ) {
+      return;
+    }
+
+    stopMomentum();
+
+    dragging.current = true;
+    didDrag.current = false;
+
+    startX.current = event.clientX;
+    startScrollLeft.current = rail.scrollLeft;
+
+    lastX.current = event.clientX;
+    lastTime.current = performance.now();
+
+    velocity.current = 0;
+
+    rail.classList.add("is-dragging");
+
+    try {
+      rail.setPointerCapture(event.pointerId);
+    } catch {
+      // Ignore unsupported pointer capture.
+    }
+  };
+
+  const handlePointerMove = (
+    event: React.PointerEvent<HTMLDivElement>
+  ) => {
+    const rail = railRef.current;
+
+    if (!rail || !dragging.current) return;
+
+    const currentX = event.clientX;
+    const now = performance.now();
+
+    const distance = currentX - startX.current;
+
+    if (Math.abs(distance) > 5) {
+      didDrag.current = true;
+    }
+
+    /*
+      Calculate velocity for momentum after release.
+    */
+    const deltaX = currentX - lastX.current;
+    const deltaTime = now - lastTime.current;
+
+    if (deltaTime > 0) {
+      velocity.current = deltaX / deltaTime * 16;
+    }
+
+    lastX.current = currentX;
+    lastTime.current = now;
+
+    /*
+      Direct 1:1 movement.
+      No CSS smooth scrolling while dragging.
+    */
+    rail.scrollLeft =
+      startScrollLeft.current - distance;
+  };
+
+  const stopDragging = () => {
+    const rail = railRef.current;
+
+    if (!dragging.current) return;
+
+    dragging.current = false;
+
+    if (rail) {
+      rail.classList.remove("is-dragging");
+    }
+
+    /*
+      Continue movement naturally after release.
+    */
+    if (Math.abs(velocity.current) > 0.5) {
+      startMomentum();
+    }
+  };
+
+  const handleClickCapture = (
+    event: React.MouseEvent<HTMLDivElement>
+  ) => {
+    if (didDrag.current) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      didDrag.current = false;
+    }
+  };
+
+  return (
+    <div
+      ref={railRef}
+      className={`home-card-rail ${className}`}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={stopDragging}
+      onPointerCancel={stopDragging}
+      onPointerLeave={(event) => {
+        if (event.pointerType === "mouse") {
+          stopDragging();
+        }
+      }}
+      onClickCapture={handleClickCapture}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function Home() {
+  const [insightsSlide, setInsightsSlide] = useState(0);
+
+  const insightSlides = [
+    "/images/homepage/slideshow-1.jpg",
+    "/images/homepage/slideshow-2.jpg",
+    "/images/homepage/slideshow-3.jpg",
+    "/images/homepage/slideshow-4.jpg",
+  ];
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setInsightsSlide((current) => (current + 1) % insightSlides.length);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
+    
     <>
       <Header />
 
-      <main>
-        {/* Hero */}
-        <Hero
-          eyebrow="Independent Valuation & Advisory"
-          title="Independent valuation expertise for complex decisions."
-          description="ValInsight provides valuation and advisory services across financial assets, real estate, tangible assets, and disputes & litigations."
-          primaryButtonText="Discuss a Requirement"
-          primaryButtonHref="/contact"
-          secondaryButtonText="Explore Our Solutions"
-          secondaryButtonHref="/solutions"
-        />
-        <StatsSection
-          stats={[
-            {
-              value: "4",
-              label: "Core Solution Areas",
-              description:
-                "Valuation and advisory services across key asset classes.",
-            },
-            {
-              value: "5",
-              label: "Sector Focus Areas",
-              description: "Specialist expertise across multiple industries.",
-            },
-            {
-              value: "9",
-              label: "Client Categories",
-              description:
-                "Supporting businesses, investors, boards and stakeholders.",
-            },
-            {
-              value: "360°",
-              label: "Advisory Perspective",
-              description: "Independent analysis supporting complex decisions.",
-            },
-          ]}
-        />
+      <main className="home-page">
+        {/* =====================================================
+            HERO
+        ====================================================== */}
+        <section className="home-hero">
+          <Image
+            src="/images/homepage/hero-banner.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="home-hero__image"
+          />
 
-        {/* About */}
-        <section className="py-20 lg:py-28">
-          <PageContainer>
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-              <SectionHeading
-                eyebrow="About ValInsight"
-                title="Independent insight for complex valuation requirements."
-              />
+          <div className="home-hero__overlay" />
 
-              <div className="space-y-5 text-base leading-8 text-muted">
+          <div className="home-shell home-hero__content">
+            <p className="home-eyebrow">Independent Valuation Specialists</p>
+
+            <h1>
+              Technical insight for decisions
+              <br />
+              that shape enterprise value
+            </h1>
+
+            <p className="home-hero__description">
+              We support businesses, investors, boards, and legal teams with
+              valuation services for transactions, financial reporting, and
+              disputes—providing conclusions that are transparent,
+              well-reasoned, and fit for stakeholder scrutiny.
+            </p>
+
+            <Link href="/contact" className="home-button">
+              Discuss a Requirement
+            </Link>
+          </div>
+        </section>
+
+        {/* =====================================================
+            WHO WE ARE
+        ====================================================== */}
+        <section className="home-who-we-are">
+          <div className="home-shell home-who-we-are__inner">
+            <div className="home-section-label">
+              <span />
+              Who We Are
+            </div>
+
+            <div className="home-who-we-are__content">
+              <div>
+                <h2>
+                  Specialist valuation expertise
+                  <br />
+                  with a commercial perspective.
+                </h2>
+              </div>
+
+              <div className="home-who-we-are__copy">
                 <p>
-                  ValInsight provides independent valuation and advisory
-                  expertise across a range of financial, real estate, and
-                  tangible assets.
+                  ValInsight is a specialist valuation firm serving clients
+                  across India, the UAE, and the wider Gulf. We combine sector
+                  context with disciplined financial analysis for complex
+                  valuation requirements across transactions, reporting, and
+                  disputes.
                 </p>
 
                 <p>
-                  Our work is designed to support informed decision-making
-                  across transactions, financial reporting, disputes, and
-                  strategic requirements.
+                  Our work is designed for situations where valuation affects
+                  reporting, investment, ownership, transaction structure, or
+                  the resolution of a contested matter.
                 </p>
 
-                <Link
-                  href="/about"
-                  className="inline-block font-semibold text-primary hover:text-primary-light"
-                >
-                  Learn more about us →
+                <Link href="/about" className="home-text-link">
+                  Learn more about us <span>→</span>
                 </Link>
               </div>
             </div>
-          </PageContainer>
+          </div>
         </section>
 
-        {/* Solutions */}
-        <section className="bg-surface py-20 lg:py-28">
-          <PageContainer>
-            <SectionHeading
-              eyebrow="What We Do"
-              title="Solutions built around complex valuation requirements."
-              description="Explore our areas of valuation and advisory expertise."
-              centered
-            />
+        {/* =====================================================
+            WHAT WE DO
+        ====================================================== */}
+        <section className="home-services">
+          <div className="home-shell">
+            <div className="home-section-heading">
+              <div className="home-section-label">
+                <span />
+                What We Do
+              </div>
 
-            <div className="mt-14 grid gap-6 md:grid-cols-2">
-              {solutions.map((solution) => (
-                <div
-                  key={solution.title}
-                  className="rounded-xl border border-border bg-white p-8 transition-shadow hover:shadow-lg"
-                >
-                  <h3 className="text-xl font-semibold text-primary">
-                    {solution.title}
-                  </h3>
-
-                  <p className="mt-4 leading-7 text-muted">
-                    {solution.description}
-                  </p>
-
-                  <Link
-                    href="/solutions"
-                    className="mt-6 inline-block text-sm font-semibold text-primary"
-                  >
-                    Explore solution →
-                  </Link>
-                </div>
-              ))}
+              <p>
+                Advice built around important financial and strategic choices.
+              </p>
             </div>
-          </PageContainer>
+
+            <DragRail>
+              {solutions.map((solution) => (
+                <Link
+                  href={solution.href}
+                  key={solution.title}
+                  className="home-service-card"
+                >
+                  <div className="home-card-image">
+                    <Image
+                      src={solution.image}
+                      alt={solution.title}
+                      fill
+                      sizes="(max-width: 768px) 88vw, 31vw"
+                    />
+                  </div>
+
+                  <div className="home-card-body">
+                    <h3>{solution.title}</h3>
+
+                    <p>{solution.description}</p>
+
+                    <span className="home-card-link">
+                      Explore Service <span>→</span>
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </DragRail>
+          </div>
         </section>
 
-        {/* Sectors */}
-        <section className="py-20 lg:py-28">
-          <PageContainer>
-            <SectionHeading
-              eyebrow="Sector Expertise"
-              title="Experience across key sectors."
-              description="Our sector-focused approach allows valuation requirements to be considered in their broader commercial context."
-              centered
-            />
+        {/* =====================================================
+            INSIGHTS
+        ====================================================== */}
+        <section className="home-insights">
+          <div className="home-insights__background">
+            {insightSlides.map((src, index) => (
+              <Image
+                key={src}
+                src={src}
+                alt=""
+                fill
+                sizes="100vw"
+                priority={index === 0}
+                className={`home-insights__image ${
+                  index === insightsSlide ? "home-insights__image--active" : ""
+                }`}
+              />
+            ))}
+          </div>
 
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="home-insights__overlay" />
+
+          <div className="home-shell home-insights__content">
+            <p className="home-eyebrow">Insights &amp; Market Intelligence</p>
+
+            <h2>Insights &amp; Market Intelligence</h2>
+
+            <p>
+              We publish concise observations on valuation, sector economics,
+              and the issues shaping transactions, reporting, and disputes. The
+              emphasis is on clarity, relevance, and practical application.
+            </p>
+
+            <Link href="/insights" className="home-button">
+              Read Insights
+            </Link>
+          </div>
+        </section>
+
+        {/* =====================================================
+            SECTOR EXPERTISE
+        ====================================================== */}
+        <section className="home-sectors">
+          <div className="home-shell">
+            <div className="home-section-heading">
+              <div className="home-section-label">
+                <span />
+                Sector Expertise
+              </div>
+
+              <p>
+                We work in sectors where commercial conditions, operating
+                performance, and market dynamics have a direct bearing on value.
+                Our analysis reflects how these factors affect cash flows, risk,
+                capital requirements, and long-term prospects.
+              </p>
+            </div>
+
+            <DragRail>
               {sectors.map((sector) => (
                 <Link
-                  key={sector}
-                  href="/sectors"
-                  className="group rounded-xl border border-border p-6 transition-colors hover:border-primary"
+                  href={sector.href}
+                  key={sector.title}
+                  className="home-sector-card"
                 >
-                  <h3 className="font-semibold text-primary">{sector}</h3>
+                  <div className="home-card-image">
+                    <Image
+                      src={sector.image}
+                      alt={sector.title}
+                      fill
+                      sizes="(max-width: 768px) 88vw, 31vw"
+                    />
+                  </div>
 
-                  <span className="mt-4 inline-block text-sm text-muted group-hover:text-primary">
-                    Explore sector →
-                  </span>
+                  <div className="home-card-body">
+                    <h3>{sector.title}</h3>
+
+                    <p>{sector.description}</p>
+
+                    <span className="home-card-link">
+                      Explore Sector <span>→</span>
+                    </span>
+                  </div>
                 </Link>
               ))}
-            </div>
-          </PageContainer>
+            </DragRail>
+          </div>
         </section>
 
-        {/* Who We Serve */}
-        <section className="bg-surface py-20 lg:py-28">
-          <PageContainer>
-            <SectionHeading
-              eyebrow="Whom We Serve"
-              title="Supporting a diverse range of stakeholders."
-              centered
-            />
+        {/* =====================================================
+            CTA
+        ====================================================== */}
+        <section className="home-cta">
+          <div className="home-cta__curve" />
 
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {audiences.map((audience) => (
-                <Link
-                  key={audience}
-                  href="/clients"
-                  className="rounded-xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-                >
-                  <h3 className="font-semibold leading-6 text-primary">
-                    {audience}
-                  </h3>
-                </Link>
-              ))}
-            </div>
-          </PageContainer>
+          <div className="home-shell home-cta__content">
+            <h2>Discuss a Requirement</h2>
+
+            <p>
+              A confidential conversation about valuation, transactions,
+              reporting, or strategic decisions.
+            </p>
+
+            <Link href="/contact" className="home-button">
+              Contact the Firm
+            </Link>
+          </div>
         </section>
-
-        {/* Insights placeholder */}
-        <section className="py-20 lg:py-28">
-          <PageContainer>
-            <SectionHeading
-              eyebrow="Insights"
-              title="Perspectives on valuation and advisory matters."
-              description="Our Insights section will be connected to the ValInsight content management system."
-              centered
-            />
-
-            <div className="mt-12 text-center">
-              <Link
-                href="/insights"
-                className="inline-flex rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary-light"
-              >
-                Explore Insights
-              </Link>
-            </div>
-          </PageContainer>
-        </section>
-
-        {/* CTA */}
-        <CTASection />
       </main>
 
       <Footer />
