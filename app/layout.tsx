@@ -7,7 +7,11 @@ export const metadata: Metadata = {
     template: "%s | ValInsight",
   },
   description:
-    "Valuation and advisory expertise across financial assets, real estate, tangible assets, and disputes & litigations.",
+    "Independent valuation specialists supporting businesses, investors, boards, and legal stakeholders.",
+
+  icons: {
+    icon: "/brand/icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -17,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-background text-foreground antialiased">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

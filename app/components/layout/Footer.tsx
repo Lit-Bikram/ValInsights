@@ -1,14 +1,41 @@
 import Link from "next/link";
 
+const practiceLinks = [
+  {
+    label: "Securities & Financial Assets",
+    href: "/solutions/securities-financial-assets",
+  },
+  {
+    label: "Real Estate",
+    href: "/solutions/real-estate",
+  },
+  {
+    label: "Tangible Assets",
+    href: "/solutions/tangible-assets",
+  },
+  {
+    label: "Disputes & Litigation Support",
+    href: "/solutions/disputes-litigation-support",
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="home-footer">
+      <div className="home-footer__curve" />
+
       <div className="home-footer-inner">
         {/* Brand */}
         <div className="home-footer-brand">
-          <Link href="/" className="home-footer-logo">
-            <span>VALUATION</span>
-            <span>INSIGHTS</span>
+          <Link
+            href="/"
+            className="home-footer-logo"
+            aria-label="ValInsight home"
+          >
+            <img
+              src="/brand/logo-footer.svg"
+              alt="ValInsight"
+            />
           </Link>
 
           <p>
@@ -21,7 +48,7 @@ export default function Footer() {
         <div className="home-footer-column">
           <h3>NAVIGATION</h3>
 
-          <nav>
+          <nav aria-label="Footer navigation">
             <Link href="/">Home</Link>
             <Link href="/about">About Us</Link>
             <Link href="/solutions">Solutions</Link>
@@ -35,22 +62,12 @@ export default function Footer() {
         <div className="home-footer-column">
           <h3>PRACTICES</h3>
 
-          <nav>
-            <Link href="/solutions#securities-financial-assets">
-              Valuation of Securities &amp; Financial Assets
-            </Link>
-
-            <Link href="/solutions#real-estate">
-              Valuation of Real Estate
-            </Link>
-
-            <Link href="/solutions#tangible-assets">
-              Valuation of Tangible Assets
-            </Link>
-
-            <Link href="/solutions#disputes-litigation">
-              Disputes &amp; Litigation Support
-            </Link>
+          <nav aria-label="Footer practices">
+            {practiceLinks.map((practice) => (
+              <Link key={practice.href} href={practice.href}>
+                {practice.label}
+              </Link>
+            ))}
           </nav>
         </div>
 
@@ -58,7 +75,7 @@ export default function Footer() {
         <div className="home-footer-column home-footer-resources">
           <h3>RESOURCES</h3>
 
-          <nav>
+          <nav aria-label="Footer resources">
             <Link href="/insights">Insights</Link>
             <Link href="/contact">Contact Us</Link>
           </nav>
@@ -77,16 +94,22 @@ export default function Footer() {
           </h3>
 
           <form className="home-footer-subscribe">
+            <label htmlFor="footer-newsletter-email" className="sr-only">
+              Email address
+            </label>
+
             <input
+              id="footer-newsletter-email"
               type="email"
+              name="email"
               placeholder="Your email"
-              aria-label="Email address"
+              autoComplete="email"
             />
 
             <button type="submit">Subscribe</button>
           </form>
 
-          <div className="home-footer-socials">
+          <div className="home-footer-socials" aria-label="Social media">
             <a href="#" aria-label="LinkedIn">
               IN
             </a>

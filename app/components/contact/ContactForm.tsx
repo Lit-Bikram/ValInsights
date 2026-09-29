@@ -88,7 +88,10 @@ export default function ContactForm() {
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="contact-form__row">
         <label>
-          Name <span aria-hidden="true">*</span>
+          <span className="contact-form__label-text">
+            Name <span aria-hidden="true">*</span>
+          </span>
+
           <input
             type="text"
             name="name"
@@ -101,7 +104,9 @@ export default function ContactForm() {
         </label>
 
         <label>
-          Organisation
+          <span className="contact-form__label-text">
+            Organisation
+          </span>
           <input
             type="text"
             name="organisation"
@@ -114,7 +119,9 @@ export default function ContactForm() {
 
       <div className="contact-form__row">
         <label>
-          Email <span aria-hidden="true">*</span>
+          <span className="contact-form__label-text">
+            Email <span aria-hidden="true">*</span>
+          </span>
           <input
             type="email"
             name="email"
@@ -126,7 +133,9 @@ export default function ContactForm() {
         </label>
 
         <label>
-          Phone
+          <span className="contact-form__label-text">
+            Phone
+          </span>
           <input
             type="tel"
             name="phone"
@@ -138,7 +147,9 @@ export default function ContactForm() {
       </div>
 
       <label>
-        Requirement <span aria-hidden="true">*</span>
+        <span className="contact-form__label-text">
+          Requirement <span aria-hidden="true">*</span>
+        </span>
         <select name="requirement" defaultValue="" required>
           <option value="" disabled>
             Select an area
@@ -152,7 +163,9 @@ export default function ContactForm() {
       </label>
 
       <label>
-        Message <span aria-hidden="true">*</span>
+        <span className="contact-form__label-text">
+          Message <span aria-hidden="true">*</span>
+        </span>
         <textarea
           name="message"
           rows={6}
@@ -166,12 +179,7 @@ export default function ContactForm() {
       {/* Honeypot: hidden from normal visitors and used for basic bot filtering. */}
       <label className="contact-form__honeypot" aria-hidden="true">
         Website
-        <input
-          type="text"
-          name="website"
-          tabIndex={-1}
-          autoComplete="off"
-        />
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
       </label>
 
       {formState === "error" && (
