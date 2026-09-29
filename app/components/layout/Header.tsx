@@ -47,7 +47,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="home-logo" aria-label="Valuation Insights home" onClick={closeMenu}>
           <img
-              src="brand/logo-header.svg"
+              src="brand/logo.png"
               alt="Valuation Insights"
             />
 
