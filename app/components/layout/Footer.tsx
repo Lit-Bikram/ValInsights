@@ -33,7 +33,7 @@ export default function Footer() {
             aria-label="ValInsight home"
           >
             <img
-              src="/brand/logo-footer.svg"
+              src="/brand/logo-footer.png"
               alt="ValInsight"
             />
           </Link>
@@ -84,13 +84,7 @@ export default function Footer() {
         {/* Newsletter */}
         <div className="home-footer-newsletter">
           <h3>
-            SIGN UP FOR
-            <br />
-            OUR MARKET
-            <br />
-            INTELLIGENCE
-            <br />
-            DIGEST
+            SIGN UP FOR OUR MARKET  INTELLIGENCE DIGEST AND INSIGHTS NEWSLETTER
           </h3>
 
           <form className="home-footer-subscribe">
