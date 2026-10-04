@@ -84,7 +84,7 @@ export default function Footer() {
         {/* Newsletter */}
         <div className="home-footer-newsletter">
           <h3>
-            SIGN UP FOR OUR MARKET  INTELLIGENCE DIGEST AND INSIGHTS NEWSLETTER
+            SIGN UP FOR INSIGHTS
           </h3>
 
           <form className="home-footer-subscribe">

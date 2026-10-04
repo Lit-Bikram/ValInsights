@@ -403,44 +403,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* =====================================================
-            INSIGHTS
-        ====================================================== */}
-        <section className="home-insights">
-          <div className="home-insights__background">
-            {insightSlides.map((src, index) => (
-              <Image
-                key={src}
-                src={src}
-                alt=""
-                fill
-                sizes="100vw"
-                priority={index === 0}
-                className={`home-insights__image ${
-                  index === insightsSlide ? "home-insights__image--active" : ""
-                }`}
-              />
-            ))}
-          </div>
-
-          <div className="home-insights__overlay" />
-
-          <div className="home-shell home-insights__content">
-            <p className="home-eyebrow">Insights &amp; Market Intelligence</p>
-
-            <h2>Insights &amp; Market Intelligence</h2>
-
-            <p>
-              We publish concise observations on valuation, sector economics,
-              and the issues shaping transactions, reporting, and disputes. The
-              emphasis is on clarity, relevance, and practical application.
-            </p>
-
-            <Link href="/insights" className="home-button">
-              Read Insights
-            </Link>
-          </div>
-        </section>
 
         {/* =====================================================
             SECTOR EXPERTISE
@@ -491,6 +453,49 @@ export default function Home() {
             </DragRail>
           </div>
         </section>
+
+
+        
+        {/* =====================================================
+            INSIGHTS
+        ====================================================== */}
+        <section className="home-insights">
+          <div className="home-insights__background">
+            {insightSlides.map((src, index) => (
+              <Image
+                key={src}
+                src={src}
+                alt=""
+                fill
+                sizes="100vw"
+                priority={index === 0}
+                className={`home-insights__image ${
+                  index === insightsSlide ? "home-insights__image--active" : ""
+                }`}
+              />
+            ))}
+          </div>
+
+          <div className="home-insights__overlay" />
+
+          <div className="home-shell home-insights__content">
+            <p className="home-eyebrow">Insights &amp; Market Intelligence</p>
+
+            <h2>Insights &amp; Market Intelligence</h2>
+
+            <p>
+              We publish concise observations on valuation, sector economics,
+              and the issues shaping transactions, reporting, and disputes. The
+              emphasis is on clarity, relevance, and practical application.
+            </p>
+
+            <Link href="/insights" className="home-button">
+              Read Insights
+            </Link>
+          </div>
+        </section>
+
+        
 
         {/* =====================================================
             CTA

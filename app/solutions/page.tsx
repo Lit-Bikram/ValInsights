@@ -1,3 +1,4 @@
+import ScrollReveal from "../components/ui/ScrollReveal";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/layout/Header";
@@ -8,24 +9,28 @@ const coreServices = [
     title: "Securities & Financial Assets",
     description:
       "Valuation of businesses, equity and debt securities, intangible assets, intellectual property, and complex instruments.",
+    image: "/images/solutions/securities-financial-assets.jpg",
     href: "/solutions/securities-financial-assets",
   },
   {
     title: "Real Estate",
     description:
       "Valuation of commercial, residential, industrial, hospitality, infrastructure-linked, and development assets.",
+    image: "/images/solutions/real-estate.jpg",
     href: "/solutions/real-estate",
   },
   {
     title: "Tangible Assets",
     description:
       "Valuation of plant, machinery, specialised equipment, production lines, infrastructure assets, and other physical assets.",
+    image: "/images/solutions/tangible-assets.jpg",
     href: "/solutions/tangible-assets",
   },
   {
     title: "Disputes & Litigation Support",
     description:
       "Valuation, damages analysis, financial modelling, and independent analysis for contested matters across asset classes.",
+    image: "/images/solutions/litigation-support.jpg",
     href: "/solutions/disputes-litigation-support",
   },
 ];
@@ -77,117 +82,193 @@ export default function SolutionsPage() {
       <Header />
 
       <main className="solutions-page">
-        {/* Hero */}
-        <section className="solutions-hero">
-          <Image
-            src="/images/shared/inner-page-banner.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="solutions-hero__image"
-          />
 
-          <div className="solutions-hero__overlay" />
+        {/* =====================================================
+            HERO
+        ====================================================== */}
 
-          <div className="solutions-shell solutions-hero__content">
-            <p className="solutions-breadcrumb">Home / Our Solution</p>
+        <ScrollReveal className="solutions-reveal-hero">
+          <section className="solutions-hero">
+            <Image
+              src="/images/shared/inner-page-banner.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="solutions-hero__image"
+            />
 
-            <h1>Our Solution</h1>
+            <div className="solutions-hero__overlay" />
 
-            <p>
-              Our work is organised around four valuation disciplines:
-              securities and financial assets, real estate, tangible assets,
-              and contested matters. Within each, we bring together commercial
-              context, financial evidence, and appropriate methodology to
-              produce conclusions that are clear, well-supported, and fit for
-              their intended use.
-            </p>
-          </div>
-        </section>
+            <div className="solutions-shell solutions-hero__content">
+              <p className="solutions-breadcrumb">
+                Home / Our Solution
+              </p>
 
-        {/* Core services */}
+              <h1>Our Solution</h1>
+
+              <p>
+                Our work is organised around four valuation disciplines:
+                securities and financial assets, real estate, tangible assets,
+                and contested matters. Within each, we bring together
+                commercial context, financial evidence, and appropriate
+                methodology to produce conclusions that are clear,
+                well-supported, and fit for their intended use.
+              </p>
+            </div>
+          </section>
+        </ScrollReveal>
+
+
+        {/* =====================================================
+            CORE SERVICES
+        ====================================================== */}
+
         <section className="solutions-core">
           <div className="solutions-shell">
-            <h2>Core Services</h2>
 
-            <p className="solutions-section-intro">
-              Explore our main operational disciplines:
-            </p>
+            <ScrollReveal>
+              <h2>Core Services</h2>
+
+              <p className="solutions-section-intro">
+                Explore our main operational disciplines:
+              </p>
+            </ScrollReveal>
 
             <div className="solutions-core__grid">
-              {coreServices.map((service) => (
-                <Link
+              {coreServices.map((service, index) => (
+                <ScrollReveal
                   key={service.title}
-                  href={service.href}
-                  className="solutions-service-card"
+                  delay={index * 100}
                 >
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <span>Learn more →</span>
-                </Link>
+                  <Link
+                    href={service.href}
+                    className="solutions-service-card"
+                  >
+                    <div className="solutions-service-card__content">
+                      <h3>{service.title}</h3>
+
+                      <p>{service.description}</p>
+
+                      <span className="solutions-service-card__link">
+                        Learn more{" "}
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+
+                    <div className="solutions-service-card__image">
+                      <Image
+                        src={service.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 620px"
+                      />
+                    </div>
+                  </Link>
+                </ScrollReveal>
               ))}
             </div>
+
           </div>
         </section>
 
-        {/* Purposes of valuation */}
+
+        {/* =====================================================
+            PURPOSES OF VALUATION
+        ====================================================== */}
+
         <section className="solutions-purposes">
           <div className="solutions-shell">
-            <h2>Purposes of Valuation</h2>
 
-            <p className="solutions-section-intro">
-              Across these disciplines, assignments commonly arise in three
-              primary contexts:
-            </p>
+            <ScrollReveal>
+              <h2>Purposes of Valuation</h2>
+
+              <p className="solutions-section-intro">
+                Across these disciplines, assignments commonly arise in three
+                primary contexts:
+              </p>
+            </ScrollReveal>
 
             <div className="solutions-purposes__grid">
-              {purposes.map((purpose) => (
-                <article key={purpose.title} className="solutions-purpose-card">
-                  <h3>{purpose.title}</h3>
-                  <p>{purpose.description}</p>
-                </article>
+              {purposes.map((purpose, index) => (
+                <ScrollReveal
+                  key={purpose.title}
+                  delay={index * 100}
+                >
+                  <article className="solutions-purpose-card">
+                    <h3>{purpose.title}</h3>
+
+                    <p>{purpose.description}</p>
+                  </article>
+                </ScrollReveal>
               ))}
             </div>
+
           </div>
         </section>
 
-        {/* How we work */}
+
+        {/* =====================================================
+            HOW WE WORK
+        ====================================================== */}
+
         <section className="solutions-work">
           <div className="solutions-shell">
-            <h2>How We Work</h2>
 
-            <p className="solutions-section-intro">
-              Our systematic approach ensures structural robustness across
-              every engagement framework:
-            </p>
+            <ScrollReveal>
+              <h2>How We Work</h2>
+
+              <p className="solutions-section-intro">
+                Our systematic approach ensures structural robustness across
+                every engagement framework:
+              </p>
+            </ScrollReveal>
 
             <div className="solutions-work__grid">
-              {workPrinciples.map((item) => (
-                <article key={item.title} className="solutions-work-card">
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </article>
+              {workPrinciples.map((item, index) => (
+                <ScrollReveal
+                  key={item.title}
+                  delay={index * 100}
+                >
+                  <article className="solutions-work-card">
+                    <h3>{item.title}</h3>
+
+                    <p>{item.description}</p>
+                  </article>
+                </ScrollReveal>
               ))}
             </div>
+
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="solutions-cta">
-          <div className="solutions-shell solutions-cta__inner">
-            <h2>Discuss a Requirement</h2>
 
-            <p>
-              To discuss a valuation assignment or a related matter, contact us
-              at contact@valuationinsights.com or [phone].
-            </p>
+        {/* =====================================================
+            CTA
+        ====================================================== */}
 
-            <Link href="/contact" className="solutions-cta__button">
-              Contact us
-            </Link>
-          </div>
-        </section>
+        <ScrollReveal>
+          <section className="solutions-cta">
+            <div className="solutions-shell solutions-cta__inner">
+
+              <h2>Discuss a Requirement</h2>
+
+              <p>
+                To discuss a valuation assignment or a related matter,
+                contact us at contact@valuationinsights.com or [phone].
+              </p>
+
+              <Link
+                href="/contact"
+                className="solutions-cta__button"
+              >
+                Contact us
+              </Link>
+
+            </div>
+          </section>
+        </ScrollReveal>
+
       </main>
 
       <Footer />
