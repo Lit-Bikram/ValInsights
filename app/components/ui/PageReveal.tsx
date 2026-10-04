@@ -7,6 +7,20 @@ type PageRevealProps = {
   children: React.ReactNode;
 };
 
+/*
+ * Heroes have their own immediate entrance animation. Every other
+ * section is revealed independently when it enters the viewport.
+ */
+const HERO_SELECTOR = [
+  ".home-hero",
+  ".about-hero",
+  ".sectors-hero",
+  ".sector-hero",
+  ".solutions-hero",
+  ".service-hero",
+  ".insights-hero",
+].join(", ");
+
 export default function PageReveal({ children }: PageRevealProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -18,15 +32,9 @@ export default function PageReveal({ children }: PageRevealProps) {
       return;
     }
 
-    /*
-     * Hero sections have their own entrance animation.
-     * All other sections use the global reveal animation.
-     */
     const sections = Array.from(
-      root.querySelectorAll<HTMLElement>(
-        "main section:not(.home-hero):not(.about-hero):not(.solutions-hero):not(.service-hero)",
-      ),
-    );
+      root.querySelectorAll<HTMLElement>("main section"),
+    ).filter((section) => !section.matches(HERO_SELECTOR));
 
     if (!sections.length) {
       return;
@@ -37,7 +45,6 @@ export default function PageReveal({ children }: PageRevealProps) {
     sections.forEach((section) => {
       section.classList.remove("page-section-visible");
       section.classList.add("page-section-reveal");
-
       section.style.setProperty("--page-reveal-delay", "0ms");
     });
 
@@ -50,13 +57,12 @@ export default function PageReveal({ children }: PageRevealProps) {
             }
 
             entry.target.classList.add("page-section-visible");
-
             observer.unobserve(entry.target);
           });
         },
         {
-          threshold: 0.18,
-          rootMargin: "0px 0px -80px 0px",
+          threshold: 0.08,
+          rootMargin: "0px 0px -50px 0px",
         },
       );
 
@@ -65,9 +71,7 @@ export default function PageReveal({ children }: PageRevealProps) {
     });
 
     return () => {
-      observers.forEach((observer) => {
-        observer.disconnect();
-      });
+      observers.forEach((observer) => observer.disconnect());
     };
   }, [pathname]);
 

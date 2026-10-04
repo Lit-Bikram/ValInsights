@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import RelatedSectorInsights from "../../components/insights/RelatedSectorInsights";
 
 const typicalAssignments = [
   {
@@ -72,33 +73,39 @@ const subsectors = [
   },
 ];
 
+/*
+ * LEGACY RELATED INSIGHTS DATA — kept for rollback.
+ * The rendered section now loads the latest 3 published insights
+ * from the database through RelatedSectorInsights.
+ *
 const relatedInsights = [
-  {
-    number: "01",
-    title: "Valuation Perspective",
-    text: "Capacity, operating leverage, and cost structure",
-  },
-  {
-    number: "02",
-    title: "Valuation Perspective",
-    text: "Technology, automation, and asset life",
-  },
-  {
-    number: "03",
-    title: "Valuation Perspective",
-    text: "Cyclicality, order books, and input costs",
-  },
-  {
-    number: "04",
-    title: "Current Observation",
-    text: "Manufacturing capital expenditure and asset values",
-  },
-  {
-    number: "05",
-    title: "Current Observation",
-    text: "Industrial diversification and localisation in the Gulf",
-  },
-];
+ *   {
+ *     number: "01",
+ *     title: "Valuation Perspective",
+ *     text: "Capacity, operating leverage, and cost structure",
+ *   },
+ *   {
+ *     number: "02",
+ *     title: "Valuation Perspective",
+ *     text: "Technology, automation, and asset life",
+ *   },
+ *   {
+ *     number: "03",
+ *     title: "Valuation Perspective",
+ *     text: "Cyclicality, order books, and input costs",
+ *   },
+ *   {
+ *     number: "04",
+ *     title: "Current Observation",
+ *     text: "Manufacturing capital expenditure and asset values",
+ *   },
+ *   {
+ *     number: "05",
+ *     title: "Current Observation",
+ *     text: "Industrial diversification and localisation in the Gulf",
+ *   },
+ * ];
+ */
 
 export default function ManufacturingIndustrialPage() {
   return (
@@ -168,7 +175,7 @@ export default function ManufacturingIndustrialPage() {
           </div>
         </section>
 
-        <section className="sector-applied">
+        {/* <section className="sector-applied">
           <div className="sector-shell">
             <p className="sector-label">02 / Typical Assignments</p>
             <h2>Where Our Work Is Applied</h2>
@@ -191,7 +198,7 @@ export default function ManufacturingIndustrialPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="sector-considerations">
           <div className="sector-shell">
@@ -205,7 +212,7 @@ export default function ManufacturingIndustrialPage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration">
+                <article key={item.number} className="sector-consideration sector-card-motion">
                   <span>{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
@@ -229,7 +236,7 @@ export default function ManufacturingIndustrialPage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector">
+                <article key={item.number} className="sector-subsector sector-card-motion">
                   <span>{item.number}</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -239,34 +246,11 @@ export default function ManufacturingIndustrialPage() {
           </div>
         </section>
 
-        <section className="sector-insights">
-          <div className="sector-shell">
-            <p className="sector-label">05 / Related Insights</p>
-            <h2>Manufacturing & Industrial</h2>
-            <p className="sector-insights__intro">
-              Selected observations examining the valuation issues affecting
-              manufacturing and industrial businesses.
-            </p>
-
-            <div className="sector-insights__list">
-              {relatedInsights.map((item) => (
-                <Link
-                  key={item.text}
-                  href="/insights?sector=__SLUG__"
-                  className="sector-insight-row"
-                >
-                  <span>{item.title}</span>
-                  <strong>{item.text}</strong>
-                  <b>→</b>
-                </Link>
-              ))}
-            </div>
-
-            <Link href="/sectors" className="sector-return">
-              ← Return to Sector Dashboard
-            </Link>
-          </div>
-        </section>
+        <RelatedSectorInsights
+          sectorSlug="manufacturing-industrial"
+          sectorTitle="Manufacturing & Industrial"
+          intro="Selected observations examining the valuation issues affecting manufacturing and industrial businesses."
+        />
 
         <section className="sector-cta">
           <div className="sector-shell sector-cta__inner">

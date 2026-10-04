@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import AdminHeader from "../../components/AdminHeader";
 import { useRouter } from "next/navigation";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -335,28 +336,7 @@ export default function NewInsightPage() {
 
   return (
     <main className="min-h-screen bg-surface admin-editor-root">
-      {/* Header */}
-      <header className="border-b border-border bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <div>
-            <Link
-              href="/admin/insights"
-              className="text-2xl font-bold text-primary"
-            >
-              Val<span className="text-secondary">Insight</span>
-            </Link>
-
-            <p className="mt-1 text-sm text-muted">Content Management System</p>
-          </div>
-
-          <Link
-            href="/admin/insights"
-            className="text-sm font-semibold text-muted hover:text-primary"
-          >
-            ← Back to Insights
-          </Link>
-        </div>
-      </header>
+      <AdminHeader backHref="/admin/insights" />
 
       {/* Content */}
       <div className="mx-auto max-w-5xl px-6 py-10">

@@ -1,7 +1,38 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+
+/*
+ * =========================================================
+ * LEGACY DATA — PRESERVED FOR EASY ROLLBACK
+ *
+ * Used by the removed "Questions That Differ by Sector" section.
+ * The owner requested that section to be removed from the rendered
+ * page, so the data is retained here as comments rather than deleted.
+ * =========================================================
+ *
+ * const valuationContext = [
+ *   {
+ *     number: "01",
+ *     title: "Sources of Cash Flow",
+ *     text: "Revenue quality, customer relationships, contracted income, occupancy, and production performance can affect the visibility of future cash flows.",
+ *   },
+ *   {
+ *     number: "02",
+ *     title: "Investment Requirements",
+ *     text: "Working capital, development expenditure, technology investment, and asset replacement can shape the capital needed to sustain operations and growth.",
+ *   },
+ *   {
+ *     number: "03",
+ *     title: "Market and Operating Risk",
+ *     text: "Competitive conditions, regulation, cyclicality, and technological change can influence assumptions about performance and long-term prospects.",
+ *   },
+ * ];
+ */
 
 const sectors = [
   {
@@ -44,33 +75,67 @@ const sectors = [
       "Conventional and renewable energy assets, platforms, and projects where operating performance, commodity exposure, contracts, regulation, and transition risk shape value.",
     href: "/sectors/energy",
   },
-];
-
-const valuationContext = [
   {
-    number: "01",
-    title: "Sources of Cash Flow",
-    text: "Revenue quality, customer relationships, contracted income, occupancy, and production performance can affect the visibility of future cash flows.",
-  },
-  {
-    number: "02",
-    title: "Investment Requirements",
-    text: "Working capital, development expenditure, technology investment, and asset replacement can shape the capital needed to sustain operations and growth.",
-  },
-  {
-    number: "03",
-    title: "Market and Operating Risk",
-    text: "Competitive conditions, regulation, cyclicality, and technological change can influence assumptions about performance and long-term prospects.",
+    number: "06",
+    title: "Healthcare & Life Sciences",
+    image: "/images/sectors/healthcare-life-sciences.jpg",
+    description:
+      "Healthcare providers, life sciences businesses, medical technologies, and healthcare-related assets where clinical, regulatory, commercial, and operating factors influence value.",
+    href: "/sectors/healthcare-life-sciences",
   },
 ];
 
 export default function SectorsPage() {
+  const sectorsListRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const list = sectorsListRef.current;
+    if (!list) return;
+
+    const rows = Array.from(
+      list.querySelectorAll<HTMLElement>(".sectors-row--reveal"),
+    );
+
+    if (!rows.length) return;
+
+    const observers: IntersectionObserver[] = [];
+
+    rows.forEach((row) => {
+      row.classList.remove("sectors-row--visible");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add("sectors-row--visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.18,
+          rootMargin: "0px 0px -70px 0px",
+        },
+      );
+
+      observer.observe(row);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
+
   return (
     <>
       <Header />
 
       <main className="sectors-page">
-        {/* Hero */}
+        {/* =========================================================
+            HERO
+            Owner requested "Sector Context Shapes Valuation" in hero.
+            ========================================================= */}
         <section className="sectors-hero">
           <Image
             src="/images/shared/inner-page-banner.jpg"
@@ -86,60 +151,67 @@ export default function SectorsPage() {
           <div className="sectors-shell sectors-hero__content">
             <p className="sectors-breadcrumb">Home / Sector Expertise</p>
 
-            <h1>Sector Expertise</h1>
+            <h1>Sector Context Shapes Valuation</h1>
 
             <p>
-              We work in sectors where commercial conditions, operating
-              performance, and market dynamics have a direct bearing on value.
-              Our analysis reflects how these factors affect cash flows, risk,
-              capital requirements, and long-term prospects.
+              Businesses and assets do not operate in isolation. Their
+              economic characteristics, market conditions, and investment
+              requirements influence how value is assessed. Our sector focus
+              connects commercial context with the financial analysis relevant
+              to each assignment.
             </p>
           </div>
         </section>
 
-        {/* Our perspective */}
-        <section className="sectors-perspective">
-          <div className="sectors-shell sectors-perspective__grid">
-            <div>
-              <p className="sectors-label">01 / Our Perspective</p>
+        {/*
+         * =========================================================
+         * LEGACY SECTION — PRESERVED FOR EASY ROLLBACK
+         *
+         * Owner requested the old "Our Perspective" section to be
+         * incorporated into the hero. It is intentionally commented
+         * rather than deleted.
+         * =========================================================
+         *
+         * <section className="sectors-perspective">
+         *   <div className="sectors-shell sectors-perspective__grid">
+         *     <div>
+         *       <p className="sectors-label">01 / Our Perspective</p>
+         *       <h2>Sector Context Shapes Valuation</h2>
+         *       <p>
+         *         Businesses and assets do not operate in isolation. Their
+         *         economic characteristics, market conditions, and investment
+         *         requirements influence how value is assessed.
+         *       </p>
+         *       <p>
+         *         Across our core sectors, we consider the operating factors
+         *         behind financial performance alongside the evidence relevant
+         *         to the assignment. Explore a sector below for its typical
+         *         assignments, key valuation considerations, and sub-sectors.
+         *       </p>
+         *     </div>
+         *
+         *     <aside className="sectors-perspective__callout">
+         *       <p>Across Our Work</p>
+         *       <h3>From Commercial Context to Financial Analysis</h3>
+         *       <span>
+         *         Our sector focus connects the underlying business model, its
+         *         sources of cash flow, and the risks and capital needs that
+         *         influence long-term prospects.
+         *       </span>
+         *     </aside>
+         *   </div>
+         * </section>
+         */}
 
-              <h2>Sector Context Shapes Valuation</h2>
-
-              <p>
-                Businesses and assets do not operate in isolation. Their
-                economic characteristics, market conditions, and investment
-                requirements influence how value is assessed.
-              </p>
-
-              <p>
-                Across our core sectors, we consider the operating factors
-                behind financial performance alongside the evidence relevant to
-                the assignment. Explore a sector below for its typical
-                assignments, key valuation considerations, and sub-sectors.
-              </p>
-            </div>
-
-            <aside className="sectors-perspective__callout">
-              <p>Across Our Work</p>
-
-              <h3>From Commercial Context to Financial Analysis</h3>
-
-              <span>
-                Our sector focus connects the underlying business model, its
-                sources of cash flow, and the risks and capital needs that
-                influence long-term prospects.
-              </span>
-            </aside>
-          </div>
-        </section>
-
-        {/* Explore sectors */}
+        {/* =========================================================
+            CORE SECTOR EXPERTISE
+            ========================================================= */}
         <section className="sectors-explore">
           <div className="sectors-shell">
             <div className="sectors-explore__heading">
               <div>
-                <p className="sectors-label">02 / Explore Our Sectors</p>
-                <h2>Five Areas of Sector Expertise</h2>
+                <p className="sectors-label">01 / Explore Our Sectors</p>
+                <h2>Core Sector Expertise</h2>
               </div>
 
               <p>
@@ -148,19 +220,19 @@ export default function SectorsPage() {
               </p>
             </div>
 
-            <div className="sectors-list">
+            <div className="sectors-list" ref={sectorsListRef}>
               {sectors.map((sector) => (
                 <Link
                   key={sector.title}
                   href={sector.href}
-                  className="sectors-row"
+                  className="sectors-row sectors-row--reveal"
                 >
                   <div className="sectors-row__image">
                     <Image
                       src={sector.image}
                       alt=""
                       fill
-                      sizes="120px"
+                      sizes="180px"
                       className="sectors-row__image-inner"
                     />
                   </div>
@@ -175,7 +247,7 @@ export default function SectorsPage() {
                   </div>
 
                   <span className="sectors-row__link">
-                    Explore sector →
+                    Explore sector <span aria-hidden="true">→</span>
                   </span>
                 </Link>
               ))}
@@ -183,33 +255,57 @@ export default function SectorsPage() {
           </div>
         </section>
 
-        {/* Valuation context */}
-        <section className="sectors-context">
-          <div className="sectors-shell">
-            <p className="sectors-label">03 / Valuation Context</p>
+        {/*
+         * =========================================================
+         * OWNER NOTE — SECTOR INSIGHTS NAVIGATION
+         *
+         * The owner/design note mentioned a separate "Sector Insights"
+         * navigation tab. The final design direction explicitly states
+         * that this is not added because "Explore sector" already
+         * triggers the sector insight page itself.
+         *
+         * Therefore no duplicate Sector Insights tab is rendered here.
+         * This comment is retained so the decision is reversible.
+         * =========================================================
+         */}
 
-            <h2>Questions That Differ by Sector</h2>
-
-            <p className="sectors-context__intro">
-              The factors that matter to value vary with the economics of the
-              business or asset. Our sector pages examine these differences in
-              more detail.
-            </p>
-
-            <div className="sectors-context__list">
-              {valuationContext.map((item) => (
-                <article key={item.number} className="sectors-context__row">
-                  <span>{item.number}</span>
-
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/*
+         * =========================================================
+         * LEGACY SECTION — PRESERVED FOR EASY ROLLBACK
+         *
+         * Owner explicitly requested "Questions That Differ by Sectors"
+         * to be removed. The complete old section is kept commented.
+         * =========================================================
+         *
+         * <section className="sectors-context">
+         *   <div className="sectors-shell">
+         *     <p className="sectors-label">03 / Valuation Context</p>
+         *
+         *     <h2>Questions That Differ by Sector</h2>
+         *
+         *     <p className="sectors-context__intro">
+         *       The factors that matter to value vary with the economics of
+         *       the business or asset. Our sector pages examine these
+         *       differences in more detail.
+         *     </p>
+         *
+         *     <div className="sectors-context__list">
+         *       {valuationContext.map((item) => (
+         *         <article
+         *           key={item.number}
+         *           className="sectors-context__row"
+         *         >
+         *           <span>{item.number}</span>
+         *           <div>
+         *             <h3>{item.title}</h3>
+         *             <p>{item.text}</p>
+         *           </div>
+         *         </article>
+         *       ))}
+         *     </div>
+         *   </div>
+         * </section>
+         */}
 
         {/* CTA */}
         <section className="sectors-cta">

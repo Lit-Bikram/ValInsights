@@ -2592,8 +2592,9 @@ a {
 .sector-considerations__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
   margin-top: 24px;
-  border: 1px solid #e0e6eb;
+  background: #e0e6eb;
 }
 
 .sector-consideration {
@@ -2602,15 +2603,20 @@ a {
   gap: 18px;
   min-height: 145px;
   padding: 29px 31px;
+  border: 1px solid #e0e6eb;
   background: var(--site-bg);
+  transition:
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 360ms ease,
+    border-color 360ms ease,
+    box-shadow 360ms ease;
 }
 
 .sector-consideration:nth-child(1),
-.sector-consideration:nth-child(2) {
+.sector-consideration:nth-child(2),
+.sector-consideration:nth-child(3),
+.sector-consideration:nth-child(4) {
   border-bottom: 1px solid #e0e6eb;
-}
-
-.sector-consideration:nth-child(odd) {
   border-right: 1px solid #e0e6eb;
 }
 
@@ -2642,18 +2648,24 @@ a {
 
 .sector-subsectors__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border: 1px solid rgba(164, 181, 194, 0.22);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  background: transparent;
 }
 
 .sector-subsector {
   min-height: 175px;
   padding: 27px 22px;
-  border-right: 1px solid rgba(164, 181, 194, 0.22);
+  border: 1px solid rgba(164, 181, 194, 0.22);
+  transition:
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 360ms ease,
+    border-color 360ms ease,
+    box-shadow 360ms ease;
 }
 
 .sector-subsector:last-child {
-  border-right: 0;
+  border-right: 1px solid rgba(164, 181, 194, 0.22);
 }
 
 .sector-subsector > span {
@@ -2676,8 +2688,53 @@ a {
 }
 
 /* =========================================================
-   RELATED INSIGHTS
+   SECTOR CARD HOVER — VALUE CONSIDERATIONS + SUB-SECTORS
    ========================================================= */
+
+.sector-consideration:hover {
+  animation: none !important;
+  position: relative;
+  z-index: 2;
+  background: var(--site-bg);
+  border-color: #c99d4f;
+  box-shadow: 0 14px 30px rgba(7, 30, 47, 0.14);
+  transform: translateY(-5px) scale(1.012);
+}
+
+.sector-consideration:hover > span {
+  color: #d0a24e;
+}
+
+.sector-consideration:hover h3 {
+  color: #a77d3d;
+}
+
+.sector-consideration:hover p {
+  color: #50627a;
+}
+
+.sector-subsector:hover {
+  animation: none !important;
+  position: relative;
+  z-index: 2;
+  background: #0b2a40;
+  border-color: #c99d4f;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  transform: translateY(-5px) scale(1.012);
+}
+
+.sector-subsector:hover > span,
+.sector-subsector:hover h3 {
+  color: #d0a24e;
+}
+
+.sector-subsector:hover p {
+  color: #d0dbe3;
+}
+
+/* =========================================================
+   RELATED INSIGHTS
+   =========================================================
 
 .sector-insights {
   padding: 42px 0 50px;
@@ -2708,8 +2765,18 @@ a {
   transition: background 160ms ease;
 }
 
+.sector-insight-row strong,
+.sector-insight-row b {
+  transition: color 220ms ease;
+}
+
 .sector-insight-row:hover {
   background: rgba(255, 255, 255, 0.7);
+}
+
+.sector-insight-row:hover strong,
+.sector-insight-row:hover b {
+  color: #a77d3d;
 }
 
 .sector-insight-row span {
@@ -2956,6 +3023,7 @@ a {
 }
 /* =========================================================
    SECTOR EXPERTISE — DESIGNER UI
+   Redesigned Sector Home Page
    ========================================================= */
 
 .sectors-page {
@@ -2976,7 +3044,7 @@ a {
 
 .sectors-hero {
   position: relative;
-  min-height: 330px;
+  min-height: 420px;
   overflow: hidden;
   background: #061d2d;
 }
@@ -2995,8 +3063,8 @@ a {
 .sectors-hero__content {
   position: relative;
   z-index: 2;
-  padding-top: 70px;
-  padding-bottom: 60px;
+  padding-top: 92px;
+  padding-bottom: 72px;
 }
 
 .sectors-breadcrumb,
@@ -3010,17 +3078,13 @@ a {
 }
 
 .sectors-breadcrumb {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
 }
 
 .sectors-hero h1,
-.sectors-perspective h2,
 .sectors-explore h2,
-.sectors-context h2,
 .sectors-cta h2,
-.sectors-perspective__callout h3,
-.sectors-row h3,
-.sectors-context__row h3 {
+.sectors-row h3 {
   font-family: var(--site-font-family);
   font-weight: 700;
   font-variant: small-caps;
@@ -3028,101 +3092,28 @@ a {
 }
 
 .sectors-hero h1 {
+  max-width: 900px;
   margin: 0;
   color: var(--site-bg);
-  font-size: var(--type-page-heading);
-  line-height: 1.05;
+  font-size: clamp(48px, 5vw, 76px);
+  line-height: 1.02;
 }
 
 .sectors-hero__content > p:last-child {
-  max-width: 700px;
-  margin: 19px 0 0;
-  color: #a2b1bf;
+  max-width: 760px;
+  margin: 24px 0 0;
+  color: #a8b6c4;
   font-family: var(--site-font-family);
-  font-size: var(--type-body-small);
-  line-height: 1.7;
-}
-
-/* =========================================================
-   OUR PERSPECTIVE
-   ========================================================= */
-
-.sectors-perspective {
-  padding: 48px 0 47px;
-  background: var(--site-bg);
-}
-
-.sectors-perspective__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 75px;
-  align-items: start;
-}
-
-.sectors-perspective h2,
-.sectors-explore h2,
-.sectors-context h2 {
-  margin: 0;
-  color: #0a2235;
-  font-size: var(--type-section-heading-compact);
-  line-height: 1.08;
-}
-
-.sectors-perspective h2 {
-  margin-bottom: 22px;
-}
-
-.sectors-perspective__grid > div > p:not(.sectors-label) {
-  max-width: 700px;
-  margin: 0 0 17px;
-  color: #50627a;
-  font-family: var(--site-font-family);
-  font-size: var(--type-label);
-  line-height: 1.72;
-}
-
-.sectors-perspective__grid > div > p:last-child {
-  margin-bottom: 0;
-}
-
-.sectors-perspective__callout {
-  margin-top: 2px;
-  padding: 25px 27px 27px;
-  border-left: 2px solid #c99d4f;
-  background: #f4f7f9;
-}
-
-.sectors-perspective__callout p {
-  margin: 0 0 12px;
-  color: #c99d4f;
-  font-family: var(--site-font-family);
-  font-size: var(--type-tiny);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.sectors-perspective__callout h3 {
-  margin: 0 0 15px;
-  color: #0a2235;
   font-size: var(--type-body-large);
-  line-height: 1.18;
-}
-
-.sectors-perspective__callout span {
-  display: block;
-  color: #50627a;
-  font-family: var(--site-font-family);
-  font-size: var(--type-tiny);
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 /* =========================================================
-   EXPLORE OUR SECTORS
+   CORE SECTOR EXPERTISE
    ========================================================= */
 
 .sectors-explore {
-  padding: 37px 0 40px;
+  padding: 62px 0 72px;
   background: #f1f5f8;
 }
 
@@ -3131,61 +3122,94 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: end;
-  margin-bottom: 27px;
+  margin-bottom: 36px;
 }
 
 .sectors-explore__heading h2 {
-  margin-top: 0;
+  margin: 0;
+  color: #0a2235;
+  font-size: var(--type-section-heading);
+  line-height: 1.05;
 }
 
 .sectors-explore__heading > p {
-  max-width: 500px;
-  margin: 0 0 2px;
+  max-width: 520px;
+  margin: 0 0 3px;
   color: #50627a;
   font-family: var(--site-font-family);
-  font-size: var(--type-caption);
-  line-height: 1.65;
+  font-size: var(--type-body-small);
+  line-height: 1.7;
 }
 
 .sectors-list {
-  border-top: 1px solid #d9e1e7;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .sectors-row {
+  position: relative;
   display: grid;
-  grid-template-columns: 120px 75px minmax(0, 1fr) 120px;
-  min-height: 95px;
+  grid-template-columns: 180px 120px minmax(0, 1fr) 150px;
+  min-height: 156px;
   align-items: stretch;
-  border-bottom: 1px solid #d9e1e7;
+  border: 1px solid #d9e0e6;
   color: inherit;
   text-decoration: none;
   background: var(--site-bg);
-  transition: background 160ms ease;
+  transition:
+    background-color 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+/* Each sector row reveals independently as it enters the viewport. */
+.sectors-row--reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition:
+    opacity var(--reveal-duration) var(--reveal-easing),
+    transform var(--reveal-duration) var(--reveal-easing),
+    background-color 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+  will-change: opacity, transform;
+}
+
+.sectors-row--reveal.sectors-row--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sectors-row:hover {
   background: #fbfcfd;
+  border-color: #d0a24e;
+  box-shadow: 0 12px 30px rgba(10, 34, 53, 0.07);
+  z-index: 1;
 }
 
 .sectors-row__image {
   position: relative;
-  min-height: 95px;
+  min-height: 156px;
   overflow: hidden;
 }
 
 .sectors-row__image-inner {
   object-fit: cover;
-  transition: transform 350ms ease;
+  transition:
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 400ms ease;
 }
 
 .sectors-row:hover .sectors-row__image-inner {
-  transform: scale(1.04);
+  transform: scale(1.06);
+  filter: saturate(1.05);
 }
 
 .sectors-row__number {
   display: flex;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 18px;
   color: #c99d4f;
   font-family: var(--site-font-family);
   font-size: var(--type-tiny);
@@ -3197,95 +3221,49 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 17px 25px 17px 5px;
+  padding: 24px 34px 24px 4px;
 }
 
 .sectors-row h3 {
-  margin: 0 0 8px;
+  margin: 0 0 11px;
   color: #0a2235;
-  font-size: var(--type-body-large);
-  line-height: 1.05;
+  font-size: var(--type-card-heading-large);
+  line-height: 1.1;
+  transition: color 220ms ease;
+}
+
+.sectors-row:hover h3 {
+  color: #a77d3d;
 }
 
 .sectors-row__content p {
-  max-width: 650px;
+  max-width: 720px;
   margin: 0;
   color: #50627a;
   font-family: var(--site-font-family);
-  font-size: var(--type-tiny);
-  line-height: 1.55;
+  font-size: var(--type-small);
+  line-height: 1.6;
 }
 
 .sectors-row__link {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 17px;
+  gap: 5px;
+  padding-right: 22px;
   color: #0a2235;
   font-family: var(--site-font-family);
-  font-size: var(--type-tiny);
+  font-size: var(--type-small);
   font-weight: 700;
   white-space: nowrap;
+  transition:
+    color 220ms ease,
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* =========================================================
-   VALUATION CONTEXT
-   ========================================================= */
-
-.sectors-context {
-  padding: 48px 0 52px;
-  background: var(--site-bg);
-}
-
-.sectors-context h2 {
-  margin-bottom: 17px;
-}
-
-.sectors-context__intro {
-  max-width: 700px;
-  margin: 0 0 21px;
-  color: #50627a;
-  font-family: var(--site-font-family);
-  font-size: var(--type-caption);
-  line-height: 1.65;
-}
-
-.sectors-context__list {
-  max-width: 1040px;
-  border-top: 1px solid #d9e1e7;
-}
-
-.sectors-context__row {
-  display: grid;
-  grid-template-columns: 45px 1fr;
-  gap: 0;
-  min-height: 72px;
-  padding: 16px 0;
-  border-bottom: 1px solid #d9e1e7;
-}
-
-.sectors-context__row > span {
-  color: #c99d4f;
-  font-family: var(--site-font-family);
-  font-size: var(--type-tiny);
-  font-weight: 700;
-  padding-top: 2px;
-}
-
-.sectors-context__row h3 {
-  margin: 0 0 8px;
-  color: #0a2235;
-  font-size: var(--type-label);
-  line-height: 1.1;
-}
-
-.sectors-context__row p {
-  max-width: 850px;
-  margin: 0;
-  color: #50627a;
-  font-family: var(--site-font-family);
-  font-size: var(--type-tiny);
-  line-height: 1.55;
+.sectors-row:hover .sectors-row__link {
+  color: #a77d3d;
+  transform: translateX(4px);
 }
 
 /* =========================================================
@@ -3347,23 +3325,38 @@ a {
    TABLET
    ========================================================= */
 
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
   .sectors-shell {
-    width: min(100% - 56px, 1380px);
+    width: min(calc(100% - 64px), 1380px);
   }
 
-  .sectors-perspective__grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+  .sectors-row {
+    grid-template-columns: 150px 105px minmax(0, 1fr) 130px;
   }
 
-  .sectors-perspective__callout {
-    max-width: 440px;
+  .sectors-row__image {
+    min-height: 150px;
   }
+}
 
+@media (max-width: 950px) {
   .sectors-explore__heading {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 18px;
+    margin-bottom: 30px;
+  }
+
+  .sectors-explore__heading > p {
+    max-width: 700px;
+  }
+
+  .sectors-row {
+    grid-template-columns: 140px 95px minmax(0, 1fr) 120px;
+    min-height: 150px;
+  }
+
+  .sectors-row__image {
+    min-height: 150px;
   }
 }
 
@@ -3377,12 +3370,12 @@ a {
   }
 
   .sectors-hero {
-    min-height: 355px;
+    min-height: 470px;
   }
 
   .sectors-hero__content {
-    padding-top: 62px;
-    padding-bottom: 55px;
+    padding-top: 105px;
+    padding-bottom: 70px;
   }
 
   .sectors-hero h1 {
@@ -3391,38 +3384,35 @@ a {
 
   .sectors-hero__content > p:last-child {
     font-size: var(--type-small);
+    line-height: 1.7;
   }
 
-  .sectors-perspective,
-  .sectors-explore,
-  .sectors-context {
-    padding-top: 48px;
-    padding-bottom: 48px;
+  .sectors-explore {
+    padding-top: 52px;
+    padding-bottom: 56px;
   }
 
-  .sectors-perspective h2,
-  .sectors-explore h2,
-  .sectors-context h2 {
+  .sectors-explore h2 {
     font-size: var(--type-section-heading-compact);
   }
 
   .sectors-row {
-    grid-template-columns: 82px 1fr;
-    min-height: 115px;
+    grid-template-columns: 100px minmax(0, 1fr);
+    min-height: 0;
   }
 
   .sectors-row__image {
-    min-height: 115px;
+    min-height: 205px;
     grid-row: 1 / span 2;
   }
 
   .sectors-row__number {
     align-items: end;
-    padding: 12px 15px 0;
+    padding: 15px 14px 0;
   }
 
   .sectors-row__content {
-    padding: 10px 15px 17px 0;
+    padding: 18px 16px 18px 0;
   }
 
   .sectors-row h3 {
@@ -3437,10 +3427,6 @@ a {
     display: none;
   }
 
-  .sectors-context__row {
-    grid-template-columns: 32px 1fr;
-  }
-
   .sectors-cta__inner {
     min-height: 300px;
     padding-top: 64px;
@@ -3453,12 +3439,47 @@ a {
     width: calc(100% - 28px);
   }
 
-  .sectors-hero h1 {
-    font-size: var(--type-page-heading);
+  .sectors-hero {
+    min-height: 500px;
+  }
+
+  .sectors-hero__content {
+    padding-top: 92px;
   }
 
   .sectors-row {
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 84px minmax(0, 1fr);
+  }
+
+  .sectors-row__image {
+    min-height: 205px;
+  }
+}
+
+/* =========================================================
+   SECTOR HOME — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .sectors-hero,
+  .sectors-hero__image,
+  .sectors-hero__overlay,
+  .sectors-hero__content {
+    animation: none;
+  }
+
+  .sectors-row--reveal,
+  .sectors-row--reveal.sectors-row--visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .sectors-row,
+  .sectors-row__image-inner,
+  .sectors-row h3,
+  .sectors-row__link {
+    transition: none;
   }
 }
 
@@ -5883,7 +5904,8 @@ a {
  */
 
 .home-hero,
-.about-hero {
+.about-hero,
+.sectors-hero {
   animation:
     globalHeroSectionReveal
     var(--reveal-duration)
@@ -5892,7 +5914,8 @@ a {
 }
 
 .home-hero__image,
-.about-hero__image {
+.about-hero__image,
+.sectors-hero__image {
   animation:
     globalHeroImageReveal
     var(--reveal-duration)
@@ -5901,7 +5924,8 @@ a {
 }
 
 .home-hero__overlay,
-.about-hero__overlay {
+.about-hero__overlay,
+.sectors-hero__overlay {
   animation:
     globalHeroOverlayReveal
     var(--reveal-duration)
@@ -5910,7 +5934,8 @@ a {
 }
 
 .home-hero__content,
-.about-hero__content {
+.about-hero__content,
+.sectors-hero__content {
   animation:
     globalHeroContentReveal
     var(--reveal-duration)
@@ -5987,12 +6012,16 @@ a {
 
   .home-hero,
   .about-hero,
+  .sectors-hero,
   .home-hero__image,
   .about-hero__image,
+  .sectors-hero__image,
   .home-hero__overlay,
   .about-hero__overlay,
+  .sectors-hero__overlay,
   .home-hero__content,
-  .about-hero__content {
+  .about-hero__content,
+  .sectors-hero__content {
     animation: none;
   }
 }
@@ -6366,6 +6395,384 @@ html::-webkit-scrollbar {
   .service-insights.page-section-visible .service-insight-row {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+}
+
+
+/* =========================================================
+   INNER DETAIL PAGES — UNIFIED HERO + COMPONENT REVEALS
+   ========================================================= */
+
+/*
+ * Keep every inner-page hero on the same entrance system.
+ * The hero itself loads immediately; its image, overlay, and
+ * content move/fade with the same global timing tokens.
+ */
+.home-hero,
+.about-hero,
+.sectors-hero,
+.sector-hero,
+.solutions-hero,
+.service-hero,
+.insights-hero {
+  animation:
+    globalHeroSectionReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.home-hero__image,
+.about-hero__image,
+.sectors-hero__image,
+.sector-hero__image,
+.solutions-hero__image,
+.service-hero__image,
+.insights-hero__image {
+  animation:
+    globalHeroImageReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.home-hero__overlay,
+.about-hero__overlay,
+.sectors-hero__overlay,
+.sector-hero__overlay,
+.solutions-hero__overlay,
+.service-hero__overlay,
+.insights-hero__overlay {
+  animation:
+    globalHeroOverlayReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.home-hero__content,
+.about-hero__content,
+.sectors-hero__content,
+.sector-hero__content,
+.solutions-hero__content,
+.service-hero__content,
+.insights-hero__content {
+  animation:
+    globalHeroContentReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    var(--reveal-delay)
+    both;
+}
+
+/* =========================================================
+   SECTOR DETAIL PAGE — CARD REVEAL / STAGGER
+   ========================================================= */
+
+/*
+ * The parent section is revealed by PageReveal.tsx.
+ * Cards then enter one-by-one using the same global reveal
+ * duration, distance, and easing as the rest of the site.
+ */
+.sector-page .page-section-reveal .sector-overview__grid > div,
+.sector-page .page-section-reveal .sector-value-box,
+.sector-page .page-section-reveal .sector-applied-card,
+.sector-page .page-section-reveal .sector-card-reveal,
+.sector-page .page-section-reveal .sector-consideration,
+.sector-page .page-section-reveal .sector-subsector,
+.sector-page .page-section-reveal .sector-insights__grid .publication-card,
+.sector-page .page-section-reveal .insights-publication-grid .publication-card,
+.sector-page .page-section-reveal .sector-return,
+.sector-page .page-section-reveal .sector-cta__inner > * {
+  opacity: 0;
+  animation:
+    sectorComponentReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.sector-page .page-section-visible .sector-overview__grid > div,
+.sector-page .page-section-visible .sector-value-box,
+.sector-page .page-section-visible .sector-applied-card,
+.sector-page .page-section-visible .sector-card-reveal,
+.sector-page .page-section-visible .sector-consideration,
+.sector-page .page-section-visible .sector-subsector,
+.sector-page .page-section-visible .sector-insights__grid .publication-card,
+.sector-page .page-section-visible .insights-publication-grid .publication-card,
+.sector-page .page-section-visible .sector-return,
+.sector-page .page-section-visible .sector-cta__inner > * {
+  opacity: 1;
+}
+
+/* First card / element */
+.sector-page .page-section-visible .sector-overview__grid > div:nth-child(1),
+.sector-page .page-section-visible .sector-applied-card:nth-child(1),
+.sector-page .page-section-visible .sector-card-reveal:nth-child(1),
+.sector-page .page-section-visible .sector-consideration:nth-child(1),
+.sector-page .page-section-visible .sector-subsector:nth-child(1),
+.sector-page .page-section-visible .sector-insights__grid .publication-card:nth-child(1),
+.sector-page .page-section-visible .insights-publication-grid .publication-card:nth-child(1),
+.sector-page .page-section-visible .sector-cta__inner > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+/* Second card / element */
+.sector-page .page-section-visible .sector-overview__grid > div:nth-child(2),
+.sector-page .page-section-visible .sector-applied-card:nth-child(2),
+.sector-page .page-section-visible .sector-card-reveal:nth-child(2),
+.sector-page .page-section-visible .sector-consideration:nth-child(2),
+.sector-page .page-section-visible .sector-subsector:nth-child(2),
+.sector-page .page-section-visible .sector-insights__grid .publication-card:nth-child(2),
+.sector-page .page-section-visible .insights-publication-grid .publication-card:nth-child(2),
+.sector-page .page-section-visible .sector-cta__inner > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+/* Third card / element */
+.sector-page .page-section-visible .sector-applied-card:nth-child(3),
+.sector-page .page-section-visible .sector-card-reveal:nth-child(3),
+.sector-page .page-section-visible .sector-consideration:nth-child(3),
+.sector-page .page-section-visible .sector-subsector:nth-child(3),
+.sector-page .page-section-visible .sector-insights__grid .publication-card:nth-child(3),
+.sector-page .page-section-visible .insights-publication-grid .publication-card:nth-child(3),
+.sector-page .page-section-visible .sector-cta__inner > *:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+/* Fourth card / element */
+.sector-page .page-section-visible .sector-applied-card:nth-child(4),
+.sector-page .page-section-visible .sector-card-reveal:nth-child(4),
+.sector-page .page-section-visible .sector-consideration:nth-child(4),
+.sector-page .page-section-visible .sector-subsector:nth-child(4) {
+  animation-delay: 270ms;
+}
+
+@keyframes sectorComponentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RELATED INSIGHTS — USE THE SAME CARD SYSTEM AS /INSIGHTS
+   ========================================================= */
+
+.sector-insights {
+  padding: 52px 0 62px;
+  background: #f3f6f8;
+}
+
+.sector-insights__grid {
+  margin-top: 24px;
+}
+
+.sector-insights .publication-card {
+  min-height: 100%;
+}
+
+.sector-insights .publication-card:hover {
+  animation: none;
+  transform: translateY(-3px);
+}
+
+/* Match the Home page service/sector card colour treatment.
+   Keep the insight card background unchanged; only the text colour
+   transitions to the site's gold accent on hover. */
+.sector-insights .publication-card h2,
+.sector-insights .publication-card__link {
+  transition: color 220ms ease;
+}
+
+.sector-insights .publication-card:hover h2,
+.sector-insights .publication-card:hover .publication-card__link {
+  color: #a77d3d;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero,
+  .about-hero,
+  .sectors-hero,
+  .sector-hero,
+  .solutions-hero,
+  .service-hero,
+  .insights-hero,
+  .home-hero__image,
+  .about-hero__image,
+  .sectors-hero__image,
+  .sector-hero__image,
+  .solutions-hero__image,
+  .service-hero__image,
+  .insights-hero__image,
+  .home-hero__overlay,
+  .about-hero__overlay,
+  .sectors-hero__overlay,
+  .sector-hero__overlay,
+  .solutions-hero__overlay,
+  .service-hero__overlay,
+  .insights-hero__overlay,
+  .home-hero__content,
+  .about-hero__content,
+  .sectors-hero__content,
+  .sector-hero__content,
+  .solutions-hero__content,
+  .service-hero__content,
+  .insights-hero__content {
+    animation: none;
+  }
+
+  .sector-page .page-section-reveal .sector-overview__grid > div,
+  .sector-page .page-section-reveal .sector-value-box,
+  .sector-page .page-section-reveal .sector-applied-card,
+  .sector-page .page-section-reveal .sector-card-reveal,
+  .sector-page .page-section-reveal .sector-consideration,
+  .sector-page .page-section-reveal .sector-subsector,
+  .sector-page .page-section-reveal .sector-insights__grid .publication-card,
+  .sector-page .page-section-reveal .insights-publication-grid .publication-card,
+  .sector-page .page-section-reveal .sector-return,
+  .sector-page .page-section-reveal .sector-cta__inner > *,
+  .sector-page .page-section-visible .sector-overview__grid > div,
+  .sector-page .page-section-visible .sector-value-box,
+  .sector-page .page-section-visible .sector-applied-card,
+  .sector-page .page-section-visible .sector-card-reveal,
+  .sector-page .page-section-visible .sector-consideration,
+  .sector-page .page-section-visible .sector-subsector,
+  .sector-page .page-section-visible .sector-insights__grid .publication-card,
+  .sector-page .page-section-visible .insights-publication-grid .publication-card,
+  .sector-page .page-section-visible .sector-return,
+  .sector-page .page-section-visible .sector-cta__inner > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   INDIVIDUAL SOLUTION PAGES — CARD HOVER ANIMATION
+   Matches the Home page Services / Sectors interaction.
+   CSS ONLY — no page.tsx changes required.
+   ========================================================= */
+
+/* WHAT WE VALUE */
+.service-page .service-scope-card {
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.service-page .service-scope-card:hover {
+  transform: translateY(-6px);
+  border-color: #d0a24e;
+  box-shadow: 0 18px 42px rgba(11, 31, 58, 0.12);
+}
+
+.service-page .service-scope-card h3 {
+  transition: color 220ms ease;
+}
+
+.service-page .service-scope-card:hover h3 {
+  color: #a77d3d;
+}
+
+/* RELATED INSIGHTS
+   RelatedServiceInsights uses the existing publication-card system.
+   Keep the card background unchanged and apply the same lift,
+   border, shadow, title-colour, and image movement used on Home. */
+.service-page .service-insights .publication-card {
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.service-page .service-insights .publication-card:hover {
+  transform: translateY(-6px);
+  border-color: #d0a24e;
+  box-shadow: 0 18px 42px rgba(11, 31, 58, 0.12);
+}
+
+.service-page .service-insights .publication-card__image img {
+  transition: transform 500ms ease;
+}
+
+.service-page .service-insights .publication-card:hover .publication-card__image img {
+  transform: scale(1.04);
+}
+
+.service-page .service-insights .publication-card h2,
+.service-page .service-insights .publication-card__link {
+  transition: color 220ms ease;
+}
+
+.service-page .service-insights .publication-card:hover h2,
+.service-page .service-insights .publication-card:hover .publication-card__link {
+  color: #a77d3d;
+}
+
+/* The latest service-insights implementation may render the
+   publication grid under .insights-publication-grid rather than
+   .service-insights__grid. Keep both forms covered. */
+.service-page .insights-publication-grid .publication-card {
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.service-page .insights-publication-grid .publication-card:hover {
+  transform: translateY(-6px);
+  border-color: #d0a24e;
+  box-shadow: 0 18px 42px rgba(11, 31, 58, 0.12);
+}
+
+.service-page .insights-publication-grid .publication-card__image img {
+  transition: transform 500ms ease;
+}
+
+.service-page .insights-publication-grid .publication-card:hover .publication-card__image img {
+  transform: scale(1.04);
+}
+
+.service-page .insights-publication-grid .publication-card h2,
+.service-page .insights-publication-grid .publication-card__link {
+  transition: color 220ms ease;
+}
+
+.service-page .insights-publication-grid .publication-card:hover h2,
+.service-page .insights-publication-grid .publication-card:hover .publication-card__link {
+  color: #a77d3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-page .service-scope-card,
+  .service-page .service-scope-card:hover,
+  .service-page .service-insights .publication-card,
+  .service-page .service-insights .publication-card:hover,
+  .service-page .insights-publication-grid .publication-card,
+  .service-page .insights-publication-grid .publication-card:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .service-page .service-scope-card h3,
+  .service-page .service-scope-card:hover h3,
+  .service-page .service-insights .publication-card h2,
+  .service-page .service-insights .publication-card__link,
+  .service-page .insights-publication-grid .publication-card h2,
+  .service-page .insights-publication-grid .publication-card__link {
     transition: none;
   }
 }

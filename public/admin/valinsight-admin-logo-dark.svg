@@ -1,0 +1,10 @@
+<svg width="214" height="58" viewBox="0 0 214 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Valuation Insights Admin</title>
+  <desc id="desc">Valuation Insights company wordmark with an Admin label.</desc>
+  <text x="0" y="17" fill="#FFFFFF" font-family="Georgia, Times New Roman, serif" font-size="16" letter-spacing="0.15">Valuation</text>
+  <text x="0" y="34" fill="#C99D4F" font-family="Georgia, Times New Roman, serif" font-size="16" letter-spacing="0.15">Insights</text>
+  <line x1="104" y1="7" x2="104" y2="34" stroke="#557083" stroke-width="1"/>
+  <rect x="116" y="8" width="82" height="25" rx="2" fill="#C99D4F"/>
+  <text x="157" y="24" text-anchor="middle" fill="#08263A" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" letter-spacing="2.2">ADMIN</text>
+  <rect x="0" y="43" width="198" height="1" fill="#C99D4F"/>
+</svg>

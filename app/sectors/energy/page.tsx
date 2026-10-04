@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import RelatedSectorInsights from "../../components/insights/RelatedSectorInsights";
 
 const typicalAssignments = [
   {
@@ -72,33 +73,39 @@ const subsectors = [
   },
 ];
 
+/*
+ * LEGACY RELATED INSIGHTS DATA — kept for rollback.
+ * The rendered section now loads the latest 3 published insights
+ * from the database through RelatedSectorInsights.
+ *
 const relatedInsights = [
-  {
-    number: "01",
-    title: "Valuation Perspective",
-    text: "Resource quality and plant performance",
-  },
-  {
-    number: "02",
-    title: "Valuation Perspective",
-    text: "Commodity exposure, contracts, and hedging",
-  },
-  {
-    number: "03",
-    title: "Valuation Perspective",
-    text: "Policy, subsidies, and transition risk",
-  },
-  {
-    number: "04",
-    title: "Current Observation",
-    text: "Power market dynamics and asset valuation",
-  },
-  {
-    number: "05",
-    title: "Current Observation",
-    text: "Energy transition and investment priorities in the Gulf",
-  },
-];
+ *   {
+ *     number: "01",
+ *     title: "Valuation Perspective",
+ *     text: "Resource quality and plant performance",
+ *   },
+ *   {
+ *     number: "02",
+ *     title: "Valuation Perspective",
+ *     text: "Commodity exposure, contracts, and hedging",
+ *   },
+ *   {
+ *     number: "03",
+ *     title: "Valuation Perspective",
+ *     text: "Policy, subsidies, and transition risk",
+ *   },
+ *   {
+ *     number: "04",
+ *     title: "Current Observation",
+ *     text: "Power market dynamics and asset valuation",
+ *   },
+ *   {
+ *     number: "05",
+ *     title: "Current Observation",
+ *     text: "Energy transition and investment priorities in the Gulf",
+ *   },
+ * ];
+ */
 
 export default function EnergyPage() {
   return (
@@ -164,7 +171,7 @@ export default function EnergyPage() {
           </div>
         </section>
 
-        <section className="sector-applied">
+        {/* <section className="sector-applied">
           <div className="sector-shell">
             <p className="sector-label">02 / Typical Assignments</p>
             <h2>Where Our Work Is Applied</h2>
@@ -187,7 +194,7 @@ export default function EnergyPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="sector-considerations">
           <div className="sector-shell">
@@ -201,7 +208,7 @@ export default function EnergyPage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration">
+                <article key={item.number} className="sector-consideration sector-card-motion">
                   <span>{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
@@ -225,7 +232,7 @@ export default function EnergyPage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector">
+                <article key={item.number} className="sector-subsector sector-card-motion">
                   <span>{item.number}</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -235,34 +242,11 @@ export default function EnergyPage() {
           </div>
         </section>
 
-        <section className="sector-insights">
-          <div className="sector-shell">
-            <p className="sector-label">05 / Related Insights</p>
-            <h2>Energy</h2>
-            <p className="sector-insights__intro">
-              Selected observations examining the valuation issues affecting
-              energy.
-            </p>
-
-            <div className="sector-insights__list">
-              {relatedInsights.map((item) => (
-                <Link
-                  key={item.text}
-                  href="/insights?sector=__SLUG__"
-                  className="sector-insight-row"
-                >
-                  <span>{item.title}</span>
-                  <strong>{item.text}</strong>
-                  <b>→</b>
-                </Link>
-              ))}
-            </div>
-
-            <Link href="/sectors" className="sector-return">
-              ← Return to Sector Dashboard
-            </Link>
-          </div>
-        </section>
+        <RelatedSectorInsights
+          sectorSlug="energy"
+          sectorTitle="Energy"
+          intro="Selected observations examining the valuation issues affecting energy."
+        />
 
         <section className="sector-cta">
           <div className="sector-shell sector-cta__inner">

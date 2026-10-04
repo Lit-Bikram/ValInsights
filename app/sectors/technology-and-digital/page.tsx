@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import RelatedSectorInsights from "../../components/insights/RelatedSectorInsights";
 
 const typicalAssignments = [
   {
@@ -72,28 +73,34 @@ const subsectors = [
   },
 ];
 
+/*
+ * LEGACY RELATED INSIGHTS DATA — kept for rollback.
+ * The rendered section now loads the latest 3 published insights
+ * from the database through RelatedSectorInsights.
+ *
 const relatedInsights = [
-  {
-    type: "Valuation Perspective",
-    title: "Recurring revenue and unit economics in software businesses",
-  },
-  {
-    type: "Valuation Perspective",
-    title: "Scalability and profitability in digital platforms",
-  },
-  {
-    type: "Valuation Perspective",
-    title: "Intangibles, R&D, and platform investment",
-  },
-  {
-    type: "Current Observation",
-    title: "SaaS growth and profitability",
-  },
-  {
-    type: "Current Observation",
-    title: "Digital regulation and platform risk",
-  },
-];
+ *   {
+ *     type: "Valuation Perspective",
+ *     title: "Recurring revenue and unit economics in software businesses",
+ *   },
+ *   {
+ *     type: "Valuation Perspective",
+ *     title: "Scalability and profitability in digital platforms",
+ *   },
+ *   {
+ *     type: "Valuation Perspective",
+ *     title: "Intangibles, R&D, and platform investment",
+ *   },
+ *   {
+ *     type: "Current Observation",
+ *     title: "SaaS growth and profitability",
+ *   },
+ *   {
+ *     type: "Current Observation",
+ *     title: "Digital regulation and platform risk",
+ *   },
+ * ];
+ */
 
 export default function TechnologyDigitalPage() {
   return (
@@ -179,7 +186,7 @@ export default function TechnologyDigitalPage() {
         </section>
 
         {/* Typical assignments */}
-        <section className="sector-applied">
+        {/* <section className="sector-applied">
           <div className="sector-shell">
             <p className="sector-label">02 / Typical Assignments</p>
 
@@ -203,7 +210,7 @@ export default function TechnologyDigitalPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Key valuation considerations */}
         <section className="sector-considerations">
@@ -220,7 +227,7 @@ export default function TechnologyDigitalPage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration">
+                <article key={item.number} className="sector-consideration sector-card-motion">
                   <span>{item.number}</span>
 
                   <div>
@@ -248,7 +255,7 @@ export default function TechnologyDigitalPage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector">
+                <article key={item.number} className="sector-subsector sector-card-motion">
                   <span>{item.number}</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -259,41 +266,11 @@ export default function TechnologyDigitalPage() {
         </section>
 
         {/* Related insights */}
-        <section className="sector-insights">
-          <div className="sector-shell">
-            <p className="sector-label">05 / Related Insights</p>
-
-            <h2>Technology &amp; Digital</h2>
-
-            <p className="sector-insights__intro">
-              Selected observations examining the valuation issues affecting
-              technology and digital businesses.
-            </p>
-
-            <div className="sector-insights__list">
-              {relatedInsights.map((item) => (
-                <Link
-                  key={item.title}
-                  href="/insights?sector=technology-digital"
-                  className="sector-insight-row"
-                >
-                  <span>{item.type}</span>
-                  <strong>{item.title}</strong>
-                  <b>→</b>
-                </Link>
-              ))}
-            </div>
-
-            <Link
-              href="/sectors"
-              className="sector-return"
-            >
-              ← Return to Sector Dashboard
-            </Link>
-          </div>
-        </section>
-
-        {/* CTA */}
+        <RelatedSectorInsights
+          sectorSlug="technology-digital"
+          sectorTitle="Technology & Digital"
+          intro="Selected observations examining the valuation issues affecting technology and digital businesses."
+        />
         <section className="sector-cta">
           <div className="sector-shell sector-cta__inner">
             <h2>Discuss a Requirement</h2>

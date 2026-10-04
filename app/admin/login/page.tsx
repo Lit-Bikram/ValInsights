@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../lib/supabase/client";
+import AdminBrand from "../components/AdminBrand";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -36,29 +37,22 @@ export default function AdminLoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-surface px-6 py-12 admin-login-root">
       <div className="w-full max-w-md">
-        {/* Logo */}
-        <div className="mb-8 text-center">
-          <Link href="/" className="text-3xl font-bold text-primary">
-            Val<span className="text-secondary">Insight</span>
-          </Link>
-
-          <p className="mt-2 text-sm text-muted">
-            Content Management System
-          </p>
+        {/* Company admin logo */}
+        <div className="admin-login-brand">
+          <AdminBrand href="/" />
+          <p>Content Management System</p>
         </div>
 
         {/* Login Card */}
-        <div className="rounded-xl border border-border bg-white p-8 shadow-sm">
-          <h1 className="text-2xl font-bold text-primary">
-            Admin Login
-          </h1>
+        <div className="admin-login-card rounded-xl border border-border bg-white p-8 shadow-sm">
+          <div className="admin-login-card__eyebrow">Secure Administration</div>
+          <h1 className="text-2xl font-bold text-primary">Admin Login</h1>
 
           <p className="mt-2 text-sm text-muted">
-            Sign in to manage ValInsight insights.
+            Sign in to manage Valuation Insights content.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
@@ -79,7 +73,6 @@ export default function AdminLoginPage() {
               />
             </div>
 
-            {/* Password */}
             <div>
               <label
                 htmlFor="password"
@@ -100,14 +93,12 @@ export default function AdminLoginPage() {
               />
             </div>
 
-            {/* Error */}
             {error && (
               <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-700">
                 {error}
               </div>
             )}
 
-            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
@@ -117,7 +108,6 @@ export default function AdminLoginPage() {
             </button>
           </form>
 
-          {/* Back to website */}
           <Link
             href="/"
             className="mt-6 block text-center text-sm font-semibold text-muted transition hover:text-primary"
