@@ -11,22 +11,26 @@ type TaxonomyItem = {
 type Props = {
   sectors: TaxonomyItem[];
   audiences: TaxonomyItem[];
+  services: TaxonomyItem[];
   selectedSector: string;
   selectedAudience: string;
+  selectedService: string;
 };
 
 export default function InsightsFilters({
   sectors,
   audiences,
+  services,
   selectedSector,
   selectedAudience,
+  selectedService,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   function updateFilter(
-    key: "sector" | "audience",
+    key: "sector" | "audience" | "service",
     value: string
   ) {
     const params = new URLSearchParams(searchParams.toString());
@@ -47,7 +51,7 @@ export default function InsightsFilters({
     router.push(pathname, { scroll: false });
   }
 
-  const hasFilters = Boolean(selectedSector || selectedAudience);
+  const hasFilters = Boolean(selectedSector || selectedAudience || selectedService);
 
   return (
     <div className="insights-filter-bar">
@@ -97,6 +101,23 @@ export default function InsightsFilters({
             {audiences.map((audience) => (
               <option key={audience.id} value={audience.slug}>
                 {audience.name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="insights-filter">
+          <span>Core Service</span>
+          <select
+            value={selectedService}
+            onChange={(event) =>
+              updateFilter("service", event.target.value)
+            }
+          >
+            <option value="">All Services</option>
+            {services.map((service) => (
+              <option key={service.id} value={service.slug}>
+                {service.name}
               </option>
             ))}
           </select>

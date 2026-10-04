@@ -50,23 +50,32 @@ export default async function InsightsPage({
   searchParams: Promise<{
     sector?: string;
     audience?: string;
+    service?: string;
   }>;
 }) {
   const params = await searchParams;
   const sectorSlug = params.sector?.trim() || "";
   const audienceSlug = params.audience?.trim() || "";
+  const serviceSlug = params.service?.trim() || "";
 
-  const [{ data: sectors, error: sectorsError }, { data: audiences, error: audiencesError }] =
-    await Promise.all([
-      supabase
-        .from("sectors")
-        .select("id,name,slug")
-        .order("name", { ascending: true }),
-      supabase
-        .from("audiences")
-        .select("id,name,slug")
-        .order("name", { ascending: true }),
-    ]);
+  const [
+    { data: sectors, error: sectorsError },
+    { data: audiences, error: audiencesError },
+    { data: services, error: servicesError },
+  ] = await Promise.all([
+    supabase
+      .from("sectors")
+      .select("id,name,slug")
+      .order("name", { ascending: true }),
+    supabase
+      .from("audiences")
+      .select("id,name,slug")
+      .order("name", { ascending: true }),
+    supabase
+      .from("services")
+      .select("id,name,slug")
+      .order("name", { ascending: true }),
+  ]);
 
   if (sectorsError) {
     console.error("Error loading insight sectors:", sectorsError);
@@ -76,12 +85,20 @@ export default async function InsightsPage({
     console.error("Error loading insight audiences:", audiencesError);
   }
 
+  if (servicesError) {
+    console.error("Error loading insight core services:", servicesError);
+  }
+
   const sectorList = (sectors ?? []) as TaxonomyItem[];
   const audienceList = (audiences ?? []) as TaxonomyItem[];
+  const serviceList = (services ?? []) as TaxonomyItem[];
 
   const selectedSector = sectorList.find((item) => item.slug === sectorSlug);
   const selectedAudience = audienceList.find(
     (item) => item.slug === audienceSlug
+  );
+  const selectedService = serviceList.find(
+    (item) => item.slug === serviceSlug
   );
 
   let matchingInsightIds: string[] | null = null;
@@ -120,6 +137,29 @@ export default async function InsightsPage({
         const audienceIdSet = new Set(audienceIds);
         matchingInsightIds = matchingInsightIds.filter((id) =>
           audienceIdSet.has(id)
+        );
+      }
+    }
+  }
+
+  if (selectedService) {
+    const { data, error } = await supabase
+      .from("insight_services")
+      .select("insight_id")
+      .eq("service_id", selectedService.id);
+
+    if (error) {
+      console.error("Error loading service insight relationships:", error);
+      matchingInsightIds = [];
+    } else {
+      const serviceIds = (data ?? []).map((row) => row.insight_id);
+
+      if (matchingInsightIds === null) {
+        matchingInsightIds = serviceIds;
+      } else {
+        const serviceIdSet = new Set(serviceIds);
+        matchingInsightIds = matchingInsightIds.filter((id) =>
+          serviceIdSet.has(id)
         );
       }
     }
@@ -186,8 +226,10 @@ export default async function InsightsPage({
             <InsightsFilters
               sectors={sectorList}
               audiences={audienceList}
+              services={serviceList}
               selectedSector={sectorSlug}
               selectedAudience={audienceSlug}
+              selectedService={serviceSlug}
             />
 
             {insights.length > 0 ? (

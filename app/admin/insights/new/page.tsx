@@ -34,9 +34,11 @@ export default function NewInsightPage() {
 
   const [sectors, setSectors] = useState<Option[]>([]);
   const [audiences, setAudiences] = useState<Option[]>([]);
+  const [services, setServices] = useState<Option[]>([]);
 
   const [selectedSectors, setSelectedSectors] = useState<string[]>([]);
   const [selectedAudiences, setSelectedAudiences] = useState<string[]>([]);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -82,9 +84,10 @@ export default function NewInsightPage() {
    */
   useEffect(() => {
     async function loadOptions() {
-      const [sectorResult, audienceResult] = await Promise.all([
+      const [sectorResult, audienceResult, serviceResult] = await Promise.all([
         supabase.from("sectors").select("id, name, slug").order("name"),
         supabase.from("audiences").select("id, name, slug").order("name"),
+        supabase.from("services").select("id, name, slug").order("name"),
       ]);
 
       if (sectorResult.data) {
@@ -93,6 +96,10 @@ export default function NewInsightPage() {
 
       if (audienceResult.data) {
         setAudiences(audienceResult.data);
+      }
+
+      if (serviceResult.data) {
+        setServices(serviceResult.data);
       }
     }
 
@@ -127,6 +134,17 @@ export default function NewInsightPage() {
     setSelectedAudiences((current) =>
       current.includes(id)
         ? current.filter((audienceId) => audienceId !== id)
+        : [...current, id],
+    );
+  }
+
+  /*
+   * Core service selection
+   */
+  function toggleService(id: string) {
+    setSelectedServices((current) =>
+      current.includes(id)
+        ? current.filter((serviceId) => serviceId !== id)
         : [...current, id],
     );
   }
@@ -197,6 +215,7 @@ export default function NewInsightPage() {
           p_status: status,
           p_sector_ids: selectedSectors,
           p_audience_ids: selectedAudiences,
+          p_service_ids: selectedServices,
         },
       );
 
@@ -633,6 +652,29 @@ export default function NewInsightPage() {
                     />
 
                     <span className="text-sm text-gray-700">{sector.name}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Core Services */}
+            <div className="mt-8">
+              <h3 className="text-sm font-semibold text-gray-700">Core Services</h3>
+
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {services.map((service) => (
+                  <label
+                    key={service.id}
+                    className="flex cursor-pointer items-center gap-3 rounded-md border border-border p-3 hover:bg-surface"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedServices.includes(service.id)}
+                      onChange={() => toggleService(service.id)}
+                      className="h-4 w-4"
+                    />
+
+                    <span className="text-sm text-gray-700">{service.name}</span>
                   </label>
                 ))}
               </div>

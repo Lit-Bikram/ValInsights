@@ -81,11 +81,28 @@
   --site-card-radius: 4px;
   --site-transition: 180ms ease;
 
+  /* =========================================================
+     GLOBAL REVEAL / ENTRANCE ANIMATION
+     Keep all section reveals consistent across the website.
+     Change these values to tune the animation globally.
+     ========================================================= */
+  --reveal-duration: 1100ms;
+  --reveal-distance: 28px;
+  --reveal-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-delay: 0ms;
+
+  /* Hero image uses the same reveal duration/easing,
+     with only a very subtle scale for depth. */
+  --hero-reveal-scale: 1.035;
+
   /* Independent image readability controls. */
   --hero-overlay-opacity: 1.5;
   --inner-banner-overlay-opacity: 0.82;
   --image-text-overlay-opacity: 0.78;
   --banner-overlay-opacity: 0.84;
+
+  /* Shared inner-page hero height. Keep all service/detail pages aligned. */
+  --inner-page-hero-height: 330px;
 }
 @media (max-width: 800px) {
   :root {
@@ -774,13 +791,15 @@ a {
   border: 1px solid rgba(11, 31, 58, 0.05);
   scroll-snap-align: start;
   transition:
-    transform 220ms ease,
-    box-shadow 220ms ease;
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 280ms ease,
+    box-shadow 280ms ease;
 }
 .home-service-card:hover,
 .home-sector-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(11, 31, 58, 0.1);
+  transform: translateY(-6px);
+  border-color: #d0a24e;
+  box-shadow: 0 18px 42px rgba(11, 31, 58, 0.12);
 }
 .home-card-image {
   position: relative;
@@ -808,6 +827,12 @@ a {
   font-weight: 700;
   line-height: 1.35;
   text-transform: uppercase;
+  transition: color 220ms ease;
+}
+
+.home-service-card:hover .home-card-body h3,
+.home-sector-card:hover .home-card-body h3 {
+  color: #a77d3d;
 }
 .home-card-body p {
   margin: 14px 0 0;
@@ -1266,8 +1291,11 @@ a {
   overflow-x: hidden;
   background: var(--site-bg);
   color: #0a2235;
+  scrollbar-width: none;
 }
-
+.about-page::-webkit-scrollbar {
+  display: none;
+}
 .about-shell {
   width: min(100% - 80px, 1380px);
   margin: 0 auto;
@@ -3455,7 +3483,7 @@ a {
 
 .service-hero {
   position: relative;
-  min-height: 300px;
+  min-height: var(--inner-page-hero-height);
   overflow: hidden;
   background: #061f30;
 }
@@ -3831,7 +3859,7 @@ a {
   }
 
   .service-hero {
-    min-height: 355px;
+    min-height: var(--inner-page-hero-height);
   }
 
   .service-hero__content {
@@ -5812,26 +5840,530 @@ a {
 
 
 /* =========================================================
-   SOLUTIONS PAGE — SCROLL REVEAL
+   GLOBAL WEBSITE SCROLL REVEAL
    ========================================================= */
 
-.scroll-reveal {
+/*
+ * All normal page sections use exactly the same reveal:
+ * - opacity: 0 -> 1
+ * - translateY: --reveal-distance -> 0
+ * - duration/easing controlled globally from :root
+ *
+ * PageReveal.tsx adds .page-section-visible when the section
+ * enters the viewport.
+ */
+.page-section-reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(var(--reveal-distance));
+
   transition:
-    opacity 700ms ease,
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity var(--reveal-duration) var(--reveal-easing),
+    transform var(--reveal-duration) var(--reveal-easing);
+
   transition-delay: var(--reveal-delay, 0ms);
+
+  will-change: opacity, transform;
 }
 
-.scroll-reveal.is-visible {
+.page-section-reveal.page-section-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Respect reduced-motion preferences */
+
+/* =========================================================
+   HERO ENTRANCE — HOME + INNER PAGES
+   ========================================================= */
+
+/*
+ * Hero sections are intentionally independent of the generic
+ * scroll observer. Their entrance starts immediately on page
+ * load, while all hero pieces use the same global duration and
+ * easing for a consistent visual language.
+ */
+
+.home-hero,
+.about-hero {
+  animation:
+    globalHeroSectionReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.home-hero__image,
+.about-hero__image {
+  animation:
+    globalHeroImageReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.home-hero__overlay,
+.about-hero__overlay {
+  animation:
+    globalHeroOverlayReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.home-hero__content,
+.about-hero__content {
+  animation:
+    globalHeroContentReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    var(--reveal-delay)
+    both;
+}
+
+
+/* Hero section */
+@keyframes globalHeroSectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Hero image — subtle depth without an aggressive zoom */
+@keyframes globalHeroImageReveal {
+  from {
+    opacity: 0;
+    transform: scale(var(--hero-reveal-scale));
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Hero overlay */
+@keyframes globalHeroOverlayReveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Hero content */
+@keyframes globalHeroContentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  .scroll-reveal {
+  .page-section-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .home-hero,
+  .about-hero,
+  .home-hero__image,
+  .about-hero__image,
+  .home-hero__overlay,
+  .about-hero__overlay,
+  .home-hero__content,
+  .about-hero__content {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   ABOUT PAGE — THE FIRM REVEAL
+   ========================================================= */
+
+/*
+ * The Firm content gets its own entrance animation.
+ *
+ * This is intentionally scoped only to the About page so that
+ * no other page or existing reveal animation is affected.
+ */
+
+.about-firm__copy,
+.about-profile-card {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+
+  animation:
+    aboutFirmReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+
+/*
+ * Owner card enters just after the main firm copy.
+ */
+.about-profile-card {
+  animation-delay: 120ms;
+}
+
+
+/*
+ * Owner portrait has a subtle scale/fade entrance.
+ */
+.about-profile-card__portrait {
+  opacity: 0;
+  transform: scale(0.94);
+
+  animation:
+    aboutOwnerPortraitReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    180ms
+    both;
+}
+
+
+/* =========================================================
+   THE FIRM KEYFRAMES
+   ========================================================= */
+
+@keyframes aboutFirmReveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   OWNER PORTRAIT KEYFRAMES
+   ========================================================= */
+
+@keyframes aboutOwnerPortraitReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-firm__copy,
+  .about-profile-card,
+  .about-profile-card__portrait {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* =========================================================
+   SOLUTIONS PAGE — HERO + CORE SERVICES ANIMATIONS
+   ========================================================= */
+
+/* Solutions hero uses the same global entrance language as
+   the Home and About heroes. */
+.solutions-hero {
+  animation:
+    globalHeroSectionReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.solutions-hero__image {
+  animation:
+    globalHeroImageReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.solutions-hero__overlay {
+  animation:
+    globalHeroOverlayReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.solutions-hero__content {
+  animation:
+    globalHeroContentReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    var(--reveal-delay)
+    both;
+}
+
+
+/* =========================================================
+   SOLUTIONS — CORE SERVICE CARD REVEAL
+   ========================================================= */
+
+/*
+ * Do not depend on a transition on the cards themselves.
+ * The cards stay hidden until PageReveal marks the Core Services
+ * section as visible, then each card runs a real entrance animation.
+ * This is more reliable than animating the same transform used by
+ * the card hover effect.
+ */
+.solutions-core.page-section-reveal .solutions-service-card {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  animation: none;
+}
+
+.solutions-core.page-section-visible .solutions-service-card {
+  opacity: 1;
+  transform: translateY(0);
+  animation:
+    solutionsCoreCardReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.solutions-core.page-section-visible .solutions-service-card:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.solutions-core.page-section-visible .solutions-service-card:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.solutions-core.page-section-visible .solutions-service-card:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.solutions-core.page-section-visible .solutions-service-card:nth-child(4) {
+  animation-delay: 270ms;
+}
+
+@keyframes solutionsCoreCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keep the existing hover interaction immediate after reveal. */
+.solutions-core.page-section-visible .solutions-service-card:hover {
+  transform: translateY(-6px);
+}
+
+
+/* =========================================================
+   HIDE THE RIGHT-SIDE SCROLLBAR
+   Scrolling still works; only the visible scrollbar is removed.
+   ========================================================= */
+
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+
+/* =========================================================
+   SOLUTIONS — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .solutions-hero,
+  .solutions-hero__image,
+  .solutions-hero__overlay,
+  .solutions-hero__content {
+    animation: none;
+  }
+
+  .solutions-core.page-section-reveal .solutions-service-card,
+  .solutions-core.page-section-visible .solutions-service-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   CORE SERVICE PAGES — HERO + SECTION REVEALS
+   ========================================================= */
+
+/*
+ * All individual Core Service pages use the same inner-page hero
+ * geometry and the same global entrance language.
+ */
+.service-hero {
+  animation:
+    globalHeroSectionReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.service-hero__image {
+  animation:
+    globalHeroImageReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.service-hero__overlay {
+  animation:
+    globalHeroOverlayReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    both;
+}
+
+.service-hero__content {
+  animation:
+    globalHeroContentReveal
+    var(--reveal-duration)
+    var(--reveal-easing)
+    var(--reveal-delay)
+    both;
+}
+
+/*
+ * Section-level reveal is handled by PageReveal.tsx.
+ * The cards below inherit the same global timing and only add
+ * a restrained stagger once their parent section is visible.
+ */
+.service-scope.page-section-reveal .service-scope-card,
+.service-approach.page-section-reveal .service-method-card,
+.service-insights.page-section-reveal .service-insight-row {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition:
+    opacity var(--reveal-duration) var(--reveal-easing),
+    transform var(--reveal-duration) var(--reveal-easing);
+}
+
+.service-scope.page-section-visible .service-scope-card,
+.service-approach.page-section-visible .service-method-card,
+.service-insights.page-section-visible .service-insight-row {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-scope.page-section-reveal .service-scope-card:nth-child(1),
+.service-approach.page-section-reveal .service-method-card:nth-child(1),
+.service-insights.page-section-reveal .service-insight-row:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.service-scope.page-section-reveal .service-scope-card:nth-child(2),
+.service-approach.page-section-reveal .service-method-card:nth-child(2),
+.service-insights.page-section-reveal .service-insight-row:nth-child(2) {
+  transition-delay: 90ms;
+}
+
+.service-scope.page-section-reveal .service-scope-card:nth-child(3),
+.service-approach.page-section-reveal .service-method-card:nth-child(3),
+.service-insights.page-section-reveal .service-insight-row:nth-child(3) {
+  transition-delay: 180ms;
+}
+
+.service-scope.page-section-reveal .service-scope-card:nth-child(4),
+.service-approach.page-section-reveal .service-method-card:nth-child(4),
+.service-insights.page-section-reveal .service-insight-row:nth-child(4) {
+  transition-delay: 270ms;
+}
+
+.service-scope.page-section-reveal .service-scope-card:nth-child(5),
+.service-approach.page-section-reveal .service-method-card:nth-child(5),
+.service-insights.page-section-reveal .service-insight-row:nth-child(5) {
+  transition-delay: 360ms;
+}
+
+.service-scope.page-section-reveal .service-scope-card:nth-child(6),
+.service-approach.page-section-reveal .service-method-card:nth-child(6),
+.service-insights.page-section-reveal .service-insight-row:nth-child(6) {
+  transition-delay: 450ms;
+}
+
+
+/* Keep scrolling functional while hiding the browser scrollbar. */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+@media (max-width: 800px) {
+  :root {
+    --inner-page-hero-height: 330px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-hero,
+  .service-hero__image,
+  .service-hero__overlay,
+  .service-hero__content {
+    animation: none;
+  }
+
+  .service-scope.page-section-reveal .service-scope-card,
+  .service-scope.page-section-visible .service-scope-card,
+  .service-approach.page-section-reveal .service-method-card,
+  .service-approach.page-section-visible .service-method-card,
+  .service-insights.page-section-reveal .service-insight-row,
+  .service-insights.page-section-visible .service-insight-row {
     opacity: 1;
     transform: none;
     transition: none;

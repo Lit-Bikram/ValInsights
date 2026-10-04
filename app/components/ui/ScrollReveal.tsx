@@ -1,9 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import {
+  useEffect,
+  useRef,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 
 type ScrollRevealProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   delay?: number;
 };
@@ -18,7 +23,9 @@ export default function ScrollReveal({
   useEffect(() => {
     const element = ref.current;
 
-    if (!element) return;
+    if (!element) {
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -35,14 +42,20 @@ export default function ScrollReveal({
 
     observer.observe(element);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, []);
+
+  const style = {
+    "--reveal-delay": `${delay}ms`,
+  } as CSSProperties;
 
   return (
     <div
       ref={ref}
       className={`scroll-reveal ${className}`}
-      style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
+      style={style}
     >
       {children}
     </div>

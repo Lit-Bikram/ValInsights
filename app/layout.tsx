@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import PageReveal from "./components/ui/PageReveal";
 
 export const metadata: Metadata = {
-  title: {
-    default: "ValInsight",
-    template: "%s | ValInsight",
-  },
-  description:
-    "Independent valuation specialists supporting businesses, investors, boards, and legal stakeholders.",
-
-  icons: {
-    icon: "/brand/icon.png",
-  },
+  title: "ValInsight",
+  description: "Independent Valuation Specialists",
 };
 
 export default function RootLayout({
@@ -20,8 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" data-scroll-behavior="smooth">
+      <body>
+        <PageReveal>
+          {children}
+        </PageReveal>
+      </body>
     </html>
   );
 }

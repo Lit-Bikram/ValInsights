@@ -5,7 +5,9 @@ import Link from "next/link";
 
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+
 import { useEffect, useRef, useState } from "react";
+
 const solutions = [
   {
     title: "Valuation of Securities & Financial Assets",
@@ -162,7 +164,7 @@ function DragRail({
     try {
       rail.setPointerCapture(event.pointerId);
     } catch {
-      // Ignore unsupported pointer capture.
+      // Ignore pointer capture errors.
     }
   };
 
@@ -174,33 +176,25 @@ function DragRail({
     if (!rail || !dragging.current) return;
 
     const currentX = event.clientX;
-    const now = performance.now();
+    const currentTime = performance.now();
 
-    const distance = currentX - startX.current;
+    const deltaX = currentX - startX.current;
 
-    if (Math.abs(distance) > 5) {
+    if (Math.abs(deltaX) > 5) {
       didDrag.current = true;
     }
 
-    /*
-      Calculate velocity for momentum after release.
-    */
-    const deltaX = currentX - lastX.current;
-    const deltaTime = now - lastTime.current;
+    rail.scrollLeft = startScrollLeft.current - deltaX;
 
-    if (deltaTime > 0) {
-      velocity.current = deltaX / deltaTime * 16;
+    const timeDelta = currentTime - lastTime.current;
+
+    if (timeDelta > 0) {
+      velocity.current =
+        (currentX - lastX.current) / timeDelta;
     }
 
     lastX.current = currentX;
-    lastTime.current = now;
-
-    /*
-      Direct 1:1 movement.
-      No CSS smooth scrolling while dragging.
-    */
-    rail.scrollLeft =
-      startScrollLeft.current - distance;
+    lastTime.current = currentTime;
   };
 
   const stopDragging = () => {
@@ -214,9 +208,6 @@ function DragRail({
       rail.classList.remove("is-dragging");
     }
 
-    /*
-      Continue movement naturally after release.
-    */
     if (Math.abs(velocity.current) > 0.5) {
       startMomentum();
     }
@@ -265,21 +256,24 @@ export default function Home() {
 
   useEffect(() => {
     const interval = window.setInterval(() => {
-      setInsightsSlide((current) => (current + 1) % insightSlides.length);
+      setInsightsSlide(
+        (current) => (current + 1) % insightSlides.length
+      );
     }, 5000);
 
     return () => window.clearInterval(interval);
   }, []);
 
   return (
-    
     <>
       <Header />
 
       <main className="home-page">
+
         {/* =====================================================
             HERO
         ====================================================== */}
+
         <section className="home-hero">
           <Image
             src="/images/homepage/hero-banner.png"
@@ -293,7 +287,9 @@ export default function Home() {
           <div className="home-hero__overlay" />
 
           <div className="home-shell home-hero__content">
-            <p className="home-eyebrow">Independent Valuation Specialists</p>
+            <p className="home-eyebrow">
+              Independent Valuation Specialists
+            </p>
 
             <h1>
               Technical insight for decisions
@@ -302,29 +298,37 @@ export default function Home() {
             </h1>
 
             <p className="home-hero__description">
-              We support businesses, investors, boards, and legal teams with
-              valuation services for transactions, financial reporting, and
-              disputes—providing conclusions that are transparent,
-              well-reasoned, and fit for stakeholder scrutiny.
+              We support businesses, investors, boards, and legal teams
+              with valuation services for transactions, financial
+              reporting, and disputes—providing conclusions that are
+              transparent, well-reasoned, and fit for stakeholder
+              scrutiny.
             </p>
 
-            <Link href="/contact" className="home-button">
+            <Link
+              href="/contact"
+              className="home-button"
+            >
               Discuss a Requirement
             </Link>
           </div>
         </section>
 
+
         {/* =====================================================
             WHO WE ARE
         ====================================================== */}
+
         <section className="home-who-we-are">
           <div className="home-shell home-who-we-are__inner">
+
             <div className="home-section-label">
               <span />
               Who We Are
             </div>
 
             <div className="home-who-we-are__content">
+
               <div>
                 <h2>
                   Specialist valuation expertise
@@ -335,32 +339,39 @@ export default function Home() {
 
               <div className="home-who-we-are__copy">
                 <p>
-                  ValInsight is a specialist valuation firm serving clients
-                  across India, the UAE, and the wider Gulf. We combine sector
-                  context with disciplined financial analysis for complex
-                  valuation requirements across transactions, reporting, and
-                  disputes.
+                  ValInsight is a specialist valuation firm serving
+                  clients across India, the UAE, and the wider Gulf.
+                  We combine sector context with disciplined financial
+                  analysis for complex valuation requirements across
+                  transactions, reporting, and disputes.
                 </p>
 
                 <p>
-                  Our work is designed for situations where valuation affects
-                  reporting, investment, ownership, transaction structure, or
-                  the resolution of a contested matter.
+                  Our work is designed for situations where valuation
+                  affects reporting, investment, ownership, transaction
+                  structure, or the resolution of a contested matter.
                 </p>
 
-                <Link href="/about" className="home-text-link">
+                <Link
+                  href="/about"
+                  className="home-text-link"
+                >
                   Learn more about us <span>→</span>
                 </Link>
               </div>
+
             </div>
           </div>
         </section>
 
+
         {/* =====================================================
             WHAT WE DO
         ====================================================== */}
+
         <section className="home-services">
           <div className="home-shell">
+
             <div className="home-section-heading">
               <div className="home-section-label">
                 <span />
@@ -368,7 +379,8 @@ export default function Home() {
               </div>
 
               <p>
-                Advice built around important financial and strategic choices.
+                Advice built around important financial and strategic
+                choices.
               </p>
             </div>
 
@@ -400,6 +412,7 @@ export default function Home() {
                 </Link>
               ))}
             </DragRail>
+
           </div>
         </section>
 
@@ -407,8 +420,10 @@ export default function Home() {
         {/* =====================================================
             SECTOR EXPERTISE
         ====================================================== */}
+
         <section className="home-sectors">
           <div className="home-shell">
+
             <div className="home-section-heading">
               <div className="home-section-label">
                 <span />
@@ -416,10 +431,11 @@ export default function Home() {
               </div>
 
               <p>
-                We work in sectors where commercial conditions, operating
-                performance, and market dynamics have a direct bearing on value.
-                Our analysis reflects how these factors affect cash flows, risk,
-                capital requirements, and long-term prospects.
+                We work in sectors where commercial conditions,
+                operating performance, and market dynamics have a
+                direct bearing on value. Our analysis reflects how
+                these factors affect cash flows, risk, capital
+                requirements, and long-term prospects.
               </p>
             </div>
 
@@ -451,15 +467,17 @@ export default function Home() {
                 </Link>
               ))}
             </DragRail>
+
           </div>
         </section>
 
 
-        
         {/* =====================================================
             INSIGHTS
         ====================================================== */}
+
         <section className="home-insights">
+
           <div className="home-insights__background">
             {insightSlides.map((src, index) => (
               <Image
@@ -470,7 +488,9 @@ export default function Home() {
                 sizes="100vw"
                 priority={index === 0}
                 className={`home-insights__image ${
-                  index === insightsSlide ? "home-insights__image--active" : ""
+                  index === insightsSlide
+                    ? "home-insights__image--active"
+                    : ""
                 }`}
               />
             ))}
@@ -479,43 +499,62 @@ export default function Home() {
           <div className="home-insights__overlay" />
 
           <div className="home-shell home-insights__content">
-            <p className="home-eyebrow">Insights &amp; Market Intelligence</p>
 
-            <h2>Insights &amp; Market Intelligence</h2>
-
-            <p>
-              We publish concise observations on valuation, sector economics,
-              and the issues shaping transactions, reporting, and disputes. The
-              emphasis is on clarity, relevance, and practical application.
+            <p className="home-eyebrow">
+              Insights &amp; Market Intelligence
             </p>
 
-            <Link href="/insights" className="home-button">
+            <h2>
+              Insights &amp; Market Intelligence
+            </h2>
+
+            <p>
+              We publish concise observations on valuation, sector
+              economics, and the issues shaping transactions,
+              reporting, and disputes. The emphasis is on clarity,
+              relevance, and practical application.
+            </p>
+
+            <Link
+              href="/insights"
+              className="home-button"
+            >
               Read Insights
             </Link>
+
           </div>
+
         </section>
 
-        
 
         {/* =====================================================
             CTA
         ====================================================== */}
+
         <section className="home-cta">
+
           <div className="home-cta__curve" />
 
           <div className="home-shell home-cta__content">
+
             <h2>Discuss a Requirement</h2>
 
             <p>
-              A confidential conversation about valuation, transactions,
-              reporting, or strategic decisions.
+              A confidential conversation about valuation,
+              transactions, reporting, or strategic decisions.
             </p>
 
-            <Link href="/contact" className="home-button">
+            <Link
+              href="/contact"
+              className="home-button"
+            >
               Contact the Firm
             </Link>
+
           </div>
+
         </section>
+
       </main>
 
       <Footer />

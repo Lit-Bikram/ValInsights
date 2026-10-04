@@ -43,9 +43,11 @@ export default function EditInsightPage() {
 
   const [sectors, setSectors] = useState<Option[]>([]);
   const [audiences, setAudiences] = useState<Option[]>([]);
+  const [services, setServices] = useState<Option[]>([]);
 
   const [selectedSectors, setSelectedSectors] = useState<string[]>([]);
   const [selectedAudiences, setSelectedAudiences] = useState<string[]>([]);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -196,10 +198,12 @@ export default function EditInsightPage() {
       /*
        * Load sectors and audiences
        */
-      const [sectorResult, audienceResult] = await Promise.all([
+      const [sectorResult, audienceResult, serviceResult] = await Promise.all([
         supabase.from("sectors").select("id, name, slug").order("name"),
 
         supabase.from("audiences").select("id, name, slug").order("name"),
+
+        supabase.from("services").select("id, name, slug").order("name"),
       ]);
 
       if (sectorResult.error) {
@@ -212,6 +216,7 @@ export default function EditInsightPage() {
 
       setSectors(sectorResult.data || []);
       setAudiences(audienceResult.data || []);
+      setServices(serviceResult.data || []);
 
       /*
        * Load selected sector relationships
@@ -245,6 +250,21 @@ export default function EditInsightPage() {
         audienceRelations?.map((item) => item.audience_id) || [],
       );
 
+      /*
+       * Load selected core-service relationships
+       */
+      const { data: serviceRelations, error: serviceRelationError } =
+        await supabase
+          .from("insight_services")
+          .select("service_id")
+          .eq("insight_id", insightId);
+
+      if (serviceRelationError) {
+        console.error("Core service relationship error:", serviceRelationError);
+      }
+
+      setSelectedServices(serviceRelations?.map((item) => item.service_id) || []);
+
       setLoading(false);
     } catch (error) {
       console.error("Unexpected error:", error);
@@ -277,6 +297,17 @@ export default function EditInsightPage() {
     setSelectedAudiences((current) =>
       current.includes(id)
         ? current.filter((audienceId) => audienceId !== id)
+        : [...current, id],
+    );
+  }
+
+  /*
+   * Core service selection
+   */
+  function toggleService(id: string) {
+    setSelectedServices((current) =>
+      current.includes(id)
+        ? current.filter((serviceId) => serviceId !== id)
         : [...current, id],
     );
   }
@@ -344,6 +375,7 @@ export default function EditInsightPage() {
         p_status: status,
         p_sector_ids: selectedSectors,
         p_audience_ids: selectedAudiences,
+        p_service_ids: selectedServices,
       });
 
       if (error) {
@@ -893,6 +925,29 @@ export default function EditInsightPage() {
                     />
 
                     <span className="text-sm text-gray-700">{sector.name}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Core Services */}
+            <div className="mt-8">
+              <h3 className="text-sm font-semibold text-gray-700">Core Services</h3>
+
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {services.map((service) => (
+                  <label
+                    key={service.id}
+                    className="flex cursor-pointer items-center gap-3 rounded-md border border-border p-3 hover:bg-surface"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedServices.includes(service.id)}
+                      onChange={() => toggleService(service.id)}
+                      className="h-4 w-4"
+                    />
+
+                    <span className="text-sm text-gray-700">{service.name}</span>
                   </label>
                 ))}
               </div>

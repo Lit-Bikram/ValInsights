@@ -1,4 +1,3 @@
-import ScrollReveal from "../components/ui/ScrollReveal";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/layout/Header";
@@ -87,37 +86,35 @@ export default function SolutionsPage() {
             HERO
         ====================================================== */}
 
-        <ScrollReveal className="solutions-reveal-hero">
-          <section className="solutions-hero">
-            <Image
-              src="/images/shared/inner-page-banner.jpg"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="solutions-hero__image"
-            />
+        <section className="solutions-hero">
+          <Image
+            src="/images/shared/inner-page-banner.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="solutions-hero__image"
+          />
 
-            <div className="solutions-hero__overlay" />
+          <div className="solutions-hero__overlay" />
 
-            <div className="solutions-shell solutions-hero__content">
-              <p className="solutions-breadcrumb">
-                Home / Our Solution
-              </p>
+          <div className="solutions-shell solutions-hero__content">
+            <p className="solutions-breadcrumb">
+              Home / Our Solution
+            </p>
 
-              <h1>Our Solution</h1>
+            <h1>Our Solution</h1>
 
-              <p>
-                Our work is organised around four valuation disciplines:
-                securities and financial assets, real estate, tangible assets,
-                and contested matters. Within each, we bring together
-                commercial context, financial evidence, and appropriate
-                methodology to produce conclusions that are clear,
-                well-supported, and fit for their intended use.
-              </p>
-            </div>
-          </section>
-        </ScrollReveal>
+            <p>
+              Our work is organised around four valuation disciplines:
+              securities and financial assets, real estate, tangible assets,
+              and contested matters. Within each, we bring together
+              commercial context, financial evidence, and appropriate
+              methodology to produce conclusions that are clear,
+              well-supported, and fit for their intended use.
+            </p>
+          </div>
+        </section>
 
 
         {/* =====================================================
@@ -127,45 +124,39 @@ export default function SolutionsPage() {
         <section className="solutions-core">
           <div className="solutions-shell">
 
-            <ScrollReveal>
-              <h2>Core Services</h2>
+            <h2>Core Services</h2>
 
-              <p className="solutions-section-intro">
-                Explore our main operational disciplines:
-              </p>
-            </ScrollReveal>
+            <p className="solutions-section-intro">
+              Explore our main operational disciplines:
+            </p>
 
             <div className="solutions-core__grid">
-              {coreServices.map((service, index) => (
-                <ScrollReveal
+              {coreServices.map((service) => (
+                <Link
                   key={service.title}
-                  delay={index * 100}
+                  href={service.href}
+                  className="solutions-service-card"
                 >
-                  <Link
-                    href={service.href}
-                    className="solutions-service-card"
-                  >
-                    <div className="solutions-service-card__content">
-                      <h3>{service.title}</h3>
+                  <div className="solutions-service-card__content">
+                    <h3>{service.title}</h3>
 
-                      <p>{service.description}</p>
+                    <p>{service.description}</p>
 
-                      <span className="solutions-service-card__link">
-                        Learn more{" "}
-                        <span aria-hidden="true">→</span>
-                      </span>
-                    </div>
+                    <span className="solutions-service-card__link">
+                      Learn more{" "}
+                      <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
 
-                    <div className="solutions-service-card__image">
-                      <Image
-                        src={service.image}
-                        alt=""
-                        fill
-                        sizes="(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 620px"
-                      />
-                    </div>
-                  </Link>
-                </ScrollReveal>
+                  <div className="solutions-service-card__image">
+                    <Image
+                      src={service.image}
+                      alt=""
+                      fill
+                      sizes="(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 620px"
+                    />
+                  </div>
+                </Link>
               ))}
             </div>
 
@@ -180,27 +171,23 @@ export default function SolutionsPage() {
         <section className="solutions-purposes">
           <div className="solutions-shell">
 
-            <ScrollReveal>
-              <h2>Purposes of Valuation</h2>
+            <h2>Purposes of Valuation</h2>
 
-              <p className="solutions-section-intro">
-                Across these disciplines, assignments commonly arise in three
-                primary contexts:
-              </p>
-            </ScrollReveal>
+            <p className="solutions-section-intro">
+              Across these disciplines, assignments commonly arise in three
+              primary contexts:
+            </p>
 
             <div className="solutions-purposes__grid">
-              {purposes.map((purpose, index) => (
-                <ScrollReveal
+              {purposes.map((purpose) => (
+                <article
                   key={purpose.title}
-                  delay={index * 100}
+                  className="solutions-purpose-card"
                 >
-                  <article className="solutions-purpose-card">
-                    <h3>{purpose.title}</h3>
+                  <h3>{purpose.title}</h3>
 
-                    <p>{purpose.description}</p>
-                  </article>
-                </ScrollReveal>
+                  <p>{purpose.description}</p>
+                </article>
               ))}
             </div>
 
@@ -215,27 +202,23 @@ export default function SolutionsPage() {
         <section className="solutions-work">
           <div className="solutions-shell">
 
-            <ScrollReveal>
-              <h2>How We Work</h2>
+            <h2>How We Work</h2>
 
-              <p className="solutions-section-intro">
-                Our systematic approach ensures structural robustness across
-                every engagement framework:
-              </p>
-            </ScrollReveal>
+            <p className="solutions-section-intro">
+              Our systematic approach ensures structural robustness across
+              every engagement framework:
+            </p>
 
             <div className="solutions-work__grid">
-              {workPrinciples.map((item, index) => (
-                <ScrollReveal
+              {workPrinciples.map((item) => (
+                <article
                   key={item.title}
-                  delay={index * 100}
+                  className="solutions-work-card"
                 >
-                  <article className="solutions-work-card">
-                    <h3>{item.title}</h3>
+                  <h3>{item.title}</h3>
 
-                    <p>{item.description}</p>
-                  </article>
-                </ScrollReveal>
+                  <p>{item.description}</p>
+                </article>
               ))}
             </div>
 
@@ -247,27 +230,25 @@ export default function SolutionsPage() {
             CTA
         ====================================================== */}
 
-        <ScrollReveal>
-          <section className="solutions-cta">
-            <div className="solutions-shell solutions-cta__inner">
+        <section className="solutions-cta">
+          <div className="solutions-shell solutions-cta__inner">
 
-              <h2>Discuss a Requirement</h2>
+            <h2>Discuss a Requirement</h2>
 
-              <p>
-                To discuss a valuation assignment or a related matter,
-                contact us at contact@valuationinsights.com or [phone].
-              </p>
+            <p>
+              To discuss a valuation assignment or a related matter,
+              contact us at contact@valuationinsights.com or [phone].
+            </p>
 
-              <Link
-                href="/contact"
-                className="solutions-cta__button"
-              >
-                Contact us
-              </Link>
+            <Link
+              href="/contact"
+              className="solutions-cta__button"
+            >
+              Contact us
+            </Link>
 
-            </div>
-          </section>
-        </ScrollReveal>
+          </div>
+        </section>
 
       </main>
 

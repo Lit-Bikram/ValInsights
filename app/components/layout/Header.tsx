@@ -47,9 +47,14 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="home-logo" aria-label="Valuation Insights home" onClick={closeMenu}>
           <img
-              src="brand/logo-header.png"
-              alt="Valuation Insights"
-            />
+            src="/brand/logo-header.png"
+            alt="Valuation Insights"
+            className="home-logo__image"
+            onError={(event) => {
+              const image = event.currentTarget;
+              image.style.display = "none";
+            }}
+          />
 
         </Link>
 
