@@ -77,7 +77,8 @@ export default function Footer() {
 
           <nav aria-label="Footer resources">
             <Link href="/insights">Insights</Link>
-            <Link href="/contact">Contact Us</Link>
+            {/* <Link href="/contact">Contact Us</Link> */}
+            <Link href="/sectors">Sectors</Link>
           </nav>
         </div>
 

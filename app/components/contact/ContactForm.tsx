@@ -86,71 +86,40 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
-      <div className="contact-form__row">
-        <label>
-          <span className="contact-form__label-text">
-            Name <span aria-hidden="true">*</span>
-          </span>
-
-          <input
-            type="text"
-            name="name"
-            placeholder="Your name"
-            autoComplete="name"
-            required
-            minLength={2}
-            maxLength={120}
-          />
-        </label>
-
-        <label>
-          <span className="contact-form__label-text">
-            Organisation
-          </span>
-          <input
-            type="text"
-            name="organisation"
-            placeholder="Company / organisation"
-            autoComplete="organization"
-            maxLength={180}
-          />
-        </label>
-      </div>
-
-      <div className="contact-form__row">
-        <label>
-          <span className="contact-form__label-text">
-            Email <span aria-hidden="true">*</span>
-          </span>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email"
-            autoComplete="email"
-            required
-            maxLength={254}
-          />
-        </label>
-
-        <label>
-          <span className="contact-form__label-text">
-            Phone
-          </span>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Your phone"
-            autoComplete="tel"
-            maxLength={60}
-          />
-        </label>
-      </div>
+      <label>
+        <span className="contact-form__label-text">
+          Full Name <span aria-hidden="true">*</span>
+        </span>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your full name"
+          autoComplete="name"
+          required
+          minLength={2}
+          maxLength={120}
+        />
+      </label>
 
       <label>
         <span className="contact-form__label-text">
-          Requirement <span aria-hidden="true">*</span>
+          Professional Email <span aria-hidden="true">*</span>
         </span>
-        <select name="requirement" defaultValue="" required>
+        <input
+          type="email"
+          name="email"
+          placeholder="name@company.com"
+          autoComplete="email"
+          required
+          maxLength={254}
+        />
+      </label>
+
+      <label>
+        <span className="contact-form__label-text">
+          Requirement Area <span aria-hidden="true">*</span>
+        </span>
+        <select name="requirement" defaultValue="Valuation assignment" required>
           <option value="" disabled>
             Select an area
           </option>
@@ -164,22 +133,27 @@ export default function ContactForm() {
 
       <label>
         <span className="contact-form__label-text">
-          Message <span aria-hidden="true">*</span>
+          Assignment Details <span aria-hidden="true">*</span>
         </span>
         <textarea
           name="message"
           rows={6}
-          placeholder="Briefly describe the matter, asset, transaction, or dispute."
+          placeholder="Briefly describe your valuation requirement, reporting framework, or transaction scope..."
           required
           minLength={10}
           maxLength={5000}
         />
       </label>
 
-      {/* Honeypot: hidden from normal visitors and used for basic bot filtering. */}
+      {/* Keep the existing honeypot bot protection. */}
       <label className="contact-form__honeypot" aria-hidden="true">
         Website
-        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </label>
 
       {formState === "error" && (
@@ -193,7 +167,7 @@ export default function ContactForm() {
         className="contact-form__button"
         disabled={formState === "submitting"}
       >
-        {formState === "submitting" ? "Sending…" : "Send Enquiry"}
+        {formState === "submitting" ? "Submitting…" : "Submit Requirement"}
       </button>
     </form>
   );

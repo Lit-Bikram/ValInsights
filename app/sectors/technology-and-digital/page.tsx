@@ -142,9 +142,7 @@ export default function TechnologyDigitalPage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
-              <p className="sector-label">01 / Sector Overview</p>
-
-              <h2>Understanding Value in Technology Businesses</h2>
+            <h2>Understanding Value in Technology Businesses</h2>
 
               <p>
                 Technology and digital businesses can have economic
@@ -188,8 +186,6 @@ export default function TechnologyDigitalPage() {
         {/* Typical assignments */}
         {/* <section className="sector-applied">
           <div className="sector-shell">
-            <p className="sector-label">02 / Typical Assignments</p>
-
             <h2>Where Our Work Is Applied</h2>
 
             <p className="sector-section-intro">
@@ -215,8 +211,6 @@ export default function TechnologyDigitalPage() {
         {/* Key valuation considerations */}
         <section className="sector-considerations">
           <div className="sector-shell">
-            <p className="sector-label">03 / Key Valuation Considerations</p>
-
             <h2>What Can Influence Value?</h2>
 
             <p className="sector-section-intro">
@@ -228,8 +222,6 @@ export default function TechnologyDigitalPage() {
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
                 <article key={item.number} className="sector-consideration sector-card-motion">
-                  <span>{item.number}</span>
-
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -243,8 +235,6 @@ export default function TechnologyDigitalPage() {
         {/* Sub-sectors */}
         <section className="sector-subsectors">
           <div className="sector-shell">
-            <p className="sector-label">04 / Sub-sectors</p>
-
             <h2>Technology Businesses Across Different Models</h2>
 
             <p className="sector-subsectors__intro">

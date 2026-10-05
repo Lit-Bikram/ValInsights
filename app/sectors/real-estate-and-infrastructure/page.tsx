@@ -141,8 +141,7 @@ export default function RealEstateInfrastructurePage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
-              <p className="sector-label">01 / Sector Overview</p>
-              <h2>Understanding Value in Real Estate & Infrastructure</h2>
+            <h2>Understanding Value in Real Estate & Infrastructure</h2>
               <p>
                 Real estate and infrastructure value is closely linked to
                 location, contractual arrangements, income visibility,
@@ -177,7 +176,6 @@ export default function RealEstateInfrastructurePage() {
 
         {/* <section className="sector-applied">
           <div className="sector-shell">
-            <p className="sector-label">02 / Typical Assignments</p>
             <h2>Where Our Work Is Applied</h2>
             <p className="sector-section-intro">
               Real estate and infrastructure valuation assignments arise across
@@ -202,7 +200,6 @@ export default function RealEstateInfrastructurePage() {
 
         <section className="sector-considerations">
           <div className="sector-shell">
-            <p className="sector-label">03 / Key Valuation Considerations</p>
             <h2>What Can Influence Value?</h2>
             <p className="sector-section-intro">
               Real estate and infrastructure assets are influenced by a
@@ -214,7 +211,6 @@ export default function RealEstateInfrastructurePage() {
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
                 <article key={item.number} className="sector-consideration sector-card-motion">
-                  <span>{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -227,7 +223,6 @@ export default function RealEstateInfrastructurePage() {
 
         <section className="sector-subsectors">
           <div className="sector-shell">
-            <p className="sector-label">04 / Sub-sectors</p>
             <h2>Real Assets Across Different Models</h2>
             <p className="sector-subsectors__intro">
               Different real estate and infrastructure assets generate value

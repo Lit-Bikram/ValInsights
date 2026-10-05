@@ -86,8 +86,7 @@ export default function TangibleAssetsPage() {
 
             <div className="service-scope__grid">
               {scopeItems.map((item) => (
-                <article key={item.number} className="service-scope-card">
-                  <span>{item.number}</span>
+                <article key={item.title} className="service-scope-card">
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>

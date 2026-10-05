@@ -141,8 +141,7 @@ export default function ManufacturingIndustrialPage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
-              <p className="sector-label">01 / Sector Overview</p>
-              <h2>Understanding Value in Manufacturing & Industrial</h2>
+            <h2>Understanding Value in Manufacturing & Industrial</h2>
               <p>
                 Manufacturing and industrial businesses are influenced by
                 capacity, operating leverage, capital intensity, technology,
@@ -177,7 +176,6 @@ export default function ManufacturingIndustrialPage() {
 
         {/* <section className="sector-applied">
           <div className="sector-shell">
-            <p className="sector-label">02 / Typical Assignments</p>
             <h2>Where Our Work Is Applied</h2>
             <p className="sector-section-intro">
               Manufacturing and industrial valuation assignments arise across
@@ -202,7 +200,6 @@ export default function ManufacturingIndustrialPage() {
 
         <section className="sector-considerations">
           <div className="sector-shell">
-            <p className="sector-label">03 / Key Valuation Considerations</p>
             <h2>What Can Influence Value?</h2>
             <p className="sector-section-intro">
               Manufacturing and industrial value is influenced by operating
@@ -213,7 +210,6 @@ export default function ManufacturingIndustrialPage() {
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
                 <article key={item.number} className="sector-consideration sector-card-motion">
-                  <span>{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -226,7 +222,6 @@ export default function ManufacturingIndustrialPage() {
 
         <section className="sector-subsectors">
           <div className="sector-shell">
-            <p className="sector-label">04 / Sub-sectors</p>
             <h2>Industrial Businesses Across Different Models</h2>
             <p className="sector-subsectors__intro">
               Different manufacturing and industrial models generate value

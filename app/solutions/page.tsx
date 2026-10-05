@@ -99,9 +99,6 @@ export default function SolutionsPage() {
           <div className="solutions-hero__overlay" />
 
           <div className="solutions-shell solutions-hero__content">
-            <p className="solutions-breadcrumb">
-              Home / Our Solution
-            </p>
 
             <h1>Our Solution</h1>
 

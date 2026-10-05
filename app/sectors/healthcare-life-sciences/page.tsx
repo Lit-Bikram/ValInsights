@@ -158,8 +158,7 @@ export default async function HealthcareLifeSciencesPage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
-              <p className="sector-label">01 / Sector Overview</p>
-              <h2>Understanding Value in Healthcare &amp; Life Sciences</h2>
+            <h2>Understanding Value in Healthcare &amp; Life Sciences</h2>
               <p>
                 Healthcare and life sciences businesses operate within complex
                 regulatory, clinical, commercial, and funding environments.
@@ -196,7 +195,6 @@ export default async function HealthcareLifeSciencesPage() {
 
         {/* <section className="sector-applied">
           <div className="sector-shell">
-            <p className="sector-label">02 / Typical Assignments</p>
             <h2>Where Our Work Is Applied</h2>
             <p className="sector-section-intro">
               Healthcare and life sciences valuation assignments arise across
@@ -221,7 +219,6 @@ export default async function HealthcareLifeSciencesPage() {
 
         <section className="sector-considerations">
           <div className="sector-shell">
-            <p className="sector-label">03 / Key Valuation Considerations</p>
             <h2>What Can Influence Value?</h2>
             <p className="sector-section-intro">
               Healthcare and life sciences value is influenced by regulation,
@@ -232,7 +229,6 @@ export default async function HealthcareLifeSciencesPage() {
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
                 <article key={item.number} className="sector-consideration sector-card-motion">
-                  <span>{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -245,7 +241,6 @@ export default async function HealthcareLifeSciencesPage() {
 
         <section className="sector-subsectors">
           <div className="sector-shell">
-            <p className="sector-label">04 / Sub-sectors</p>
             <h2>Healthcare Businesses Across Different Models</h2>
             <p className="sector-subsectors__intro">
               Different healthcare and life sciences models generate value

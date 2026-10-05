@@ -149,7 +149,6 @@ export default function SectorsPage() {
           <div className="sectors-hero__overlay" />
 
           <div className="sectors-shell sectors-hero__content">
-            <p className="sectors-breadcrumb">Home / Sector Expertise</p>
 
             <h1>Sector Context Shapes Valuation</h1>
 
@@ -210,7 +209,6 @@ export default function SectorsPage() {
           <div className="sectors-shell">
             <div className="sectors-explore__heading">
               <div>
-                <p className="sectors-label">01 / Explore Our Sectors</p>
                 <h2>Core Sector Expertise</h2>
               </div>
 
@@ -235,10 +233,6 @@ export default function SectorsPage() {
                       sizes="180px"
                       className="sectors-row__image-inner"
                     />
-                  </div>
-
-                  <div className="sectors-row__number">
-                    {sector.number} / SECTOR
                   </div>
 
                   <div className="sectors-row__content">

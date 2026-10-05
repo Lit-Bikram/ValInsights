@@ -45,7 +45,7 @@ const sectors = [
     description:
       "Software, SaaS, digital platforms, and technology-enabled businesses where recurring revenue, customer economics, intellectual property, and rapid change influence value.",
     image: "/images/sectors/technology-and-digital.jpg",
-    href: "/sectors/technology-digital",
+    href: "/sectors/technology-and-digital",
   },
   {
     title: "Financial Services",
@@ -59,14 +59,14 @@ const sectors = [
     description:
       "Development projects, income-producing property, and infrastructure investments where location, leases, contracts, and long-term cash flows are central to value.",
     image: "/images/sectors/real-estate-and-infrastructure.jpg",
-    href: "/sectors/real-estate-infrastructure",
+    href: "/sectors/real-estate-and-infrastructure",
   },
   {
     title: "Manufacturing and Industrial",
     description:
       "Manufacturing enterprises, industrial platforms, and specialised assets where capacity, technology, product mix, cost structures, and supply-chain conditions determine value.",
     image: "/images/sectors/manufacturing-and-industrial.jpg",
-    href: "/sectors/manufacturing-industrial",
+    href: "/sectors/manufacturing-and-industrial",
   },
   {
     title: "Energy",
@@ -74,6 +74,13 @@ const sectors = [
       "Conventional and renewable energy businesses, projects, and assets where resource quality, operating performance, contracts, commodity prices, and policy exposure shape value.",
     image: "/images/sectors/energy.jpg",
     href: "/sectors/energy",
+  },
+  {
+    title: "Healthcare and Life Sciences",
+    description:
+      "Healthcare providers, life sciences businesses, medical technologies, and healthcare-related assets where clinical, regulatory, commercial, and operating factors influence value.",
+    image: "/images/sectors/healthcare-life-sciences.jpg",
+    href: "/sectors/healthcare-life-sciences",
   },
 ];
 
@@ -132,17 +139,12 @@ function DragRail({
     animationFrame.current = requestAnimationFrame(animate);
   };
 
-  const handlePointerDown = (
-    event: React.PointerEvent<HTMLDivElement>
-  ) => {
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     const rail = railRef.current;
 
     if (!rail) return;
 
-    if (
-      event.pointerType === "mouse" &&
-      event.button !== 0
-    ) {
+    if (event.pointerType === "mouse" && event.button !== 0) {
       return;
     }
 
@@ -159,18 +161,11 @@ function DragRail({
 
     velocity.current = 0;
 
-    rail.classList.add("is-dragging");
-
-    try {
-      rail.setPointerCapture(event.pointerId);
-    } catch {
-      // Ignore pointer capture errors.
-    }
+    // Do not capture the pointer or enter dragging mode on pointer-down.
+    // A normal click must remain a native Link click on desktop.
   };
 
-  const handlePointerMove = (
-    event: React.PointerEvent<HTMLDivElement>
-  ) => {
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     const rail = railRef.current;
 
     if (!rail || !dragging.current) return;
@@ -181,7 +176,16 @@ function DragRail({
     const deltaX = currentX - startX.current;
 
     if (Math.abs(deltaX) > 5) {
-      didDrag.current = true;
+      if (!didDrag.current) {
+        didDrag.current = true;
+        rail.classList.add("is-dragging");
+
+        try {
+          rail.setPointerCapture(event.pointerId);
+        } catch {
+          // Ignore pointer capture errors.
+        }
+      }
     }
 
     rail.scrollLeft = startScrollLeft.current - deltaX;
@@ -189,8 +193,7 @@ function DragRail({
     const timeDelta = currentTime - lastTime.current;
 
     if (timeDelta > 0) {
-      velocity.current =
-        (currentX - lastX.current) / timeDelta;
+      velocity.current = (currentX - lastX.current) / timeDelta;
     }
 
     lastX.current = currentX;
@@ -213,9 +216,7 @@ function DragRail({
     }
   };
 
-  const handleClickCapture = (
-    event: React.MouseEvent<HTMLDivElement>
-  ) => {
+  const handleClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
     if (didDrag.current) {
       event.preventDefault();
       event.stopPropagation();
@@ -256,9 +257,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = window.setInterval(() => {
-      setInsightsSlide(
-        (current) => (current + 1) % insightSlides.length
-      );
+      setInsightsSlide((current) => (current + 1) % insightSlides.length);
     }, 5000);
 
     return () => window.clearInterval(interval);
@@ -269,7 +268,6 @@ export default function Home() {
       <Header />
 
       <main className="home-page">
-
         {/* =====================================================
             HERO
         ====================================================== */}
@@ -287,9 +285,7 @@ export default function Home() {
           <div className="home-hero__overlay" />
 
           <div className="home-shell home-hero__content">
-            <p className="home-eyebrow">
-              Independent Valuation Specialists
-            </p>
+            <p className="home-eyebrow">Independent Valuation Specialists</p>
 
             <h1>
               Technical insight for decisions
@@ -298,22 +294,17 @@ export default function Home() {
             </h1>
 
             <p className="home-hero__description">
-              We support businesses, investors, boards, and legal teams
-              with valuation services for transactions, financial
-              reporting, and disputes—providing conclusions that are
-              transparent, well-reasoned, and fit for stakeholder
-              scrutiny.
+              We support businesses, investors, boards, and legal teams with
+              valuation services for transactions, financial reporting, and
+              disputes—providing conclusions that are transparent,
+              well-reasoned, and fit for stakeholder scrutiny.
             </p>
 
-            <Link
-              href="/contact"
-              className="home-button"
-            >
+            <Link href="/contact" className="home-button">
               Discuss a Requirement
             </Link>
           </div>
         </section>
-
 
         {/* =====================================================
             WHO WE ARE
@@ -321,14 +312,12 @@ export default function Home() {
 
         <section className="home-who-we-are">
           <div className="home-shell home-who-we-are__inner">
-
             <div className="home-section-label">
               <span />
               Who We Are
             </div>
 
             <div className="home-who-we-are__content">
-
               <div>
                 <h2>
                   Specialist valuation expertise
@@ -339,31 +328,26 @@ export default function Home() {
 
               <div className="home-who-we-are__copy">
                 <p>
-                  ValInsight is a specialist valuation firm serving
-                  clients across India, the UAE, and the wider Gulf.
-                  We combine sector context with disciplined financial
-                  analysis for complex valuation requirements across
-                  transactions, reporting, and disputes.
+                  ValInsight is a specialist valuation firm serving clients
+                  across India, the UAE, and the wider Gulf. We combine sector
+                  context with disciplined financial analysis for complex
+                  valuation requirements across transactions, reporting, and
+                  disputes.
                 </p>
 
                 <p>
-                  Our work is designed for situations where valuation
-                  affects reporting, investment, ownership, transaction
-                  structure, or the resolution of a contested matter.
+                  Our work is designed for situations where valuation affects
+                  reporting, investment, ownership, transaction structure, or
+                  the resolution of a contested matter.
                 </p>
 
-                <Link
-                  href="/about"
-                  className="home-text-link"
-                >
+                <Link href="/about" className="home-text-link">
                   Learn more about us <span>→</span>
                 </Link>
               </div>
-
             </div>
           </div>
         </section>
-
 
         {/* =====================================================
             WHAT WE DO
@@ -371,7 +355,6 @@ export default function Home() {
 
         <section className="home-services">
           <div className="home-shell">
-
             <div className="home-section-heading">
               <div className="home-section-label">
                 <span />
@@ -379,17 +362,17 @@ export default function Home() {
               </div>
 
               <p>
-                Advice built around important financial and strategic
-                choices.
+                Advice built around important financial and strategic choices.
               </p>
             </div>
 
             <DragRail>
               {solutions.map((solution) => (
                 <Link
-                  href={solution.href}
                   key={solution.title}
+                  href={solution.href}
                   className="home-service-card"
+                  aria-label={`Explore ${solution.title}`}
                 >
                   <div className="home-card-image">
                     <Image
@@ -412,10 +395,48 @@ export default function Home() {
                 </Link>
               ))}
             </DragRail>
-
           </div>
         </section>
 
+        {/* =====================================================
+            INSIGHTS
+        ====================================================== */}
+
+        <section className="home-insights">
+          <div className="home-insights__background">
+            {insightSlides.map((src, index) => (
+              <Image
+                key={src}
+                src={src}
+                alt=""
+                fill
+                sizes="100vw"
+                priority={index === 0}
+                className={`home-insights__image ${
+                  index === insightsSlide ? "home-insights__image--active" : ""
+                }`}
+              />
+            ))}
+          </div>
+
+          <div className="home-insights__overlay" />
+
+          <div className="home-shell home-insights__content">
+            {/* <p className="home-eyebrow">Insights &amp; Market Intelligence</p> */}
+
+            <h2>Insights &amp; Market Intelligence</h2>
+
+            <p>
+              We publish concise observations on valuation, sector economics,
+              and the issues shaping transactions, reporting, and disputes. The
+              emphasis is on clarity, relevance, and practical application.
+            </p>
+
+            <Link href="/insights" className="home-button">
+              Read Insights
+            </Link>
+          </div>
+        </section>
 
         {/* =====================================================
             SECTOR EXPERTISE
@@ -423,7 +444,6 @@ export default function Home() {
 
         <section className="home-sectors">
           <div className="home-shell">
-
             <div className="home-section-heading">
               <div className="home-section-label">
                 <span />
@@ -431,20 +451,20 @@ export default function Home() {
               </div>
 
               <p>
-                We work in sectors where commercial conditions,
-                operating performance, and market dynamics have a
-                direct bearing on value. Our analysis reflects how
-                these factors affect cash flows, risk, capital
-                requirements, and long-term prospects.
+                We work in sectors where commercial conditions, operating
+                performance, and market dynamics have a direct bearing on value.
+                Our analysis reflects how these factors affect cash flows, risk,
+                capital requirements, and long-term prospects.
               </p>
             </div>
 
             <DragRail>
               {sectors.map((sector) => (
                 <Link
-                  href={sector.href}
                   key={sector.title}
+                  href={sector.href}
                   className="home-sector-card"
+                  aria-label={`Explore ${sector.title}`}
                 >
                   <div className="home-card-image">
                     <Image
@@ -467,94 +487,28 @@ export default function Home() {
                 </Link>
               ))}
             </DragRail>
-
           </div>
         </section>
-
-
-        {/* =====================================================
-            INSIGHTS
-        ====================================================== */}
-
-        <section className="home-insights">
-
-          <div className="home-insights__background">
-            {insightSlides.map((src, index) => (
-              <Image
-                key={src}
-                src={src}
-                alt=""
-                fill
-                sizes="100vw"
-                priority={index === 0}
-                className={`home-insights__image ${
-                  index === insightsSlide
-                    ? "home-insights__image--active"
-                    : ""
-                }`}
-              />
-            ))}
-          </div>
-
-          <div className="home-insights__overlay" />
-
-          <div className="home-shell home-insights__content">
-
-            <p className="home-eyebrow">
-              Insights &amp; Market Intelligence
-            </p>
-
-            <h2>
-              Insights &amp; Market Intelligence
-            </h2>
-
-            <p>
-              We publish concise observations on valuation, sector
-              economics, and the issues shaping transactions,
-              reporting, and disputes. The emphasis is on clarity,
-              relevance, and practical application.
-            </p>
-
-            <Link
-              href="/insights"
-              className="home-button"
-            >
-              Read Insights
-            </Link>
-
-          </div>
-
-        </section>
-
-
         {/* =====================================================
             CTA
         ====================================================== */}
 
         <section className="home-cta">
-
           <div className="home-cta__curve" />
 
           <div className="home-shell home-cta__content">
-
             <h2>Discuss a Requirement</h2>
 
             <p>
-              A confidential conversation about valuation,
-              transactions, reporting, or strategic decisions.
+              A confidential conversation about valuation, transactions,
+              reporting, or strategic decisions.
             </p>
 
-            <Link
-              href="/contact"
-              className="home-button"
-            >
+            <Link href="/contact" className="home-button">
               Contact the Firm
             </Link>
-
           </div>
-
         </section>
-
       </main>
 
       <Footer />
