@@ -81,11 +81,12 @@ export default function SecuritiesFinancialAssetsPage() {
           <div className="service-shell">
             <p className="service-label">Scope of Work</p>
             <h2>What We Value</h2>
-            <p className="service-section-intro">SCOPE_We value businesses, equity and debt securities, intangible assets, intellectual property, and complex financial instruments. Our work considers the economic substance of the subject being valued, its contractual and ownership features, the available evidence, and the requirements of the assignment.</p>
+            <p className="service-section-intro">Our work covers businesses, securities, intangible assets, intellectual property, and complex instruments.</p>
 
             <div className="service-scope__grid">
               {scopeItems.map((item) => (
                 <article key={item.title} className="service-scope-card">
+                  <span aria-hidden="true">{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -160,7 +161,6 @@ export default function SecuritiesFinancialAssetsPage() {
          */}
 
         <RelatedServiceInsights serviceSlug="securities-financial-assets" />
-
         <section className="service-cta">
           <div className="service-shell service-cta__inner">
             <h2>Discuss a Requirement</h2>

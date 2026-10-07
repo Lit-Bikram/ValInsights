@@ -85,11 +85,12 @@ export default function DisputesLitigationSupportPage() {
           <div className="service-shell">
             <p className="service-label">Scope of Work</p>
             <h2>What We Value</h2>
-            <p className="service-section-intro">SCOPE_We provide valuation and financial analysis for contested matters where value, damages, ownership, or financial loss is in issue. Our work covers businesses, securities, intangible assets, real estate, tangible assets, and complex instruments, and is presented for use by counsel, tribunals, courts, arbitrators, and mediators.</p>
+            <p className="service-section-intro">We provide valuation and financial analysis for contested matters where value, damages, ownership, or financial loss is in issue. Our work covers businesses, securities, intangible assets, real estate, tangible assets, and complex instruments, and is presented for use by counsel, tribunals, courts, arbitrators, and mediators.</p>
 
             <div className="service-scope__grid">
               {scopeItems.map((item) => (
                 <article key={item.title} className="service-scope-card">
+                  <span aria-hidden="true">{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -164,7 +165,6 @@ export default function DisputesLitigationSupportPage() {
          */}
 
         <RelatedServiceInsights serviceSlug="disputes-litigation-support" />
-
         <section className="service-cta">
           <div className="service-shell service-cta__inner">
             <h2>Discuss a Requirement</h2>

@@ -34,7 +34,7 @@ build/
 .env.production
 .env.production.local
 .env.*.local
-
+vi_hmpg.json
 # Any additional environment/secret files
 *.env
 *.env.*

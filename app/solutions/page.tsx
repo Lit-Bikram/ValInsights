@@ -41,7 +41,7 @@ const purposes = [
       "Fair value measurement, purchase price allocation, impairment testing, intangible assets, financial instruments, and other requirements under Ind AS and IFRS.",
   },
   {
-    title: "Investments and Transactions",
+    title: "Investments & Transactions",
     description:
       "Acquisitions, disposals, capital raises, co-investments, exits, portfolio reviews, restructuring, and related corporate actions.",
   },
@@ -81,11 +81,9 @@ export default function SolutionsPage() {
       <Header />
 
       <main className="solutions-page">
-
         {/* =====================================================
-            HERO
+            PAGE HEADER BANNER
         ====================================================== */}
-
         <section className="solutions-hero">
           <Image
             src="/images/shared/inner-page-banner.jpg"
@@ -99,28 +97,24 @@ export default function SolutionsPage() {
           <div className="solutions-hero__overlay" />
 
           <div className="solutions-shell solutions-hero__content">
+            <p className="solutions-breadcrumb">Home / Our Solution</p>
 
             <h1>Our Solution</h1>
 
-            <p>
-              Our work is organised around four valuation disciplines:
-              securities and financial assets, real estate, tangible assets,
-              and contested matters. Within each, we bring together
-              commercial context, financial evidence, and appropriate
-              methodology to produce conclusions that are clear,
-              well-supported, and fit for their intended use.
+            <p className="solutions-hero__description">
+              We deliver clear, well-supported valuations across securities,
+              real estate, tangible assets, and contested matters by combining
+              commercial context, financial evidence, and robust methodology
+              tailored for their intended use.
             </p>
           </div>
         </section>
 
-
         {/* =====================================================
             CORE SERVICES
         ====================================================== */}
-
         <section className="solutions-core">
           <div className="solutions-shell">
-
             <h2>Core Services</h2>
 
             <p className="solutions-section-intro">
@@ -137,11 +131,10 @@ export default function SolutionsPage() {
                   <div className="solutions-service-card__content">
                     <h3>{service.title}</h3>
 
-                    <p>{service.description}</p>
+                    <p>{service.description.replace(/\.$/, "")}[cite: 2].</p>
 
                     <span className="solutions-service-card__link">
-                      Learn more{" "}
-                      <span aria-hidden="true">→</span>
+                      Learn more <span aria-hidden="true">→</span>
                     </span>
                   </div>
 
@@ -150,105 +143,91 @@ export default function SolutionsPage() {
                       src={service.image}
                       alt=""
                       fill
-                      sizes="(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 620px"
+                      sizes="(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 741px"
                     />
                   </div>
                 </Link>
               ))}
             </div>
-
           </div>
         </section>
-
 
         {/* =====================================================
             PURPOSES OF VALUATION
         ====================================================== */}
-
         <section className="solutions-purposes">
           <div className="solutions-shell">
-
             <h2>Purposes of Valuation</h2>
 
             <p className="solutions-section-intro">
               Across these disciplines, assignments commonly arise in three
-              primary contexts:
+              primary contexts[cite: 2]:
             </p>
 
             <div className="solutions-purposes__grid">
               {purposes.map((purpose) => (
                 <article
                   key={purpose.title}
-                  className="solutions-purpose-card"
+                  className={`solutions-purpose-card solutions-purpose-card--${purpose.title
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")
+                    .replace(/[^a-z-]/g, "")}`}
                 >
                   <h3>{purpose.title}</h3>
-
-                  <p>{purpose.description}</p>
+                  <p>{purpose.description.replace(/\.$/, "")}[cite: 2].</p>
                 </article>
               ))}
             </div>
-
           </div>
         </section>
-
 
         {/* =====================================================
             HOW WE WORK
         ====================================================== */}
-
         <section className="solutions-work">
           <div className="solutions-shell">
-
             <h2>How We Work</h2>
 
             <p className="solutions-section-intro">
-              Our systematic approach ensures structural robustness across
-              every engagement framework:
+              Our systematic approach ensures structural robustness across every
+              engagement framework:
             </p>
 
             <div className="solutions-work__grid">
               {workPrinciples.map((item) => (
-                <article
-                  key={item.title}
-                  className="solutions-work-card"
-                >
+                <article key={item.title} className="solutions-work-card">
                   <h3>{item.title}</h3>
-
-                  <p>{item.description}</p>
+                  <p>{item.description.replace(/\.$/, "")}[cite: 2].</p>
                 </article>
               ))}
             </div>
-
           </div>
         </section>
-
 
         {/* =====================================================
             CTA
         ====================================================== */}
+        <div className="solutions-cta-spacer" aria-hidden="true" />
 
         <section className="solutions-cta">
           <div className="solutions-shell solutions-cta__inner">
-
             <h2>Discuss a Requirement</h2>
 
             <p>
-              To discuss a valuation assignment or a related matter,
-              contact us at contact@valuationinsights.com or [phone].
+              To discuss a valuation assignment or a related matter, contact us
+              at contact@valuationinsights.com or phone[cite: 2].
             </p>
 
-            <Link
-              href="/contact"
-              className="solutions-cta__button"
-            >
+            <Link href="/contact" className="solutions-cta__button">
               Contact us
             </Link>
-
           </div>
         </section>
-
       </main>
 
+      {/* =====================================================
+          FOOTER — Figma ff1_sol
+      ====================================================== */}
       <Footer />
     </>
   );

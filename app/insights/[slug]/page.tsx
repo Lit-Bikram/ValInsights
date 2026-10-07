@@ -65,15 +65,7 @@ export default async function InsightArticlePage({
 
       <main className="insight-article-page">
         <div className="insight-article-shell">
-          <div className="insight-article-topbar">
-            <Link href="/insights" className="insight-article-back">
-              ← Insights
-            </Link>
-
-            <span className="insight-article-share">Share Brief</span>
-          </div>
-
-          <div className="insight-article-layout">
+<div className="insight-article-layout">
             <aside className="insight-article-meta">
               <div className="insight-meta-block">
                 <span>Research Publication</span>

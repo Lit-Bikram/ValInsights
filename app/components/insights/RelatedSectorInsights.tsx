@@ -96,7 +96,7 @@ export default async function RelatedSectorInsights({
   return (
     <section className="sector-insights">
       <div className="sector-shell">
-        <p className="sector-label">05 / Related Insights</p>
+        
 
         <h2>{sectorTitle}</h2>
 

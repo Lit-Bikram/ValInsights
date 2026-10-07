@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import { supabase } from "../lib/supabase/client";
 import InsightsFilters from "./InsightsFilters";
+import { supabase } from "../lib/supabase/client";
 
 type Insight = {
   id: string;
@@ -206,6 +206,9 @@ export default async function InsightsPage({
           <div className="insights-hero__overlay" />
 
           <div className="insights-shell insights-hero__content">
+            <p className="insights-eyebrow">
+              Market Intelligence &amp; Research
+            </p>
 
             <h1>Insights &amp; Publications</h1>
 

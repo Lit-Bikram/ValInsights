@@ -6,22 +6,18 @@ import RelatedSectorInsights from "../../components/insights/RelatedSectorInsigh
 
 const typicalAssignments = [
   {
-    number: "01",
     title: "Conventional & Renewable Energy",
     text: "Valuation of conventional and renewable energy businesses and projects.",
   },
   {
-    number: "02",
     title: "Generation Assets & Portfolios",
     text: "Valuation of generation assets, portfolios, and energy platforms.",
   },
   {
-    number: "03",
     title: "Fair Value & Impairment",
     text: "Fair value and impairment analysis for energy-related investments and assets.",
   },
   {
-    number: "04",
     title: "Transactions, Reporting & Disputes",
     text: "Valuation of energy businesses, projects, and interests in transactions, reporting, restructuring, and disputes.",
   },
@@ -29,22 +25,18 @@ const typicalAssignments = [
 
 const valuationConsiderations = [
   {
-    number: "01",
     title: "Resource Quality & Plant Performance",
     text: "Technical characteristics, plant performance, availability, and operating costs translate into cash flows and risk.",
   },
   {
-    number: "02",
     title: "Commodity Exposure, Contracts & Hedging",
     text: "Commodity-price exposure, hedging, tariffs, and contract structures need to be reflected in valuation assumptions.",
   },
   {
-    number: "03",
     title: "Policy, Subsidies & Transition Risk",
     text: "Regulatory frameworks, subsidies, approvals, and the transition to lower-carbon systems can affect economics.",
   },
   {
-    number: "04",
     title: "Technology, Grid Access & Demand",
     text: "Technology change, grid access, power-market dynamics, and long-term demand can influence asset economics.",
   },
@@ -52,22 +44,18 @@ const valuationConsiderations = [
 
 const subsectors = [
   {
-    number: "01",
     title: "Conventional Energy",
     text: "Oil and gas, refining, and traditional power generation with commodity-linked or regulated cash flows.",
   },
   {
-    number: "02",
     title: "Solar Energy",
     text: "Solar projects and platforms where irradiation, tariffs, land, grid access, and PPA terms influence value.",
   },
   {
-    number: "03",
     title: "Wind Energy",
     text: "Wind assets shaped by resource quality, turbine technology, availability, and grid connectivity.",
   },
   {
-    number: "04",
     title: "Energy Platforms & Storage",
     text: "Integrated portfolios, storage assets, and emerging business models across the energy system.",
   },
@@ -139,6 +127,7 @@ export default function EnergyPage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
+              {/* <p className="sector-section-label">01 / Sector Overview</p> */}
             <h2>Understanding Value in Energy</h2>
               <p>
                 Energy businesses and assets can be influenced by resource
@@ -158,7 +147,7 @@ export default function EnergyPage() {
             </div>
 
             <aside className="sector-value-box">
-              <p>Value Driver</p>
+              <p>Value Drivers</p>
               <h3>Project economics and contracted cash flows matter.</h3>
               <span>
                 Resource quality, plant performance, commodity exposure,
@@ -166,6 +155,7 @@ export default function EnergyPage() {
                 long-term demand can all influence expectations of future cash
                 flows.
               </span>
+              <span className="sector-value-box__read-more">Read more &gt;</span>
             </aside>
           </div>
         </section>
@@ -196,6 +186,7 @@ export default function EnergyPage() {
 
         <section className="sector-considerations">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">03 / Key Valuation Considerations</p> */}
             <h2>What Can Influence Value?</h2>
             <p className="sector-section-intro">
               Energy assets are influenced by a combination of technical
@@ -205,7 +196,8 @@ export default function EnergyPage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration sector-card-motion">
+                <article className="sector-consideration sector-card-motion">
+                  <span className="sector-card-number"></span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -218,6 +210,7 @@ export default function EnergyPage() {
 
         <section className="sector-subsectors">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">04 / Sub-Sectors</p> */}
             <h2>Energy Across Conventional and Emerging Models</h2>
             <p className="sector-subsectors__intro">
               Different energy models generate value through different
@@ -227,8 +220,8 @@ export default function EnergyPage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector sector-card-motion">
-                  <span>{item.number}</span>
+                <article className="sector-subsector sector-card-motion">
+                  <span className="sector-subsector-number"></span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -239,7 +232,7 @@ export default function EnergyPage() {
 
         <RelatedSectorInsights
           sectorSlug="energy"
-          sectorTitle="Energy"
+          sectorTitle="Energy Insights"
           intro="Selected observations examining the valuation issues affecting energy."
         />
 

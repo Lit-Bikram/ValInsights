@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from "react";
 
 const solutions = [
   {
-    title: "Valuation of Securities & Financial Assets",
+    title: "Securities & Financial Assets",
     description:
       "Businesses, equity and debt securities, intangible assets, intellectual property, and complex instruments.",
     image: "/images/solutions/securities-financial-assets.jpg",
@@ -48,7 +48,7 @@ const sectors = [
     href: "/sectors/technology-and-digital",
   },
   {
-    title: "Financial Services",
+    title: "Financial Service",
     description:
       "Banks, non-banking financial companies, fintech businesses, funds, and intermediaries where capital, asset quality, funding, and regulation affect value.",
     image: "/images/sectors/financial-services.jpg",
@@ -64,14 +64,14 @@ const sectors = [
   {
     title: "Manufacturing and Industrial",
     description:
-      "Manufacturing enterprises, industrial platforms, and specialised assets where capacity, technology, product mix, cost structures, and supply-chain conditions determine value.",
+      "Manufacturing operations and industrial assets where capacity utilisation, operating leverage, capital expenditure, technology, and market cycles influence value.",
     image: "/images/sectors/manufacturing-and-industrial.jpg",
     href: "/sectors/manufacturing-and-industrial",
   },
   {
     title: "Energy",
     description:
-      "Conventional and renewable energy businesses, projects, and assets where resource quality, operating performance, contracts, commodity prices, and policy exposure shape value.",
+      "Conventional and renewable energy assets, platforms, and storage where operating performance, commodity exposure, contracts, regulation, and transition risks shape value.",
     image: "/images/sectors/energy.jpg",
     href: "/sectors/energy",
   },
@@ -313,37 +313,18 @@ export default function Home() {
         <section className="home-who-we-are">
           <div className="home-shell home-who-we-are__inner">
             <div className="home-section-label">
-              <span />
               Who We Are
             </div>
 
             <div className="home-who-we-are__content">
-              <div>
-                <h2>
-                  Specialist valuation expertise
-                  <br />
-                  with a commercial perspective.
-                </h2>
-              </div>
-
               <div className="home-who-we-are__copy">
                 <p>
-                  ValInsight is a specialist valuation firm serving clients
-                  across India, the UAE, and the wider Gulf. We combine sector
-                  context with disciplined financial analysis for complex
-                  valuation requirements across transactions, reporting, and
-                  disputes.
+                  Valuation Insights is a specialist valuation firm serving clients across India, the UAE, and the wider Gulf region. Led by Amit Sultania, CA, MBA—London Business School, and Registered Valuer with IBBI, the firm combines sector context with disciplined financial analysis to address complex valuation requirements across transactions, reporting, and disputes.
                 </p>
 
                 <p>
-                  Our work is designed for situations where valuation affects
-                  reporting, investment, ownership, transaction structure, or
-                  the resolution of a contested matter.
+                  Our approach integrates proprietary valuation methodologies with real-world M&amp;A experience to deliver independent, defensible opinions for corporate boards, institutional investors, and high-growth enterprises.
                 </p>
-
-                <Link href="/about" className="home-text-link">
-                  Learn more about us <span>→</span>
-                </Link>
               </div>
             </div>
           </div>
@@ -357,7 +338,6 @@ export default function Home() {
           <div className="home-shell">
             <div className="home-section-heading">
               <div className="home-section-label">
-                <span />
                 What We Do
               </div>
 
@@ -427,9 +407,7 @@ export default function Home() {
             <h2>Insights &amp; Market Intelligence</h2>
 
             <p>
-              We publish concise observations on valuation, sector economics,
-              and the issues shaping transactions, reporting, and disputes. The
-              emphasis is on clarity, relevance, and practical application.
+              In-depth analysis, valuation benchmarks, and strategic research exploring evolving capital market dynamics, regulatory changes, and corporate transaction trends.
             </p>
 
             <Link href="/insights" className="home-button">
@@ -441,12 +419,10 @@ export default function Home() {
         {/* =====================================================
             SECTOR EXPERTISE
         ====================================================== */}
-
         <section className="home-sectors">
           <div className="home-shell">
             <div className="home-section-heading">
               <div className="home-section-label">
-                <span />
                 Sector Expertise
               </div>
 
@@ -481,7 +457,7 @@ export default function Home() {
                     <p>{sector.description}</p>
 
                     <span className="home-card-link">
-                      Explore Sector <span>→</span>
+                      Explore Service <span>→</span>
                     </span>
                   </div>
                 </Link>
@@ -500,8 +476,7 @@ export default function Home() {
             <h2>Discuss a Requirement</h2>
 
             <p>
-              A confidential conversation about valuation, transactions,
-              reporting, or strategic decisions.
+              A confidential conversation about valuation, transactions, or strategic decisions.
             </p>
 
             <Link href="/contact" className="home-button">

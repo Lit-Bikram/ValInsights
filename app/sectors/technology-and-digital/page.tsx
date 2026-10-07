@@ -6,22 +6,18 @@ import RelatedSectorInsights from "../../components/insights/RelatedSectorInsigh
 
 const typicalAssignments = [
   {
-    number: "01",
     title: "Software, SaaS & Digital Platforms",
     text: "Cloud-based and licensed software businesses where retention, expansion, margins, and recurring revenue shape value.",
   },
   {
-    number: "02",
     title: "Technology-Enabled Services",
     text: "IT services, analytics, and digital transformation businesses with project, managed-service, or recurring revenue.",
   },
   {
-    number: "03",
     title: "Fair Value & Impairment",
     text: "Fair value and impairment analysis for intangible-intensive operations and technology businesses.",
   },
   {
-    number: "04",
     title: "Transactions & Disputes",
     text: "Valuation of technology businesses, assets, and interests in transactions, reporting, restructuring, and disputes.",
   },
@@ -29,22 +25,18 @@ const typicalAssignments = [
 
 const valuationConsiderations = [
   {
-    number: "01",
     title: "Recurring Revenue & Unit Economics",
     text: "Retention, expansion, and customer acquisition economics can influence the quality and durability of revenue and therefore prospects for future cash flows.",
   },
   {
-    number: "02",
     title: "Scalability & Profitability",
     text: "Growth needs to be considered alongside operating leverage, pricing, investment requirements, and the path to profitability.",
   },
   {
-    number: "03",
     title: "Obsolescence & Competition",
     text: "Technological change, competitive intensity, and regulatory exposure can affect the sustainability of future economic performance.",
   },
   {
-    number: "04",
     title: "Intellectual Property & R&D",
     text: "Intellectual property, R&D, and platform investment can be important to the economic value of technology businesses and should be reflected appropriately in financial models.",
   },
@@ -52,22 +44,18 @@ const valuationConsiderations = [
 
 const subsectors = [
   {
-    number: "01",
     title: "Software & SaaS",
     text: "Cloud-based and licensed software businesses where retention, expansion, margins, and recurring revenue shape value.",
   },
   {
-    number: "02",
     title: "Digital Platforms & Marketplaces",
     text: "Multi-sided platforms where network effects, take rates, liquidity, and user engagement influence economics.",
   },
   {
-    number: "03",
     title: "Technology-Enabled Services",
     text: "IT services, analytics, and digital transformation businesses with project, managed-service, or recurring revenue.",
   },
   {
-    number: "04",
     title: "Media & Content",
     text: "Digital media, content libraries, and distribution models where intellectual property and audience determine cash flows.",
   },
@@ -142,6 +130,7 @@ export default function TechnologyDigitalPage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
+              {/* <p className="sector-section-label">01 / Sector Overview</p> */}
             <h2>Understanding Value in Technology Businesses</h2>
 
               <p>
@@ -170,7 +159,7 @@ export default function TechnologyDigitalPage() {
             </div>
 
             <aside className="sector-value-box">
-              <p>Value Driver</p>
+              <p>Value Drivers</p>
               <h3>
                 Growth is only one part of the valuation equation.
               </h3>
@@ -179,6 +168,7 @@ export default function TechnologyDigitalPage() {
                 competitive intensity, and technology can all influence
                 expectations of future cash flows.
               </span>
+              <span className="sector-value-box__read-more">Read more &gt;</span>
             </aside>
           </div>
         </section>
@@ -211,6 +201,7 @@ export default function TechnologyDigitalPage() {
         {/* Key valuation considerations */}
         <section className="sector-considerations">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">03 / Key Valuation Considerations</p> */}
             <h2>What Can Influence Value?</h2>
 
             <p className="sector-section-intro">
@@ -221,7 +212,8 @@ export default function TechnologyDigitalPage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration sector-card-motion">
+                <article  className="sector-consideration sector-card-motion">
+                  <span className="sector-card-number"></span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -235,6 +227,7 @@ export default function TechnologyDigitalPage() {
         {/* Sub-sectors */}
         <section className="sector-subsectors">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">04 / Sub-Sectors</p> */}
             <h2>Technology Businesses Across Different Models</h2>
 
             <p className="sector-subsectors__intro">
@@ -245,8 +238,8 @@ export default function TechnologyDigitalPage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector sector-card-motion">
-                  <span>{item.number}</span>
+                <article className="sector-subsector sector-card-motion">
+                  <span className="sector-subsector-number"></span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -258,7 +251,7 @@ export default function TechnologyDigitalPage() {
         {/* Related insights */}
         <RelatedSectorInsights
           sectorSlug="technology-digital"
-          sectorTitle="Technology & Digital"
+          sectorTitle="Technology & Digital Insights"
           intro="Selected observations examining the valuation issues affecting technology and digital businesses."
         />
         <section className="sector-cta">

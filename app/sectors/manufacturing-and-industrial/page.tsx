@@ -6,22 +6,18 @@ import RelatedSectorInsights from "../../components/insights/RelatedSectorInsigh
 
 const typicalAssignments = [
   {
-    number: "01",
     title: "Manufacturing Enterprises & Industrial Platforms",
     text: "Valuation of manufacturing enterprises and industrial platforms.",
   },
   {
-    number: "02",
     title: "Production Lines, Plants & Equipment",
     text: "Valuation of production lines, plants, and specialised equipment.",
   },
   {
-    number: "03",
     title: "Fair Value & Impairment",
     text: "Fair value and impairment analysis for operating assets and subsidiaries.",
   },
   {
-    number: "04",
     title: "Transactions, Reporting & Disputes",
     text: "Valuation of industrial businesses, assets, and interests in transactions, reporting, restructuring, and disputes.",
   },
@@ -29,22 +25,18 @@ const typicalAssignments = [
 
 const valuationConsiderations = [
   {
-    number: "01",
     title: "Capacity, Operating Leverage & Cost Structure",
     text: "Fixed and variable costs, capacity utilisation, and operating leverage can shape risk and value.",
   },
   {
-    number: "02",
     title: "Technology, Automation & Asset Life",
     text: "Technology, automation, capex intensity, and remaining useful life can affect asset economics and obsolescence.",
   },
   {
-    number: "03",
     title: "Cyclicality, Order Books & Input Costs",
     text: "Commercial volatility, order books, input costs, and supply-chain conditions need to be translated into financial assumptions.",
   },
   {
-    number: "04",
     title: "Customer Concentration & Competitive Position",
     text: "Customer concentration, product mix, pricing power, and competitive position can influence the durability of cash flows.",
   },
@@ -52,22 +44,18 @@ const valuationConsiderations = [
 
 const subsectors = [
   {
-    number: "01",
     title: "Engineered Products & Components",
     text: "Precision manufacturing and industrial components where design, quality, and customer relationships support margins.",
   },
   {
-    number: "02",
     title: "Process & Heavy Industries",
     text: "Chemicals, metals, cement, and other process-based operations with significant capital intensity.",
   },
   {
-    number: "03",
     title: "Consumer & Discrete Manufacturing",
     text: "FMCG-linked products, durables, and assembly-based businesses shaped by brand, distribution, and product mix.",
   },
   {
-    number: "04",
     title: "Industrial Services & Equipment",
     text: "Equipment providers, maintenance businesses, and service platforms with recurring or aftermarket revenue.",
   },
@@ -141,6 +129,7 @@ export default function ManufacturingIndustrialPage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
+              {/* <p className="sector-section-label">01 / Sector Overview</p> */}
             <h2>Understanding Value in Manufacturing & Industrial</h2>
               <p>
                 Manufacturing and industrial businesses are influenced by
@@ -162,7 +151,7 @@ export default function ManufacturingIndustrialPage() {
             </div>
 
             <aside className="sector-value-box">
-              <p>Value Driver</p>
+              <p>Value Drivers</p>
               <h3>Operating leverage and asset intensity matter.</h3>
               <span>
                 Capacity utilisation, fixed and variable costs, capex, asset
@@ -170,6 +159,7 @@ export default function ManufacturingIndustrialPage() {
                 power, and competitive position can all influence expectations
                 of future cash flows.
               </span>
+              <span className="sector-value-box__read-more">Read more &gt;</span>
             </aside>
           </div>
         </section>
@@ -200,6 +190,7 @@ export default function ManufacturingIndustrialPage() {
 
         <section className="sector-considerations">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">03 / Key Valuation Considerations</p> */}
             <h2>What Can Influence Value?</h2>
             <p className="sector-section-intro">
               Manufacturing and industrial value is influenced by operating
@@ -209,7 +200,8 @@ export default function ManufacturingIndustrialPage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration sector-card-motion">
+                <article  className="sector-consideration sector-card-motion">
+                  <span className="sector-card-number"></span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -222,6 +214,7 @@ export default function ManufacturingIndustrialPage() {
 
         <section className="sector-subsectors">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">04 / Sub-Sectors</p> */}
             <h2>Industrial Businesses Across Different Models</h2>
             <p className="sector-subsectors__intro">
               Different manufacturing and industrial models generate value
@@ -231,8 +224,8 @@ export default function ManufacturingIndustrialPage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector sector-card-motion">
-                  <span>{item.number}</span>
+                <article className="sector-subsector sector-card-motion">
+                  <span className="sector-subsector-number"></span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -243,7 +236,7 @@ export default function ManufacturingIndustrialPage() {
 
         <RelatedSectorInsights
           sectorSlug="manufacturing-industrial"
-          sectorTitle="Manufacturing & Industrial"
+          sectorTitle="Manufacturing & Industrial Insights"
           intro="Selected observations examining the valuation issues affecting manufacturing and industrial businesses."
         />
 

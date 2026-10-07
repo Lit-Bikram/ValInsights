@@ -84,11 +84,12 @@ export default function RealEstatePage() {
           <div className="service-shell">
             <p className="service-label">Scope of Work</p>
             <h2>What We Value</h2>
-            <p className="service-section-intro">SCOPE_We value real estate assets, portfolios, platforms, and development interests across commercial, residential, industrial, logistics, hospitality, and infrastructure-linked categories. Our work reflects the physical characteristics of the asset, the legal and economic rights attached to it, its operating or development profile, and the relevant market evidence.</p>
+            <p className="service-section-intro">We value real estate assets, portfolios, platforms, and development interests across commercial, residential, industrial, logistics, hospitality, and infrastructure-linked categories. Our work reflects the physical characteristics of the asset, the legal and economic rights attached to it, its operating or development profile, and the relevant market evidence.</p>
 
             <div className="service-scope__grid">
               {scopeItems.map((item) => (
                 <article key={item.title} className="service-scope-card">
+                  <span aria-hidden="true">{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -163,7 +164,6 @@ export default function RealEstatePage() {
          */}
 
         <RelatedServiceInsights serviceSlug="real-estate" />
-
         <section className="service-cta">
           <div className="service-shell service-cta__inner">
             <h2>Discuss a Requirement</h2>

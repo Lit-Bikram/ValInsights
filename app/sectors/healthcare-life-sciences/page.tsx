@@ -6,22 +6,18 @@ import { supabase } from "../../lib/supabase/client";
 
 const typicalAssignments = [
   {
-    number: "01",
     title: "Healthcare Businesses & Provider Platforms",
     text: "Valuation of healthcare providers, clinics, hospitals, and healthcare service platforms.",
   },
   {
-    number: "02",
     title: "Life Sciences & Medical Technology",
     text: "Valuation of life sciences businesses, medical technologies, devices, and related commercial interests.",
   },
   {
-    number: "03",
     title: "Fair Value & Impairment",
     text: "Fair value and impairment analysis for healthcare businesses, investments, and operating assets.",
   },
   {
-    number: "04",
     title: "Transactions, Reporting & Disputes",
     text: "Valuation for transactions, financial reporting, restructuring, shareholder matters, and disputes.",
   },
@@ -29,22 +25,18 @@ const typicalAssignments = [
 
 const valuationConsiderations = [
   {
-    number: "01",
     title: "Regulation, Reimbursement & Policy",
     text: "Regulatory requirements, reimbursement structures, licensing, and policy conditions can materially affect operating assumptions.",
   },
   {
-    number: "02",
     title: "Clinical, Commercial & Product Risk",
     text: "Clinical development, product adoption, customer demand, approvals, and commercial execution can influence future cash flows.",
   },
   {
-    number: "03",
     title: "Intellectual Property & Technology",
     text: "Patents, proprietary technology, data, know-how, and product pipelines can be important components of enterprise value.",
   },
   {
-    number: "04",
     title: "Margins, Scale & Operating Model",
     text: "Utilisation, payer and customer mix, pricing, cost structure, scale, and capital requirements can shape sustainable earnings.",
   },
@@ -52,22 +44,18 @@ const valuationConsiderations = [
 
 const subsectors = [
   {
-    number: "01",
     title: "Healthcare Providers",
     text: "Hospitals, clinics, diagnostic businesses, and other providers where utilisation, payer mix, quality, and capacity affect value.",
   },
   {
-    number: "02",
     title: "Pharmaceuticals & Life Sciences",
     text: "Pharmaceutical, biotechnology, research, and life sciences businesses shaped by products, pipelines, approvals, and intellectual property.",
   },
   {
-    number: "03",
     title: "Medical Devices & Technology",
     text: "Medical devices, equipment, digital health, and technology-enabled businesses where innovation and adoption influence commercial prospects.",
   },
   {
-    number: "04",
     title: "Healthcare Services & Platforms",
     text: "Specialist services and healthcare platforms where recurring demand, network effects, operating scale, and customer relationships matter.",
   },
@@ -158,6 +146,7 @@ export default async function HealthcareLifeSciencesPage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
+              {/* <p className="sector-section-label">01 / Sector Overview</p> */}
             <h2>Understanding Value in Healthcare &amp; Life Sciences</h2>
               <p>
                 Healthcare and life sciences businesses operate within complex
@@ -181,7 +170,7 @@ export default async function HealthcareLifeSciencesPage() {
             </div>
 
             <aside className="sector-value-box">
-              <p>Value Driver</p>
+              <p>Value Drivers</p>
               <h3>Regulation and commercial execution can shape value.</h3>
               <span>
                 Reimbursement, licensing, approvals, customer demand, product
@@ -189,6 +178,7 @@ export default async function HealthcareLifeSciencesPage() {
                 and capital requirements can all influence expectations of
                 future cash flows.
               </span>
+              <span className="sector-value-box__read-more">Read more &gt;</span>
             </aside>
           </div>
         </section>
@@ -219,6 +209,7 @@ export default async function HealthcareLifeSciencesPage() {
 
         <section className="sector-considerations">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">03 / Key Valuation Considerations</p> */}
             <h2>What Can Influence Value?</h2>
             <p className="sector-section-intro">
               Healthcare and life sciences value is influenced by regulation,
@@ -228,7 +219,8 @@ export default async function HealthcareLifeSciencesPage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration sector-card-motion">
+                <article className="sector-consideration sector-card-motion">
+                  <span className="sector-card-number"></span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -241,6 +233,7 @@ export default async function HealthcareLifeSciencesPage() {
 
         <section className="sector-subsectors">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">04 / Sub-Sectors</p> */}
             <h2>Healthcare Businesses Across Different Models</h2>
             <p className="sector-subsectors__intro">
               Different healthcare and life sciences models generate value
@@ -250,8 +243,8 @@ export default async function HealthcareLifeSciencesPage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector sector-card-motion">
-                  <span>{item.number}</span>
+                <article className="sector-subsector sector-card-motion">
+                  <span className="sector-subsector-number"></span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -262,13 +255,14 @@ export default async function HealthcareLifeSciencesPage() {
 
         <section className="sector-insights">
           <div className="sector-shell">
-            <p className="sector-label">05 / Related Insights</p>
-            <h2>Healthcare &amp; Life Sciences</h2>
+            {/* <p className="sector-label">05 / Related Insights</p> */}
+            <h2>Healthcare &amp; Life Sciences Insights</h2>
+            <br />
             <p className="sector-insights__intro">
               Selected observations examining valuation issues affecting
               healthcare and life sciences businesses.
             </p>
-
+<br />
             <div className="insights-publication-grid">
               {relatedInsights.length ? (
                 relatedInsights.map((item, index) => (

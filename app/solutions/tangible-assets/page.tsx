@@ -82,11 +82,12 @@ export default function TangibleAssetsPage() {
           <div className="service-shell">
             <p className="service-label">Scope of Work</p>
             <h2>What We Value</h2>
-            <p className="service-section-intro">SCOPE_We value plant, machinery, specialised equipment, production lines, infrastructure assets, and other physical assets. Our analysis considers the asset’s condition, age, capacity, utilisation, remaining useful life, marketability, replacement cost, and role within the operating business.</p>
+            <p className="service-section-intro">We value plant, machinery, specialised equipment, production lines, infrastructure assets, and other physical assets. Our analysis considers the asset’s condition, age, capacity, utilisation, remaining useful life, marketability, replacement cost, and role within the operating business.</p>
 
             <div className="service-scope__grid">
               {scopeItems.map((item) => (
                 <article key={item.title} className="service-scope-card">
+                  <span aria-hidden="true">{item.number}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -161,7 +162,6 @@ export default function TangibleAssetsPage() {
          */}
 
         <RelatedServiceInsights serviceSlug="tangible-assets" />
-
         <section className="service-cta">
           <div className="service-shell service-cta__inner">
             <h2>Discuss a Requirement</h2>

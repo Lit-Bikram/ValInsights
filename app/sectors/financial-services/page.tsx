@@ -6,22 +6,18 @@ import RelatedSectorInsights from "../../components/insights/RelatedSectorInsigh
 
 const typicalAssignments = [
   {
-    number: "01",
     title: "Banks & NBFCs",
     text: "Valuation of banks, NBFCs, fintech platforms, and financial intermediaries.",
   },
   {
-    number: "02",
     title: "Funds & Investment Vehicles",
     text: "Valuation of fund interests, AIF structures, and portfolio vehicles.",
   },
   {
-    number: "03",
     title: "Fair Value & Impairment",
     text: "Fair value and impairment analysis for financial assets and investments.",
   },
   {
-    number: "04",
     title: "Transactions, Reporting & Disputes",
     text: "Valuation of financial institutions, securities, and interests in transactions, reporting, restructuring, and disputes.",
   },
@@ -29,22 +25,18 @@ const typicalAssignments = [
 
 const valuationConsiderations = [
   {
-    number: "01",
     title: "Capital, Leverage & Risk",
     text: "Regulatory capital, leverage, and risk-weighted assets can materially affect the economics and valuation of financial institutions.",
   },
   {
-    number: "02",
     title: "Asset Quality & Earnings Stability",
     text: "Asset quality, provisioning, recoveries, and earnings stability connect credit risk and financial performance to valuation.",
   },
   {
-    number: "03",
     title: "Liquidity & Funding",
     text: "Liquidity, funding structures, and access to capital can influence financial resilience and value.",
   },
   {
-    number: "04",
     title: "Distribution, Technology & Market Evidence",
     text: "Distribution, technology, intangible assets, and relevant market comparables can influence business economics and valuation.",
   },
@@ -52,22 +44,18 @@ const valuationConsiderations = [
 
 const subsectors = [
   {
-    number: "01",
     title: "Banks & NBFCs",
     text: "Deposit-taking and non-bank lending institutions where asset quality, funding, capital, and regulation shape value.",
   },
   {
-    number: "02",
     title: "Fintech & Digital Financial Services",
     text: "Payments, lending technology, and wealth technology platforms with technology-led distribution.",
   },
   {
-    number: "03",
     title: "Funds & Investment Vehicles",
     text: "AIFs, private funds, and portfolio structures where underlying assets, terms, and liquidity drive value.",
   },
   {
-    number: "04",
     title: "Financial Intermediaries & Services",
     text: "Broking, distribution, and advisory businesses with fee-based or flow-driven models.",
   },
@@ -138,6 +126,7 @@ export default function FinancialServicesPage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
+              {/* <p className="sector-section-label">01 / Sector Overview</p> */}
             <h2>Understanding Value in Financial Services</h2>
               <p>
                 Financial services businesses are shaped by capital, risk,
@@ -159,7 +148,7 @@ export default function FinancialServicesPage() {
             </div>
 
             <aside className="sector-value-box">
-              <p>Value Driver</p>
+              <p>Value Drivers</p>
               <h3>Capital, risk, and earnings resilience matter.</h3>
               <span>
                 Regulatory capital, leverage, asset quality, provisioning,
@@ -167,6 +156,7 @@ export default function FinancialServicesPage() {
                 comparables can all influence expectations of future earnings
                 and value.
               </span>
+              <span className="sector-value-box__read-more">Read more &gt;</span>
             </aside>
           </div>
         </section>
@@ -197,6 +187,7 @@ export default function FinancialServicesPage() {
 
         <section className="sector-considerations">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">03 / Key Valuation Considerations</p> */}
             <h2>What Can Influence Value?</h2>
             <p className="sector-section-intro">
               Financial services businesses are influenced by balance-sheet
@@ -206,7 +197,8 @@ export default function FinancialServicesPage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration sector-card-motion">
+                <article className="sector-consideration sector-card-motion">
+                  <span className="sector-card-number"></span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -219,6 +211,7 @@ export default function FinancialServicesPage() {
 
         <section className="sector-subsectors">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">04 / Sub-Sectors</p> */}
             <h2>Financial Services Across Different Models</h2>
             <p className="sector-subsectors__intro">
               Different financial services models generate value through
@@ -228,8 +221,8 @@ export default function FinancialServicesPage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector sector-card-motion">
-                  <span>{item.number}</span>
+                <article className="sector-subsector sector-card-motion">
+                  <span className="sector-subsector-number"></span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -240,7 +233,7 @@ export default function FinancialServicesPage() {
 
         <RelatedSectorInsights
           sectorSlug="financial-services"
-          sectorTitle="Financial Services"
+          sectorTitle="Financial Services Insights"
           intro="Selected observations examining the valuation issues affecting financial services."
         />
 

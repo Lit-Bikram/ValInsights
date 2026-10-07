@@ -22,7 +22,7 @@ const stakeholderGroups = [
   {
     title: "Start-Ups & Growth Companies",
     description:
-      "Fundraising, economic options, cap tables, and corporate development.",
+      "Fundraising, employee options, cap tables, and corporate development.",
   },
   {
     title: "Founders & Promoters",
@@ -66,14 +66,15 @@ export default function AboutPage() {
           <div className="about-hero__overlay" />
 
           <div className="about-shell about-hero__content">
-            {/* <p className="about-breadcrumb">Home / About Us</p> */}
+            <p className="about-breadcrumb">Home / About Us</p>
 
             <h1>About Valuation Insights</h1>
 
             <p className="about-hero__description">
               A partner-led valuation firm combining specialist technical
-              knowledge with a commercial understanding of the businesses,
-              assets, and markets under review.
+              knowledge with a commercial
+              <br />
+              understanding of the businesses, assets, and markets under review.
             </p>
           </div>
         </section>
@@ -82,20 +83,30 @@ export default function AboutPage() {
         <section className="about-firm">
           <div className="about-shell about-firm__grid">
             <div className="about-firm__copy">
+              {/* <p className="about-section-kicker">01 / About the Firm</p> */}
 
-              <h2>A Specialist Valuation Practice Built Around Judgement</h2>
+              <h2>
+                A Specialist Valuation Practice
+                <br />
+                Built Around Judgement
+              </h2>
 
               <p>
                 Valuation Insights is a partner-led valuation firm serving
-                institutional and sophisticated private clients. We combine
-                specialist technical knowledge with a commercial understanding
-                of the businesses, assets, and markets under review.
+                institutional and
+                <br />
+                sophisticated private clients. We combine specialist technical
+                knowledge with a<br />
+                commercial understanding of the businesses, assets, and markets
+                under review.
               </p>
 
               <p>
                 Our work is designed for situations where valuation affects
-                reporting, investment, ownership, transaction structure, or the
-                resolution of a contested matter.
+                reporting, investment,
+                <br />
+                ownership, transaction structure, or the resolution of a
+                contested matter.
               </p>
             </div>
 
@@ -117,9 +128,9 @@ export default function AboutPage() {
                 <h3>A Trusted Specialist Across India and the Gulf</h3>
                 <p>
                   To be recognised across India and the Gulf as a trusted
-                  specialist valuation firm, distinguished by the quality of
-                  its judgement, the depth of its expertise, and the clarity of
-                  its conclusions.
+                  specialist valuation firm, distinguished by the quality of its
+                  judgement, the depth of its expertise, and the clarity of its
+                  conclusions.
                 </p>
               </article>
             </div>
@@ -129,6 +140,7 @@ export default function AboutPage() {
         {/* Founder */}
         <section className="about-founder">
           <div className="about-shell about-founder__inner">
+            {/* <p className="about-section-kicker">02 / Founder</p> */}
 
             <div className="about-founder__grid">
               <div className="about-founder__identity">
@@ -144,6 +156,7 @@ export default function AboutPage() {
                   </div>
 
                   <div className="about-founder__qualifications">
+                    <br />
                     <p>A Chartered Accountant</p>
                     <p>An MBA from London Business School</p>
                     <p>
@@ -207,12 +220,16 @@ export default function AboutPage() {
                     <h4>Education &amp; Credentials</h4>
                     <p>Chartered Accountant</p>
                     <p>MBA, London Business School</p>
-                    <p>Registered Valuer, Securities or Financial Assets, IBBI</p>
+                    <p>
+                      Registered Valuer, Securities or Financial Assets, IBBI
+                    </p>
                   </div>
 
                   <div className="about-founder__experience">
                     <h4>Experience</h4>
-                    <p>More than 23 years in professional services and advisory</p>
+                    <p>
+                      More than 23 years in professional services and advisory
+                    </p>
                     <p>More than 10 years focused on valuation</p>
                     <p>
                       Transaction advisory, reporting, ownership matters and
@@ -232,6 +249,7 @@ export default function AboutPage() {
         {/* Clients We Serve */}
         <section className="about-clients">
           <div className="about-shell">
+            {/* <p className="about-section-kicker">03 / Clients We Serve</p> */}
 
             <h2>Specialist Analysis for Different Stakeholders</h2>
 
@@ -240,7 +258,8 @@ export default function AboutPage() {
               situations involving capital, ownership, reporting, transactions,
               or disputes.
             </p>
-
+            <br />
+            
             <div className="about-clients__grid">
               {stakeholderGroups.map((group) => (
                 <article className="about-client-card" key={group.title}>

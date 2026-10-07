@@ -149,59 +149,50 @@ export default function SectorsPage() {
           <div className="sectors-hero__overlay" />
 
           <div className="sectors-shell sectors-hero__content">
-
-            <h1>Sector Context Shapes Valuation</h1>
+            <p className="sectors-breadcrumb">Home / Sector Expertise</p>
+            <h1>Sector Expertise</h1>
 
             <p>
-              Businesses and assets do not operate in isolation. Their
-              economic characteristics, market conditions, and investment
-              requirements influence how value is assessed. Our sector focus
-              connects commercial context with the financial analysis relevant
-              to each assignment.
+              Businesses and assets depend on market conditions, economic
+              traits, and investment needs. Our sector focus connects this
+              commercial context directly to the financial analysis required for
+              each assignment.
             </p>
           </div>
         </section>
+        {/* =========================================================
+            OUR PERSPECTIVE
+            Matches the supplied Sector Home Page reference.
+            ========================================================= */}
+        <section className="sectors-perspective">
+          <div className="sectors-shell sectors-perspective__grid">
+            <div>
+              {/* <p className="sectors-label">01 / Our Perspective</p> */}
+              <h2>Sector Context Shapes Valuation</h2>
+              <p>
+                Businesses and assets do not operate in isolation. Their
+                economic characteristics, market conditions, and investment
+                requirements influence how value is assessed.
+              </p>
+              <p>
+                Across our core sectors, we consider the operating factors
+                behind financial performance alongside the evidence relevant to
+                the assignment. Explore a sector below for its typical
+                assignments, key valuation considerations, and sub-sectors.
+              </p>
+            </div>
 
-        {/*
-         * =========================================================
-         * LEGACY SECTION — PRESERVED FOR EASY ROLLBACK
-         *
-         * Owner requested the old "Our Perspective" section to be
-         * incorporated into the hero. It is intentionally commented
-         * rather than deleted.
-         * =========================================================
-         *
-         * <section className="sectors-perspective">
-         *   <div className="sectors-shell sectors-perspective__grid">
-         *     <div>
-         *       <p className="sectors-label">01 / Our Perspective</p>
-         *       <h2>Sector Context Shapes Valuation</h2>
-         *       <p>
-         *         Businesses and assets do not operate in isolation. Their
-         *         economic characteristics, market conditions, and investment
-         *         requirements influence how value is assessed.
-         *       </p>
-         *       <p>
-         *         Across our core sectors, we consider the operating factors
-         *         behind financial performance alongside the evidence relevant
-         *         to the assignment. Explore a sector below for its typical
-         *         assignments, key valuation considerations, and sub-sectors.
-         *       </p>
-         *     </div>
-         *
-         *     <aside className="sectors-perspective__callout">
-         *       <p>Across Our Work</p>
-         *       <h3>From Commercial Context to Financial Analysis</h3>
-         *       <span>
-         *         Our sector focus connects the underlying business model, its
-         *         sources of cash flow, and the risks and capital needs that
-         *         influence long-term prospects.
-         *       </span>
-         *     </aside>
-         *   </div>
-         * </section>
-         */}
-
+            <aside className="sectors-perspective__callout">
+              <p>Across Our Work</p>
+              <h3>From Commercial Context to Financial Analysis</h3>
+              <span>
+                Our sector focus connects the underlying business model, its
+                sources of cash flow, and the risks and capital needs that
+                influence long-term prospects.
+              </span>
+            </aside>
+          </div>
+        </section>
         {/* =========================================================
             CORE SECTOR EXPERTISE
             ========================================================= */}
@@ -248,7 +239,6 @@ export default function SectorsPage() {
             </div>
           </div>
         </section>
-
         {/*
          * =========================================================
          * OWNER NOTE — SECTOR INSIGHTS NAVIGATION
@@ -262,7 +252,6 @@ export default function SectorsPage() {
          * This comment is retained so the decision is reversible.
          * =========================================================
          */}
-
         {/*
          * =========================================================
          * LEGACY SECTION — PRESERVED FOR EASY ROLLBACK
@@ -300,7 +289,6 @@ export default function SectorsPage() {
          *   </div>
          * </section>
          */}
-
         {/* CTA */}
         <section className="sectors-cta">
           <div className="sectors-shell sectors-cta__inner">

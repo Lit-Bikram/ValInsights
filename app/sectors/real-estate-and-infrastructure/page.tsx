@@ -6,22 +6,18 @@ import RelatedSectorInsights from "../../components/insights/RelatedSectorInsigh
 
 const typicalAssignments = [
   {
-    number: "01",
     title: "Commercial Real Estate",
     text: "Office, retail, and mixed-use assets where location, lease quality, occupancy, and income stability shape value.",
   },
   {
-    number: "02",
     title: "Residential Development",
     text: "Housing projects, townships, and residential platforms where timing, absorption, pricing, and cost-to-complete are central.",
   },
   {
-    number: "03",
     title: "Logistics & Warehousing",
     text: "Industrial parks, warehouses, and supply-chain assets influenced by access, location, tenant quality, and demand.",
   },
   {
-    number: "04",
     title: "Infrastructure Assets",
     text: "Roads, utilities, and other long-life assets with regulated, contracted, or concession-based revenues.",
   },
@@ -29,22 +25,18 @@ const typicalAssignments = [
 
 const valuationConsiderations = [
   {
-    number: "01",
     title: "Location, Zoning & Highest-and-Best-Use",
     text: "Site-specific factors can materially affect the economic use, risk, and value of property.",
   },
   {
-    number: "02",
     title: "Leases, Occupancy & Income Stability",
     text: "Lease profiles, occupancy, rental growth, and income sustainability influence cash-flow visibility.",
   },
   {
-    number: "03",
     title: "Development Risk & Exit Assumptions",
     text: "Cost, timing, financing, absorption, pricing, and market cycles need to be reflected in development analysis.",
   },
   {
-    number: "04",
     title: "Concessions, Regulation & Contracted Revenues",
     text: "Regulation, concessions, contracted revenues, and long-term cash-flow visibility can be central to infrastructure valuation.",
   },
@@ -52,22 +44,18 @@ const valuationConsiderations = [
 
 const subsectors = [
   {
-    number: "01",
     title: "Commercial Real Estate",
     text: "Office, retail, and mixed-use assets where location, lease quality, occupancy, and income stability shape value.",
   },
   {
-    number: "02",
     title: "Residential Development",
     text: "Housing projects, townships, and residential platforms where timing, absorption, pricing, and cost-to-complete are central.",
   },
   {
-    number: "03",
     title: "Logistics & Warehousing",
     text: "Industrial parks, warehouses, and supply-chain assets influenced by access, location, tenant quality, and demand.",
   },
   {
-    number: "04",
     title: "Infrastructure Assets",
     text: "Roads, utilities, and other long-life assets with regulated, contracted, or concession-based revenues.",
   },
@@ -141,6 +129,7 @@ export default function RealEstateInfrastructurePage() {
         <section className="sector-overview">
           <div className="sector-shell sector-overview__grid">
             <div>
+              {/* <p className="sector-section-label">01 / Sector Overview</p> */}
             <h2>Understanding Value in Real Estate & Infrastructure</h2>
               <p>
                 Real estate and infrastructure value is closely linked to
@@ -163,13 +152,14 @@ export default function RealEstateInfrastructurePage() {
             </div>
 
             <aside className="sector-value-box">
-              <p>Value Driver</p>
+              <p>Value Drivers</p>
               <h3>Cash-flow visibility and asset-specific risk matter.</h3>
               <span>
                 Location, lease quality, occupancy, development assumptions,
                 financing, regulation, and contracted or concession-based
                 revenues can all influence expectations of future cash flows.
               </span>
+              <span className="sector-value-box__read-more">Read more &gt;</span>
             </aside>
           </div>
         </section>
@@ -200,6 +190,7 @@ export default function RealEstateInfrastructurePage() {
 
         <section className="sector-considerations">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">03 / Key Valuation Considerations</p> */}
             <h2>What Can Influence Value?</h2>
             <p className="sector-section-intro">
               Real estate and infrastructure assets are influenced by a
@@ -210,7 +201,8 @@ export default function RealEstateInfrastructurePage() {
 
             <div className="sector-considerations__grid">
               {valuationConsiderations.map((item) => (
-                <article key={item.number} className="sector-consideration sector-card-motion">
+                <article className="sector-consideration sector-card-motion">
+                  <span className="sector-card-number"></span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
@@ -223,6 +215,7 @@ export default function RealEstateInfrastructurePage() {
 
         <section className="sector-subsectors">
           <div className="sector-shell">
+            {/* <p className="sector-section-label">04 / Sub-Sectors</p> */}
             <h2>Real Assets Across Different Models</h2>
             <p className="sector-subsectors__intro">
               Different real estate and infrastructure assets generate value
@@ -232,8 +225,8 @@ export default function RealEstateInfrastructurePage() {
 
             <div className="sector-subsectors__grid">
               {subsectors.map((item) => (
-                <article key={item.number} className="sector-subsector sector-card-motion">
-                  <span>{item.number}</span>
+                <article className="sector-subsector sector-card-motion">
+                  <span className="sector-subsector-number"></span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -244,7 +237,7 @@ export default function RealEstateInfrastructurePage() {
 
         <RelatedSectorInsights
           sectorSlug="real-estate-infrastructure"
-          sectorTitle="Real Estate & Infrastructure"
+          sectorTitle="Real Estate & Infrastructure Insights"
           intro="Selected observations examining the valuation issues affecting real estate and infrastructure."
         />
 
