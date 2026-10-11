@@ -3,75 +3,34 @@ import Link from "next/link";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 
-const coreServices = [
+const expertiseCards = [
   {
-    title: "Securities & Financial Assets",
+    eyebrow: "Disputes & Quantum",
+    title: "Disputes & Quantum",
     description:
-      "Valuation of businesses, equity and debt securities, intangible assets, intellectual property, and complex instruments.",
-    image: "/images/solutions/securities-financial-assets.jpg",
-    href: "/solutions/securities-financial-assets",
-  },
-  {
-    title: "Real Estate",
-    description:
-      "Valuation of commercial, residential, industrial, hospitality, infrastructure-linked, and development assets.",
-    image: "/images/solutions/real-estate.jpg",
-    href: "/solutions/real-estate",
-  },
-  {
-    title: "Tangible Assets",
-    description:
-      "Valuation of plant, machinery, specialised equipment, production lines, infrastructure assets, and other physical assets.",
-    image: "/images/solutions/tangible-assets.jpg",
-    href: "/solutions/tangible-assets",
-  },
-  {
-    title: "Disputes & Litigation Support",
-    description:
-      "Valuation, damages analysis, financial modelling, and independent analysis for contested matters across asset classes.",
+      "Loss quantification, shareholder matters, and complex financial disputes.",
     image: "/images/solutions/litigation-support.jpg",
-    href: "/solutions/disputes-litigation-support",
-  },
-];
-
-const purposes = [
-  {
-    title: "Financial Reporting",
-    description:
-      "Fair value measurement, purchase price allocation, impairment testing, intangible assets, financial instruments, and other requirements under Ind AS and IFRS.",
+    imageAlt: "Classical courthouse columns",
+    href: "/solutions/disputes",
   },
   {
-    title: "Investments & Transactions",
+    eyebrow: "Investment Advisory",
+    title: "Investment Advisory",
     description:
-      "Acquisitions, disposals, capital raises, co-investments, exits, portfolio reviews, restructuring, and related corporate actions.",
+      "Decision support for investment committees, portfolios, and transactions.",
+    image: "/images/solutions/real-estate.jpg",
+    imageAlt: "Modern city skyline at dusk",
+    // Update this destination when the dedicated Investment Advisory page is redesigned.
+    href: "/solutions/investment",
   },
   {
-    title: "Disputes",
+    eyebrow: "Valuation",
+    title: "Valuation",
     description:
-      "Shareholder and ownership matters, commercial claims, M&A disputes, damages assessments, arbitration, mediation, and litigation.",
-  },
-];
-
-const workPrinciples = [
-  {
-    title: "Sector-aware analysis",
-    description:
-      "We begin with the commercial and operating factors that influence value in the relevant business, asset, or instrument.",
-  },
-  {
-    title: "Appropriate methodology",
-    description:
-      "We select and, where necessary, reconcile income, market, cost, option-pricing, and scenario-based approaches according to the assignment.",
-  },
-  {
-    title: "Transparent reasoning",
-    description:
-      "We explain assumptions, evidence, sensitivities, and limitations clearly so that the conclusion can be understood and assessed by relevant stakeholders.",
-  },
-  {
-    title: "Purpose-led reporting",
-    description:
-      "Our deliverables are structured around the requirements of the assignment, whether the audience is a board, investor, auditor, lender, regulator, counsel, tribunal, or transaction party.",
+      "Independent analysis of businesses, assets, and financial interests.",
+    image: "/images/solutions/securities-financial-assets.jpg",
+    imageAlt: "Financial market data on a screen",
+    href: "/solutions/valuation",
   },
 ];
 
@@ -81,10 +40,7 @@ export default function SolutionsPage() {
       <Header />
 
       <main className="solutions-page">
-        {/* =====================================================
-            PAGE HEADER BANNER
-        ====================================================== */}
-        <section className="solutions-hero">
+        <section className="solutions-hero" aria-labelledby="solutions-page-title">
           <Image
             src="/images/shared/inner-page-banner.jpg"
             alt=""
@@ -93,58 +49,59 @@ export default function SolutionsPage() {
             sizes="100vw"
             className="solutions-hero__image"
           />
+          <div className="solutions-hero__overlay" aria-hidden="true" />
 
-          <div className="solutions-hero__overlay" />
-
-          <div className="solutions-shell solutions-hero__content">
-            <p className="solutions-breadcrumb">Home / Our Solution</p>
-
-            <h1>Our Solution</h1>
-
+          <div className="solutions-hero__content">
+            <p className="solutions-breadcrumb">Home / Our Solutions</p>
+            <h1 id="solutions-page-title">Our Solutions</h1>
             <p className="solutions-hero__description">
-              We deliver clear, well-supported valuations across securities,
-              real estate, tangible assets, and contested matters by combining
-              commercial context, financial evidence, and robust methodology
-              tailored for their intended use.
+              Specialist valuation and advisory support for complex financial questions, investment
+              decisions, and contested matters. Our work combines rigorous analysis with commercial
+              context and clear, defensible reasoning.
             </p>
           </div>
         </section>
 
-        {/* =====================================================
-            CORE SERVICES
-        ====================================================== */}
-        <section className="solutions-core">
+        <section className="solutions-core" aria-labelledby="solutions-expertise-title">
           <div className="solutions-shell">
-            <h2>Core Services</h2>
-
-            <p className="solutions-section-intro">
-              Explore our main operational disciplines:
-            </p>
+            <div className="solutions-core__heading">
+              <div className="solutions-core__title-block">
+                <p className="solutions-section-label">Areas of Core Expertise</p>
+                <h2 id="solutions-expertise-title">
+                  Focused expertise. Clear
+                  <br />
+                  conclusions.
+                </h2>
+              </div>
+              <p className="solutions-section-intro">
+                A multidisciplinary practice spanning financial disputes, complex valuation, and
+                investment advisory—with a consistent focus on rigorous, defensible analysis in
+                high-stakes environments.
+              </p>
+            </div>
 
             <div className="solutions-core__grid">
-              {coreServices.map((service) => (
+              {expertiseCards.map((card) => (
                 <Link
-                  key={service.title}
-                  href={service.href}
                   className="solutions-service-card"
+                  href={card.href}
+                  key={card.title}
                 >
-                  <div className="solutions-service-card__content">
-                    <h3>{service.title}</h3>
-
-                    <p>{service.description.replace(/\.$/, "")}[cite: 2].</p>
-
-                    <span className="solutions-service-card__link">
-                      Learn more <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
-
                   <div className="solutions-service-card__image">
                     <Image
-                      src={service.image}
-                      alt=""
+                      src={card.image}
+                      alt={card.imageAlt}
                       fill
-                      sizes="(max-width: 700px) 100vw, (max-width: 1200px) 50vw, 741px"
+                      sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 387px"
                     />
+                  </div>
+                  <div className="solutions-service-card__content">
+                    <p className="solutions-service-card__eyebrow">{card.eyebrow}</p>
+                    <h3>{card.title}</h3>
+                    <p>{card.description}</p>
+                    <span className="solutions-service-card__link">
+                      Explore expertise <span aria-hidden="true">→</span>
+                    </span>
                   </div>
                 </Link>
               ))}
@@ -152,72 +109,13 @@ export default function SolutionsPage() {
           </div>
         </section>
 
-        {/* =====================================================
-            PURPOSES OF VALUATION
-        ====================================================== */}
-        <section className="solutions-purposes">
-          <div className="solutions-shell">
-            <h2>Purposes of Valuation</h2>
-
-            <p className="solutions-section-intro">
-              Across these disciplines, assignments commonly arise in three
-              primary contexts[cite: 2]:
-            </p>
-
-            <div className="solutions-purposes__grid">
-              {purposes.map((purpose) => (
-                <article
-                  key={purpose.title}
-                  className={`solutions-purpose-card solutions-purpose-card--${purpose.title
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")
-                    .replace(/[^a-z-]/g, "")}`}
-                >
-                  <h3>{purpose.title}</h3>
-                  <p>{purpose.description.replace(/\.$/, "")}[cite: 2].</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* =====================================================
-            HOW WE WORK
-        ====================================================== */}
-        <section className="solutions-work">
-          <div className="solutions-shell">
-            <h2>How We Work</h2>
-
-            <p className="solutions-section-intro">
-              Our systematic approach ensures structural robustness across every
-              engagement framework:
-            </p>
-
-            <div className="solutions-work__grid">
-              {workPrinciples.map((item) => (
-                <article key={item.title} className="solutions-work-card">
-                  <h3>{item.title}</h3>
-                  <p>{item.description.replace(/\.$/, "")}[cite: 2].</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* =====================================================
-            CTA
-        ====================================================== */}
-        <div className="solutions-cta-spacer" aria-hidden="true" />
-
-        <section className="solutions-cta">
-          <div className="solutions-shell solutions-cta__inner">
-            <h2>Discuss a Requirement</h2>
-
+        <section className="solutions-cta" aria-labelledby="solutions-cta-title">
+          <div className="solutions-cta__inner">
+            <h2 id="solutions-cta-title">Discuss a Requirement</h2>
             <p>
-              To discuss a valuation assignment or a related matter, contact us
-              at contact@valuationinsights.com or phone[cite: 2].
+              To discuss a valuation assignment or a related matter, contact us at
+              contact@valuationinsights.com.
             </p>
-
             <Link href="/contact" className="solutions-cta__button">
               Contact us
             </Link>
@@ -225,9 +123,6 @@ export default function SolutionsPage() {
         </section>
       </main>
 
-      {/* =====================================================
-          FOOTER — Figma ff1_sol
-      ====================================================== */}
       <Footer />
     </>
   );

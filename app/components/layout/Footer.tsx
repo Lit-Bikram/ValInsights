@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -6,15 +7,27 @@ export default function Footer() {
       <div className="home-footer-inner">
         {/* Brand */}
         <div className="home-footer-brand">
-          <Link href="/" className="home-footer-logo">
-            <span>VALUATION</span>
-            <span>INSIGHTS</span>
+          <Link
+            href="/"
+            className="home-footer-logo-image-link"
+            aria-label="Valuation Insights home"
+          >
+            <Image
+              src="/brand/logo-footer.png"
+              alt="Valuation Insights"
+              width={280}
+              height={80}
+              className="home-footer-logo-image"
+              style={{
+                display: "block",
+                width: "100%",
+                maxWidth: "280px",
+                height: "auto",
+                objectFit: "contain",
+                objectPosition: "left center",
+              }}
+            />
           </Link>
-
-          <p>
-            Independent valuation, M&amp;A advisory, and strategic financial
-            intelligence for corporate boards and institutional investors.
-          </p>
         </div>
 
         {/* Navigation */}

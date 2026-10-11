@@ -39,7 +39,7 @@ export default function Header() {
           <Link href="/" className={isActive("home") ? "active" : ""}>Home</Link>
           <Link href="/about" className={isActive("about") ? "active" : ""}>About Us</Link>
           <Link href="/solutions" className={isActive("solutions") ? "active" : ""}>Solutions</Link>
-          <Link href="/sectors" className={isActive("sectors") ? "active" : ""}>Sector Expertise</Link>
+          {/* <Link href="/sectors" className={isActive("sectors") ? "active" : ""}>Sector Expertise</Link> */}
           <Link href="/insights" className={isActive("insights") ? "active" : ""}>Insights</Link>
           <Link href="/contact" className={isActive("contact") ? "active" : ""}>Contact Us</Link>
         </nav>
@@ -64,7 +64,7 @@ export default function Header() {
             <Link href="/" className={isActive("home") ? "active" : ""} onClick={closeMenu}>Home</Link>
             <Link href="/about" className={isActive("about") ? "active" : ""} onClick={closeMenu}>About Us</Link>
             <Link href="/solutions" className={isActive("solutions") ? "active" : ""} onClick={closeMenu}>Solutions</Link>
-            <Link href="/sectors" className={isActive("sectors") ? "active" : ""} onClick={closeMenu}>Sector Expertise</Link>
+            {/* <Link href="/sectors" className={isActive("sectors") ? "active" : ""} onClick={closeMenu}>Sector Expertise</Link> */}
             <Link href="/insights" className={isActive("insights") ? "active" : ""} onClick={closeMenu}>Insights</Link>
             <Link href="/contact" className={isActive("contact") ? "active" : ""} onClick={closeMenu}>Contact Us</Link>
           </nav>

@@ -10,32 +10,25 @@ import { useEffect, useRef, useState } from "react";
 
 const solutions = [
   {
-    title: "Securities & Financial Assets",
+    title: "Disputes",
     description:
-      "Businesses, equity and debt securities, intangible assets, intellectual property, and complex instruments.",
+      "Loss quantification, shareholder negotiations and disputes, contentious restructurings and cross-border mediations across India, Europe and the Middle East.",
+    image: "/images/solutions/litigation-support.jpg",
+    href: "/solutions/disputes-litigation-support",
+  },
+  {
+    title: "Investment Advisory",
+    description:
+      "Supporting investment committees on strategic investment and exit decisions; fair value assessments for global portfolios; valuation and reporting frameworks for complex structures.",
     image: "/images/solutions/securities-financial-assets.jpg",
     href: "/solutions/securities-financial-assets",
   },
   {
-    title: "Valuation of Real Estate",
+    title: "Valuation",
     description:
-      "Commercial, residential, industrial, hospitality, infrastructure-linked assets, portfolios and development interests.",
+      "Complex financial and valuation analyses for litigation, arbitration, expert determination and settlement — bringing an investor-grade perspective to value assessment.",
     image: "/images/solutions/real-estate.jpg",
     href: "/solutions/real-estate",
-  },
-  {
-    title: "Valuation of Tangible Assets",
-    description:
-      "Plant, machinery, specialised equipment, production lines, infrastructure assets, and other physical assets.",
-    image: "/images/solutions/tangible-assets.jpg",
-    href: "/solutions/tangible-assets",
-  },
-  {
-    title: "Disputes & Litigation Support",
-    description:
-      "Valuation, damages analysis, financial modelling, and independent analysis for contested matters across asset classes.",
-    image: "/images/solutions/litigation-support.jpg",
-    href: "/solutions/disputes-litigation-support",
   },
 ];
 
@@ -312,19 +305,37 @@ export default function Home() {
 
         <section className="home-who-we-are">
           <div className="home-shell home-who-we-are__inner">
-            <div className="home-section-label">
-              Who We Are
-            </div>
+            <h2 className="home-section-label">Who We Are</h2>
 
             <div className="home-who-we-are__content">
               <div className="home-who-we-are__copy">
                 <p>
-                  Valuation Insights is a specialist valuation firm serving clients across India, the UAE, and the wider Gulf region. Led by Amit Sultania, CA, MBA—London Business School, and Registered Valuer with IBBI, the firm combines sector context with disciplined financial analysis to address complex valuation requirements across transactions, reporting, and disputes.
+                  Valuation Insights is a boutique advisory firm specialising in
+                  Valuation, Disputes, and Investment Advisory — bringing over
+                  two decades of investor-grade insight to complex mandates
+                  across India, Europe and the Middle East. Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. 
                 </p>
+              </div>
 
-                <p>
-                  Our approach integrates proprietary valuation methodologies with real-world M&amp;A experience to deliver independent, defensible opinions for corporate boards, institutional investors, and high-growth enterprises.
-                </p>
+              <div className="home-who-we-are__metrics">
+                <article className="home-who-we-are__metric">
+                  <p className="home-who-we-are__metric-value">20+</p>
+                  <h3>Years of Experience</h3>
+                  {/* <p className="home-who-we-are__metric-description">
+                    Over two decades of investor-grade insight delivered across
+                    complex, high-stakes mandates.
+                  </p> */}
+                </article>
+
+                <article className="home-who-we-are__metric">
+                  <p className="home-who-we-are__metric-value">3</p>
+                  <h3>Core Practice Areas</h3>
+                  {/* <p className="home-who-we-are__metric-description">
+                    Disputes, Governance and Valuation — three specialisations
+                    that define the practice.
+                  </p> */}
+                </article>
               </div>
             </div>
           </div>
@@ -337,12 +348,10 @@ export default function Home() {
         <section className="home-services">
           <div className="home-shell">
             <div className="home-section-heading">
-              <div className="home-section-label">
-                What We Do
-              </div>
+              <h2 className="home-section-label">What We Do</h2>
 
               <p>
-                Advice built around important financial and strategic choices.
+                A multidisciplinary practice spanning financial disputes, complex valuation and Investment Advisory — with a consistent focus on delivering rigorous, defensible analysis in high-stakes environments.
               </p>
             </div>
 
@@ -407,7 +416,9 @@ export default function Home() {
             <h2>Insights &amp; Market Intelligence</h2>
 
             <p>
-              In-depth analysis, valuation benchmarks, and strategic research exploring evolving capital market dynamics, regulatory changes, and corporate transaction trends.
+              In-depth analysis, valuation benchmarks, and strategic research
+              exploring evolving capital market dynamics, regulatory changes,
+              and corporate transaction trends.
             </p>
 
             <Link href="/insights" className="home-button">
@@ -419,7 +430,7 @@ export default function Home() {
         {/* =====================================================
             SECTOR EXPERTISE
         ====================================================== */}
-        <section className="home-sectors">
+        {/* <section className="home-sectors">
           <div className="home-shell">
             <div className="home-section-heading">
               <div className="home-section-label">
@@ -464,7 +475,8 @@ export default function Home() {
               ))}
             </DragRail>
           </div>
-        </section>
+        </section> */}
+
         {/* =====================================================
             CTA
         ====================================================== */}
@@ -476,7 +488,8 @@ export default function Home() {
             <h2>Discuss a Requirement</h2>
 
             <p>
-              A confidential conversation about valuation, transactions, or strategic decisions.
+              A confidential conversation about valuation, transactions, or
+              strategic decisions.
             </p>
 
             <Link href="/contact" className="home-button">
