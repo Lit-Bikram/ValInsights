@@ -5,6 +5,11 @@ import PageReveal from "./components/ui/PageReveal";
 export const metadata: Metadata = {
   title: "ValInsight",
   description: "Independent Valuation Specialists",
+  icons: {
+    icon: "/brand/icon.png",
+    shortcut: "/brand/icon.png",
+    apple: "/brand/icon.png",
+  },
 };
 
 export default function RootLayout({

@@ -17,6 +17,7 @@ export default function Footer() {
               alt="Valuation Insights"
               width={280}
               height={80}
+              loading="eager"
               className="home-footer-logo-image"
               style={{
                 display: "block",

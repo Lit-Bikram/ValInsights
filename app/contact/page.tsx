@@ -21,6 +21,7 @@ export default function ContactPage() {
           <div className="contact-hero__overlay" />
 
           <div className="contact-shell contact-hero__content">
+            <p className="contact-hero__breadcrumb">Home / Contact Us</p>
             <h1>Contact the Firm</h1>
             <p>
               If you are considering a valuation assignment, transaction,

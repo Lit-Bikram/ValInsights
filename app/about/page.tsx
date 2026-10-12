@@ -96,7 +96,7 @@ export default function AboutPage() {
               value, risk, and decision-making.
             </p>
 
-            <div className="about-institutional__grid">
+            <div className="about-institutional__grid about-institutional__grid--contribution-style">
               <article>
                 <h3>Global Portfolio Valuations</h3>
                 <p>
@@ -225,7 +225,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="about-contributions">
+        {/* <section className="about-contributions">
           <div className="about-shell">
             <p className="about-section-kicker">Professional Contributions</p>
             <h2>Contributing to Valuation Standards</h2>
@@ -254,7 +254,7 @@ export default function AboutPage() {
               </article>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="about-clients">
           <div className="about-shell">

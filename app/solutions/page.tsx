@@ -96,8 +96,10 @@ export default function SolutionsPage() {
                     />
                   </div>
                   <div className="solutions-service-card__content">
-                    <p className="solutions-service-card__eyebrow">{card.eyebrow}</p>
+                    {/* <p className="solutions-service-card__eyebrow">{card.eyebrow}</p> */}
+                    <p className="solutions-service-card__eyebrow"></p>
                     <h3>{card.title}</h3>
+                    <br />
                     <p>{card.description}</p>
                     <span className="solutions-service-card__link">
                       Explore expertise <span aria-hidden="true">→</span>

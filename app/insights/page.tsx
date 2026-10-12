@@ -207,7 +207,7 @@ export default async function InsightsPage({
 
           <div className="insights-shell insights-hero__content">
             <p className="insights-eyebrow">
-              Market Intelligence &amp; Research
+              Home / Insights
             </p>
 
             <h1>Insights &amp; Publications</h1>

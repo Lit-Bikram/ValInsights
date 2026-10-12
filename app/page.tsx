@@ -313,8 +313,7 @@ export default function Home() {
                   Valuation Insights is a boutique advisory firm specialising in
                   Valuation, Disputes, and Investment Advisory — bringing over
                   two decades of investor-grade insight to complex mandates
-                  across India, Europe and the Middle East. Lorem ipsum dolor
-                  sit amet consectetur adipisicing elit. 
+                  across India, Europe and the Middle East. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, commodi ratione quis delectus nulla aut.
                 </p>
               </div>
 
@@ -351,7 +350,10 @@ export default function Home() {
               <h2 className="home-section-label">What We Do</h2>
 
               <p>
-                A multidisciplinary practice spanning financial disputes, complex valuation and Investment Advisory — with a consistent focus on delivering rigorous, defensible analysis in high-stakes environments.
+                A multidisciplinary practice spanning financial disputes,
+                complex valuation and Investment Advisory — with a consistent
+                focus on delivering rigorous, defensible analysis in high-stakes
+                environments.
               </p>
             </div>
 

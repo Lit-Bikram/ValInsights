@@ -148,6 +148,16 @@ export default async function InsightArticlePage({
             </aside>
           </div>
         </div>
+
+        <section className="service-cta insight-article-cta">
+          <div className="service-shell service-cta__inner">
+            <h2>Discuss a Requirement</h2>
+            <p>Speak with our team about a valuation, dispute, or investment advisory requirement.</p>
+            <Link href="/contact" className="service-cta__button">
+              Contact us
+            </Link>
+          </div>
+        </section>
       </main>
 
       <Footer />

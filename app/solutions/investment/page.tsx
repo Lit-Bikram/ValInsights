@@ -8,7 +8,8 @@ const advisoryAreas = [
   {
     number: "01",
     title: "Strategic Investment Decisions",
-    description: "Independent valuation perspectives to inform acquisitions, investments and strategic capital allocation.",
+    description:
+      "Independent valuation perspectives to inform acquisitions, investments and strategic capital allocation.",
     image: "/images/solutions/securities-financial-assets.jpg",
     imageAlt: "Financial analysis materials for an investment decision",
     variant: "standard",
@@ -16,7 +17,8 @@ const advisoryAreas = [
   {
     number: "02",
     title: "Business & Equity Valuation",
-    description: "Structured assessment of businesses, equity interests and the assumptions that shape value.",
+    description:
+      "Structured assessment of businesses, equity interests and the assumptions that shape value.",
     image: "/images/solutions/tangible-assets.jpg",
     imageAlt: "Business and asset valuation context",
     variant: "standard",
@@ -24,7 +26,8 @@ const advisoryAreas = [
   {
     number: "03",
     title: "Investment & Exit Analysis",
-    description: "Financial analysis to help evaluate investment opportunities, exit options and potential outcomes.",
+    description:
+      "Financial analysis to help evaluate investment opportunities, exit options and potential outcomes.",
     image: "/images/solutions/real-estate.jpg",
     imageAlt: "Commercial property considered as an investment asset",
     variant: "standard",
@@ -32,7 +35,8 @@ const advisoryAreas = [
   {
     number: "04",
     title: "Portfolio & Asset Review",
-    description: "Independent perspectives on portfolio assets, performance drivers and key valuation sensitivities.",
+    description:
+      "Independent perspectives on portfolio assets, performance drivers and key valuation sensitivities.",
     image: "/images/solutions/securities-financial-assets.jpg",
     imageAlt: "Financial assets reviewed for portfolio analysis",
     variant: "wide",
@@ -40,7 +44,8 @@ const advisoryAreas = [
   {
     number: "05",
     title: "Transaction Support",
-    description: "Decision-focused valuation input across transaction planning, negotiation and review.",
+    description:
+      "Decision-focused valuation input across transaction planning, negotiation and review.",
     image: "/images/solutions/tangible-assets.jpg",
     imageAlt: "Assets and documentation prepared for transaction review",
     variant: "wide",
@@ -52,7 +57,10 @@ export default function InvestmentAdvisoryPage() {
     <>
       <Header />
 
-      <main className="service-page investment-advisory-page" data-service-page="investment-advisory">
+      <main
+        className="service-page investment-advisory-page"
+        data-service-page="investment-advisory"
+      >
         <section
           className="service-hero service-hero--inner investment-advisory-hero"
           aria-labelledby="investment-advisory-hero-title"
@@ -68,25 +76,40 @@ export default function InvestmentAdvisoryPage() {
           <div className="service-hero__overlay" aria-hidden="true" />
 
           <div className="service-shell service-hero__content">
-            <br />
-            <p className="service-breadcrumb">Home / Solutions / Investment Advisory</p>
-            <h1 id="investment-advisory-hero-title">Independent Insight for Investment Decisions</h1>
+            <p className="service-breadcrumb">
+              Home / Solutions / Investment Advisory
+            </p>
+            <h1 id="investment-advisory-hero-title">Investment Decisions</h1>
             <p className="service-hero__intro">
-              Draft introduction: independent valuation and financial analysis to help investors assess opportunities, understand risk and make informed capital allocation decisions across complex assets and transactions.
+              Draft introduction: independent valuation and financial analysis
+              to help investors assess opportunities, understand risk and make
+              informed capital allocation decisions across complex assets and
+              transactions.
             </p>
           </div>
         </section>
 
-        <section className="investment-advisory-intro" aria-labelledby="investment-advisory-intro-title">
+        <section
+          className="investment-advisory-intro"
+          aria-labelledby="investment-advisory-intro-title"
+        >
           <div className="service-shell investment-advisory-intro__grid">
             <div className="investment-advisory-intro__copy">
               <p className="service-label">Investment Advisory</p>
-              <h2 id="investment-advisory-intro-title">Clarity Across Capital and Value</h2>
+              <h2 id="investment-advisory-intro-title">
+                Clarity Across Capital and Value
+              </h2>
               <p>
-                Draft copy: investment decisions often depend on a clear view of value, commercial context and the assumptions behind financial projections. Our work is designed to bring those elements into focus.
+                Draft copy: investment decisions often depend on a clear view of
+                value, commercial context and the assumptions behind financial
+                projections. Our work is designed to bring those elements into
+                focus.
               </p>
               <p>
-                We combine independent analysis with a practical understanding of investor priorities, helping decision-makers examine opportunities, compare scenarios and assess the factors that may influence value over time.
+                We combine independent analysis with a practical understanding
+                of investor priorities, helping decision-makers examine
+                opportunities, compare scenarios and assess the factors that may
+                influence value over time.
               </p>
             </div>
 
@@ -107,7 +130,9 @@ export default function InvestmentAdvisoryPage() {
                 <p className="service-label">Our Focus</p>
                 <h3>Evidence-Led Insight for Capital Decisions</h3>
                 <p>
-                  Draft copy: clear analysis of value, assumptions and risk to support investment committees, owners and transaction stakeholders.
+                  Draft copy: clear analysis of value, assumptions and risk to
+                  support investment committees, owners and transaction
+                  stakeholders.
                 </p>
               </div>
             </aside>
@@ -122,10 +147,14 @@ export default function InvestmentAdvisoryPage() {
             <div className="investment-advisory-areas__heading">
               <div>
                 <p className="service-label">Scope of Work</p>
-                <h2 id="investment-advisory-areas-title">Investment Advisory Services</h2>
+                <h2 id="investment-advisory-areas-title">
+                  Investment Advisory Services
+                </h2>
               </div>
               <p>
-                Draft overview: tailored valuation and financial analysis across investment planning, asset review and transaction decisions, shaped around the questions that matter to each mandate.
+                Draft overview: tailored valuation and financial analysis across
+                investment planning, asset review and transaction decisions,
+                shaped around the questions that matter to each mandate.
               </p>
             </div>
 
@@ -159,9 +188,10 @@ export default function InvestmentAdvisoryPage() {
 
         <section className="service-cta">
           <div className="service-shell service-cta__inner">
-            <h2>Discuss an Investment Requirement</h2>
+            <h2>Discuss a Requirement</h2>
             <p>
-              Draft CTA copy: speak with us about an investment decision, valuation question or transaction requiring independent financial insight. Contact contact@valuationinsights.com.
+              To discuss a valuation assignment or a related matter, contact us
+              at contact@valuationinsights.com.{" "}
             </p>
             <Link href="/contact" className="service-cta__button">
               Contact us

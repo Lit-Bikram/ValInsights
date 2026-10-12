@@ -177,6 +177,7 @@ export default function InsightsFilters({
       </div>
 
       <div className="insights-filter-bar__controls">
+        {/* Sector filter temporarily disabled; can be restored when needed.
         <FilterDropdown
           label="Sector"
           placeholder="All Sectors"
@@ -190,6 +191,7 @@ export default function InsightsFilters({
           }
           onSelect={(value) => updateFilter("sector", value)}
         />
+        */}
 
         <FilterDropdown
           label="Who We Serve"

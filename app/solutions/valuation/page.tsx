@@ -10,7 +10,7 @@ const coreServices = [
       "Valuation of businesses, equity and debt securities, intangible assets, intellectual property, and complex instruments.",
     image: "/images/solutions/securities-financial-assets.jpg",
     imageAlt: "Financial market data representing securities and financial assets",
-    href: "/solutions/securities-financial-assets",
+    // href: "/solutions/securities-financial-assets", // Add when destination page is ready.
   },
   {
     title: "Tangible Assets",
@@ -18,7 +18,7 @@ const coreServices = [
       "Valuation of plant, machinery, specialised equipment, production lines, infrastructure assets, and other physical assets.",
     image: "/images/solutions/tangible-assets.jpg",
     imageAlt: "Industrial machinery and production equipment",
-    href: "/solutions/tangible-assets",
+    // href: "/solutions/tangible-assets", // Add when destination page is ready.
   },
   {
     title: "Real Estate",
@@ -26,7 +26,7 @@ const coreServices = [
       "Valuation of commercial, residential, industrial, hospitality, infrastructure-linked, and development assets.",
     image: "/images/solutions/real-estate.jpg",
     imageAlt: "Modern commercial real estate building",
-    href: "/solutions/real-estate",
+    // href: "/solutions/real-estate", // Add when destination page is ready.
   },
 ];
 
@@ -88,10 +88,10 @@ export default function ValuationPage() {
           />
           <div className="service-hero__overlay" aria-hidden="true" />
           <div className="service-shell service-hero__content valuation-page__hero-content">
-            <p className="service-breadcrumb">Home / Our Solution / Valuation</p>
+            <p className="service-breadcrumb">Home / Solutions / Valuation</p>
             <h1 id="valuation-hero-title">Valuation</h1>
             <p className="service-hero__intro">
-              Our work is organised around four valuation disciplines: securities and financial assets, real estate, tangible assets, and contested matters. Within each, we bring together commercial context, financial evidence, and appropriate methodology to produce conclusions that are clear, well-supported, and fit for their intended use.
+              Independent valuation across financial assets, tangible assets, and real estate, supported by rigorous analysis and clear, defensible conclusions.
             </p>
           </div>
         </section>
@@ -99,13 +99,14 @@ export default function ValuationPage() {
         <section className="valuation-core-services" aria-labelledby="valuation-core-services-title">
           <div className="valuation-shell">
             <div className="valuation-section-heading">
+              <p className="valuation-section-breadcrumb">Valuation / Core Services</p>
               <h2 id="valuation-core-services-title">Core Services</h2>
               <p>Explore our main operational disciplines:</p>
             </div>
 
             <div className="valuation-services-grid">
               {coreServices.map((service) => (
-                <Link className="valuation-service-card" href={service.href} key={service.title}>
+                <article className="valuation-service-card" key={service.title}>
                   <div className="valuation-service-card__content">
                     <h3>{service.title}</h3>
                     <p>{service.description}</p>
@@ -121,7 +122,7 @@ export default function ValuationPage() {
                       sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 390px"
                     />
                   </div>
-                </Link>
+                </article>
               ))}
             </div>
           </div>
@@ -130,6 +131,7 @@ export default function ValuationPage() {
         <section className="valuation-purposes" aria-labelledby="valuation-purposes-title">
           <div className="valuation-shell">
             <div className="valuation-section-heading">
+              <p className="valuation-section-breadcrumb">Valuation / Purposes</p>
               <h2 id="valuation-purposes-title">Purposes of Valuation</h2>
               <p>Across these disciplines, assignments commonly arise in three primary contexts:</p>
             </div>
@@ -147,6 +149,7 @@ export default function ValuationPage() {
         <section className="valuation-approach" aria-labelledby="valuation-approach-title">
           <div className="valuation-shell">
             <div className="valuation-section-heading">
+              <p className="valuation-section-breadcrumb">Valuation / Our Approach</p>
               <h2 id="valuation-approach-title">How We Work</h2>
               <p>Our systematic approach ensures structural robustness across every engagement framework:</p>
             </div>
