@@ -37,7 +37,7 @@ const valuationPurposes = [
       "Fair value measurement, purchase price allocation, impairment testing, intangible assets, financial instruments, and other requirements under Ind AS and IFRS.",
   },
   {
-    title: "Investments and Transactions",
+    title: "Transactions",
     description:
       "Acquisitions, disposals, capital raises, co-investments, exits, portfolio reviews, restructuring, and related corporate actions.",
   },
@@ -107,13 +107,6 @@ export default function ValuationPage() {
             <div className="valuation-services-grid">
               {coreServices.map((service) => (
                 <article className="valuation-service-card" key={service.title}>
-                  <div className="valuation-service-card__content">
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                    <span className="valuation-service-card__link">
-                      Learn more <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
                   <div className="valuation-service-card__image">
                     <Image
                       src={service.image}
@@ -121,6 +114,13 @@ export default function ValuationPage() {
                       fill
                       sizes="(max-width: 700px) 100vw, (max-width: 1050px) 50vw, 390px"
                     />
+                  </div>
+                  <div className="valuation-service-card__content">
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <span className="valuation-service-card__link">
+                      {/* Learn more <span aria-hidden="true">→</span> */}
+                    </span>
                   </div>
                 </article>
               ))}

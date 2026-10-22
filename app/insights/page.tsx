@@ -213,9 +213,7 @@ export default async function InsightsPage({
             <h1>Insights &amp; Publications</h1>
 
             <p className="insights-hero__description">
-              In-depth analysis, valuation benchmarks, and strategic research
-              exploring evolving capital market dynamics, regulatory changes,
-              and corporate transaction trends.
+              Perspectives on valuation, transactions, disputes, and the forces shaping them
             </p>
           </div>
         </section>
@@ -284,8 +282,8 @@ export default async function InsightsPage({
               <div className="insights-newsletter__copy">
                 <h2>Receive Quarterly Intelligence</h2>
                 <p>
-                  Get curated valuation benchmarks and economic insights
-                  delivered straight to your inbox.
+                  Get curated insights and perspectives 
+                  delivered to your inbox.
                 </p>
               </div>
 

@@ -6,7 +6,7 @@ import Footer from "../../components/layout/Footer";
 const practiceAreas = [
   {
     number: "01",
-    title: "Shareholder Negotiations & Disputes",
+    title: "Shareholder Negotiations",
     description:
       "Financial analysis to support contested ownership and shareholder matters.",
     image: "/images/shared/inner-page-banner.jpg",
@@ -15,7 +15,7 @@ const practiceAreas = [
   },
   {
     number: "02",
-    title: "Loss Quantification Claims",
+    title: "Loss Quantification",
     description:
       "Assessment of financial loss and the evidence supporting quantum positions.",
     image: "/images/solutions/litigation-support.jpg",
@@ -147,11 +147,11 @@ export default function DisputesLitigationSupportPage() {
                 <p className="service-label">Scope of Work</p>
                 <h2 id="disputes-practice-title">Disputes Practice Areas</h2>
               </div>
-              <p>
+              {/* <p>
                 Specialist support across complex financial and commercial
                 disputes, tailored to the questions at the centre of each
                 matter.
-              </p>
+              </p> */}
             </div>
 
             <div className="disputes-practice-grid">
@@ -160,14 +160,14 @@ export default function DisputesLitigationSupportPage() {
                   key={area.number}
                   className={`disputes-practice-card disputes-practice-card--${area.variant}`}
                 >
-                  <div className="disputes-practice-card__image">
+                  {/* <div className="disputes-practice-card__image">
                     <Image
                       src={area.image}
                       alt={area.imageAlt}
                       fill
                       sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 590px"
                     />
-                  </div>
+                  </div> */}
                   <div className="disputes-practice-card__body">
                     {/* <span className="disputes-practice-card__number">{area.number}</span> */}
                     <span className="disputes-practice-card__number"></span>

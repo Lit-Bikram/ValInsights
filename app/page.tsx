@@ -10,25 +10,26 @@ import { useEffect, useRef, useState } from "react";
 
 const solutions = [
   {
-    title: "Disputes",
+    title: "Valuation",
     description:
-      "Loss quantification, shareholder negotiations and disputes, contentious restructurings and cross-border mediations across India, Europe and the Middle East.",
-    image: "/images/solutions/litigation-support.jpg",
-    href: "/solutions/disputes-litigation-support",
+      "Complex financial and valuation analyses for litigation, arbitration, expert determination and settlement — bringing an investor-grade perspective to value assessment.",
+    image: "/images/solutions/real-estate.jpg",
+    href: "/solutions/real-estate",
   },
+
   {
-    title: "Investment Advisory",
+    title: "Transaction Advisory",
     description:
       "Supporting investment committees on strategic investment and exit decisions; fair value assessments for global portfolios; valuation and reporting frameworks for complex structures.",
     image: "/images/solutions/securities-financial-assets.jpg",
     href: "/solutions/securities-financial-assets",
   },
   {
-    title: "Valuation",
+    title: "Disputes",
     description:
-      "Complex financial and valuation analyses for litigation, arbitration, expert determination and settlement — bringing an investor-grade perspective to value assessment.",
-    image: "/images/solutions/real-estate.jpg",
-    href: "/solutions/real-estate",
+      "Loss quantification, shareholder negotiations and disputes, contentious restructurings and cross-border mediations across India, Europe and the Middle East.",
+    image: "/images/solutions/litigation-support.jpg",
+    href: "/solutions/disputes-litigation-support",
   },
 ];
 
@@ -278,7 +279,7 @@ export default function Home() {
           <div className="home-hero__overlay" />
 
           <div className="home-shell home-hero__content">
-            <p className="home-eyebrow">Independent Valuation Specialists</p>
+            <p className="home-eyebrow">Valuation &amp; Transaction Advisory</p>
 
             <h1>
               Technical insight for decisions
@@ -288,9 +289,9 @@ export default function Home() {
 
             <p className="home-hero__description">
               We support businesses, investors, boards, and legal teams with
-              valuation services for transactions, financial reporting, and
-              disputes—providing conclusions that are transparent,
-              well-reasoned, and fit for stakeholder scrutiny.
+              valuation and advisory services for transactions, financial
+              reporting, and disputes—providing conclusions that are
+              transparent, well-reasoned, and fit for stakeholder scrutiny.
             </p>
 
             <Link href="/contact" className="home-button">
@@ -313,7 +314,12 @@ export default function Home() {
                   Valuation Insights is a boutique advisory firm specialising in
                   Valuation, Disputes, and Investment Advisory — bringing over
                   two decades of investor-grade insight to complex mandates
-                  across India, Europe and the Middle East. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, commodi ratione quis delectus nulla aut.
+                  across India, Europe and the Middle East.
+                  <br />
+                  <br />
+                  Our work combines technical analysis and commercial judgement
+                  - delivering clear, defensible perspectives that support
+                  informed decision-making
                 </p>
               </div>
 
@@ -341,13 +347,13 @@ export default function Home() {
         </section>
 
         {/* =====================================================
-            WHAT WE DO
+            Areas of Core Expertise
         ====================================================== */}
 
         <section className="home-services">
           <div className="home-shell">
             <div className="home-section-heading">
-              <h2 className="home-section-label">What We Do</h2>
+              <h2 className="home-section-label">Areas of Core Expertise</h2>
 
               <p>
                 A multidisciplinary practice spanning financial disputes,

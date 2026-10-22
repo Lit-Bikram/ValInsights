@@ -151,11 +151,11 @@ export default function InvestmentAdvisoryPage() {
                   Investment Advisory Services
                 </h2>
               </div>
-              <p>
+              {/* <p>
                 Draft overview: tailored valuation and financial analysis across
                 investment planning, asset review and transaction decisions,
                 shaped around the questions that matter to each mandate.
-              </p>
+              </p> */}
             </div>
 
             <div className="investment-advisory-grid">
@@ -164,14 +164,14 @@ export default function InvestmentAdvisoryPage() {
                   key={area.number}
                   className={`investment-advisory-card investment-advisory-card--${area.variant}`}
                 >
-                  <div className="investment-advisory-card__image">
+                  {/* <div className="investment-advisory-card__image">
                     <Image
                       src={area.image}
                       alt={area.imageAlt}
                       fill
                       sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 590px"
                     />
-                  </div>
+                  </div> */}
                   <div className="investment-advisory-card__body">
                     {/* <span className="investment-advisory-card__number">{area.number}</span> */}
                     <span className="investment-advisory-card__number"></span>

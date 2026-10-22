@@ -54,7 +54,7 @@ h6,
 
     /* Navigation / controls */
     --type-small: 14px;
-    --type-label: 13px;
+    --type-label: 15.7px;
     --type-eyebrow: 13px;
     --type-button: 14px;
     --type-link: 15px;
@@ -220,7 +220,6 @@ a {
     transition: color 180ms ease;
 }
 
-.home-header__nav a:first-child,
 .home-header__nav a.active,
 .home-header__nav a:hover {
   color: #c59f59;
@@ -10637,4 +10636,352 @@ body::-webkit-scrollbar,
   display: none !important;
   width: 0 !important;
   height: 0 !important;
+}
+
+/* ABOUT PAGE: consistent justified paragraph alignment */
+.about-page p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Keep short labels and navigational text aligned to their intended layout. */
+.about-page .about-breadcrumb,
+.about-page .about-section-kicker,
+.about-page .about-founder__role {
+  text-align: left;
+}
+
+/* CONTACT PAGE: centered map directly beneath the registered office address */
+.contact-page .contact-map {
+  width: 100%;
+  max-width: 560px;
+  margin: 18px auto 0;
+  align-self: center;
+  overflow: hidden;
+  border: 1px solid #dce4ea;
+  border-radius: 4px;
+  line-height: 0;
+}
+
+.contact-page .contact-map iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 6/3;
+  min-height: 220px;
+  border: 0;
+}
+
+@media (max-width: 560px) {
+  .contact-page .contact-map {
+    margin-top: 16px;
+  }
+
+  .contact-page .contact-map iframe {
+    min-height: 200px;
+  }
+}
+
+
+
+/* =========================================================
+   REQUESTED TYPOGRAPHY AND ALIGNMENT REFINEMENTS
+   Scoped to the named page areas; existing design tokens/fonts retained.
+   ========================================================= */
+
+/* Home hero supporting copy: justify within the existing text measure. */
+.home-page .home-hero__description {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* About Us hero: short supporting copy centered under the heading. */
+.about-page .about-hero__description {
+  width: min(793px, 100%);
+  max-width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Justify the introductory paragraphs on the Disputes and Investment Advisory pages. */
+.disputes-detail-page .disputes-intro__copy > p:not(.service-label),
+.investment-advisory-page .investment-advisory-intro__copy > p:not(.service-label) {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Shared hero heading system: preserve the site's declared Cinzel/Inter fonts. */
+.home-page .home-hero h1,
+.about-page .about-hero h1,
+.solutions-page .solutions-hero h1,
+.service-page .service-hero h1,
+.sectors-page .sectors-hero h1,
+.sector-page .sector-hero h1,
+.insights-page .insights-hero h1,
+.contact-page .contact-hero h1 {
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Align Insights hero measure and vertical spacing with the shared inner-page system. */
+.insights-page .insights-hero {
+  height: var(--inner-page-hero-height);
+  min-height: var(--inner-page-hero-height);
+  max-height: var(--inner-page-hero-height);
+}
+
+.insights-page .insights-hero__content {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 1522.8125px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 72px 0 30px;
+}
+
+.insights-page .insights-hero__description {
+  width: 793px;
+  max-width: 100%;
+  margin: 8px 0 0;
+  font-size: 18.4px;
+  line-height: 29.44px;
+}
+
+/* Contact page section heading and full-width introduction. */
+.contact-main__content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.contact-main__heading {
+  margin: 0;
+}
+
+.contact-section-breadcrumb {
+  margin: 0 0 12px;
+  color: #c59f59;
+  font-family: var(--site-font-family) !important;
+  font-size: 13.6px;
+  font-weight: 600;
+  line-height: 21.76px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.contact-main__heading h2 {
+  max-width: 100%;
+  margin: 0;
+  color: #102638;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 35.2px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.contact-copy__intro {
+  width: 100%;
+  max-width: none;
+  margin: 20px 0 34px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.contact-main__grid {
+  width: 100%;
+}
+
+.contact-copy {
+  padding-top: 0;
+}
+
+@media (max-width: 800px) {
+  .home-page .home-hero h1,
+  .about-page .about-hero h1,
+  .solutions-page .solutions-hero h1,
+  .service-page .service-hero h1,
+  .sectors-page .sectors-hero h1,
+  .sector-page .sector-hero h1,
+  .insights-page .insights-hero h1,
+  .contact-page .contact-hero h1 {
+    font-size: 38px;
+    line-height: 1.2;
+  }
+
+  .contact-main__heading h2 {
+    font-size: 31px;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-page .home-hero h1,
+  .about-page .about-hero h1,
+  .solutions-page .solutions-hero h1,
+  .service-page .service-hero h1,
+  .sectors-page .sectors-hero h1,
+  .sector-page .sector-hero h1,
+  .insights-page .insights-hero h1,
+  .contact-page .contact-hero h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .contact-section-breadcrumb {
+    font-size: 11px;
+    line-height: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  .contact-main__heading h2 {
+    font-size: 27px;
+  }
+
+  .contact-copy__intro {
+    margin-bottom: 28px;
+  }
+}
+
+/* =========================================================
+   FOOTER ALIGNMENT FIX
+   Scoped to the shared footer; preserves existing visual design.
+   ========================================================= */
+.home-footer {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+.home-footer-inner {
+  height: auto;
+  min-height: 353.59px;
+  grid-template-columns: minmax(190px, 1.15fr) minmax(130px, 0.85fr) minmax(165px, 1fr) minmax(320px, 1.65fr);
+  column-gap: clamp(24px, 3vw, 48px);
+  align-items: start;
+  padding-top: 112px;
+  padding-bottom: 48px;
+}
+
+.home-footer-brand,
+.home-footer-column,
+.home-footer-newsletter {
+  min-width: 0;
+}
+
+.home-footer-brand {
+  padding-top: 0;
+}
+
+.home-footer-logo-image-link {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+}
+
+.home-footer-newsletter {
+  justify-self: end;
+  width: 100%;
+  max-width: 380px;
+}
+
+.home-footer-newsletter h3,
+.home-footer-subscribe {
+  width: 100%;
+  max-width: none;
+}
+
+.home-footer-bottom {
+  height: auto;
+  margin-top: 0;
+  padding-bottom: 36px;
+}
+
+.home-footer-bottom-inner {
+  height: auto;
+  min-height: 46.43px;
+  padding: 24px 0 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.home-footer-copy {
+  flex: 0 1 auto;
+}
+
+.home-footer-legal {
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(16px, 2.2vw, 32px);
+}
+
+@media (max-width: 1100px) and (min-width: 901px) {
+  .home-footer-inner {
+    grid-template-columns: minmax(150px, 1fr) minmax(110px, 0.75fr) minmax(140px, 0.9fr) minmax(270px, 1.5fr);
+    column-gap: 24px;
+  }
+
+  .home-footer-logo-image-link {
+    max-width: 240px;
+  }
+
+  .home-footer-legal {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-footer-inner {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .home-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .home-footer-newsletter {
+    justify-self: start;
+    max-width: 380px;
+  }
+
+  .home-footer-bottom-inner {
+    align-items: flex-start;
+  }
+
+  .home-footer-copy {
+    text-align: left;
+  }
+
+  .home-footer-legal {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-footer-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-footer-brand,
+  .home-footer-newsletter {
+    grid-column: auto;
+  }
+
+  .home-footer-bottom-inner {
+    align-items: flex-start;
+  }
+
+  .home-footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 }

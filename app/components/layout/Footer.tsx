@@ -38,7 +38,7 @@ export default function Footer() {
           <nav>
             <Link href="/">Home</Link>
             <Link href="/about">About Us</Link>
-            <Link href="/solutions">Services</Link>
+            <Link href="/solutions">Solutions</Link>
             <Link href="/insights">Insights</Link>
             <Link href="/contact">Contact Us</Link>
           </nav>
@@ -49,28 +49,16 @@ export default function Footer() {
           <h3>PRACTICES</h3>
 
           <nav>
-            <Link href="/solutions">Valuation Opinions</Link>
-            <Link href="/solutions">M&amp;A Advisory</Link>
-            <Link href="/solutions">Financial Modeling</Link>
-            <Link href="/solutions">India-UAE Corridor</Link>
-          </nav>
-        </div>
-
-        {/* Resources */}
-        <div className="home-footer-column home-footer-resources">
-          <h3>RESOURCES</h3>
-
-          <nav>
-            <Link href="/insights">Market Reports</Link>
-            <Link href="/insights">Valuation Benchmarks</Link>
-            <Link href="/contact">Client Portal</Link>
-            <Link href="/contact">Careers</Link>
+            <Link href="/solutions/transaction-advisory">Transaction Advisory</Link>
+            <Link href="/solutions/valuation">Valuation</Link>
+            <Link href="/solutions/disputes">Disputes</Link>
+            {/* <Link href="/solutions/india-uae-corridor">India-UAE Corridor</Link> */}
           </nav>
         </div>
 
         {/* Newsletter */}
         <div className="home-footer-newsletter">
-          <h3>Sign up for our market intelligence digest</h3>
+          <h3>Sign up for our Insights</h3>
 
           <form className="home-footer-subscribe">
             <input
@@ -89,13 +77,13 @@ export default function Footer() {
               IN
             </a>
 
-            <a href="#" aria-label="X">
+            {/* <a href="#" aria-label="X">
               X
             </a>
 
             <a href="#" aria-label="Instagram">
               IG
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

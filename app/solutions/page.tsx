@@ -9,16 +9,16 @@ const expertiseCards = [
     title: "Disputes & Quantum",
     description:
       "Loss quantification, shareholder matters, and complex financial disputes.",
-    image: "/images/solutions/litigation-support.jpg",
+    image: "/images/solutions/disputes.jpeg",
     imageAlt: "Classical courthouse columns",
     href: "/solutions/disputes",
   },
   {
-    eyebrow: "Investment Advisory",
-    title: "Investment Advisory",
+    eyebrow: "Transaction Advisory",
+    title: "Transaction Advisory",
     description:
       "Decision support for investment committees, portfolios, and transactions.",
-    image: "/images/solutions/real-estate.jpg",
+    image: "/images/solutions/images.jpg",
     imageAlt: "Modern city skyline at dusk",
     // Update this destination when the dedicated Investment Advisory page is redesigned.
     href: "/solutions/investment",
@@ -28,7 +28,7 @@ const expertiseCards = [
     title: "Valuation",
     description:
       "Independent analysis of businesses, assets, and financial interests.",
-    image: "/images/solutions/securities-financial-assets.jpg",
+    image: "/images/solutions/valuation.jpeg",
     imageAlt: "Financial market data on a screen",
     href: "/solutions/valuation",
   },

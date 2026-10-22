@@ -71,10 +71,9 @@ export default function AboutPage() {
           <div className="about-hero__overlay" />
           <div className="about-shell about-hero__content">
             <p className="about-breadcrumb">Home / About Us</p>
-            <h1>A Specialist Valuation Practice</h1>
+            <h1>Trusted Advisory Partner</h1>
             <p className="about-hero__description">
-              Valuation Insights is a partner-led valuation firm serving
-              institutional and sophisticated private clients.{" "}
+              Independent advice across valuation, disputes and investment.
             </p>
           </div>
         </section>
@@ -100,8 +99,8 @@ export default function AboutPage() {
               <article>
                 <h3>Global Portfolio Valuations</h3>
                 <p>
-                  Led fair value assessments across the OIA's international
-                  investment portfolio, maintaining rigorous compliance and
+                  Fair value assessment of client`s international
+                  investment portfolios, maintaining rigorous compliance and
                   reporting standards.
                 </p>
               </article>
@@ -161,7 +160,7 @@ export default function AboutPage() {
                 <div className="about-founder__portrait-card">
                   <div className="about-founder__portrait">
                     <Image
-                      src="/images/about/amit-sultania.jpg"
+                      src="/images/about/amit-sultania.jpeg"
                       alt="Amit Sultania"
                       fill
                       sizes="180px"
@@ -169,11 +168,14 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="about-founder__qualifications">
-                    <p>A Chartered Accountant</p>
-                    <p>An MBA from London Business School</p>
+                    <p>Chartered Accountant</p>
+                    <p>MBA from London Business School</p>
                     <p>
-                      A Registered Valuer with IBBI in the Securities or
+                      Registered Valuer-Securities &amp;
                       Financial Assets
+                      <br/>
+                      <b>IBBI/RV/06/2023/15215</b>
+                      
                     </p>
                   </div>
                 </div>
@@ -188,9 +190,9 @@ export default function AboutPage() {
               <div className="about-founder__content">
                 <p className="about-section-kicker">Founder</p>
                 <h2>Amit Sultania</h2>
-                <p className="about-founder__title">
+                {/* <p className="about-founder__title">
                   Founder and Managing Director, Valuation Insights
-                </p>
+                </p> */}
                 <p>
                   Amit Sultania is a Chartered Accountant, holds an MBA from
                   London Business School, and is a Registered Valuer with IBBI
@@ -199,7 +201,7 @@ export default function AboutPage() {
                   a decade focused on valuation.
                 </p>
                 <p>
-                  Before founding Valuation Insights in 2016, Amit held senior
+                  Before founding Valuation Insights, Amit held senior
                   roles at leading advisory firms, developing experience in
                   valuation methodology, financial modelling, transaction
                   advisory, and cross-border assignments.
@@ -262,16 +264,14 @@ export default function AboutPage() {
               <div>
                 <p className="about-section-kicker">Clients We Serve</p>
                 <h2>
-                  Specialist Analysis for Different
-                  <br />
-                  Stakeholders
+                  Niche Advisory for Different Stakeholders
                 </h2>
               </div>
-              <p className="about-clients__intro about-clients__intro--justified">
+              {/* <p className="about-clients__intro about-clients__intro--justified">
                 We work with parties who require specialist valuation analysis
                 in situations involving capital, ownership, reporting,
                 transactions, or disputes.
-              </p>
+              </p> */}
             </div>
             <div className="about-clients__grid">
               {stakeholderGroups.map((group) => (
