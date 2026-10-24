@@ -196,7 +196,7 @@ export default async function InsightsPage({
         {/* HERO */}
         <section className="insights-hero">
           <Image
-            src="/images/insights/page-header-banner.jpg"
+            src="/images/insights/insights-home.jpeg"
             alt=""
             fill
             priority

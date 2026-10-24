@@ -10985,3 +10985,22 @@ body::-webkit-scrollbar,
     gap: 10px;
   }
 }
+
+/* About Us alignment correction: keep hero supporting copy aligned with its heading. */
+.about-page .about-hero__description {
+  width: 793px;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+/* Discuss a Requirement: center the full paragraph without forced desktop line breaks. */
+.about-page .about-discuss__inner > p {
+  width: min(760px, 100%);
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-wrap: pretty;
+}

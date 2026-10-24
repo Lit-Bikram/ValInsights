@@ -8,25 +8,25 @@ const coreServices = [
     title: "Securities & Financial Assets",
     description:
       "Valuation of businesses, equity and debt securities, intangible assets, intellectual property, and complex instruments.",
-    image: "/images/solutions/securities-financial-assets.jpg",
+    image: "/images/solutions/securities-card.jpeg",
     imageAlt: "Financial market data representing securities and financial assets",
-    // href: "/solutions/securities-financial-assets", // Add when destination page is ready.
+    href: "/solutions/securities-financial-assets", // Add when destination page is ready.
   },
   {
     title: "Tangible Assets",
     description:
       "Valuation of plant, machinery, specialised equipment, production lines, infrastructure assets, and other physical assets.",
-    image: "/images/solutions/tangible-assets.jpg",
+    image: "/images/solutions/tangible-asset-card.jpeg",
     imageAlt: "Industrial machinery and production equipment",
-    // href: "/solutions/tangible-assets", // Add when destination page is ready.
+    href: "/solutions/tangible-assets", // Add when destination page is ready.
   },
   {
     title: "Real Estate",
     description:
       "Valuation of commercial, residential, industrial, hospitality, infrastructure-linked, and development assets.",
-    image: "/images/solutions/real-estate.jpg",
+    image: "/images/solutions/real-estate-card.jpg",
     imageAlt: "Modern commercial real estate building",
-    // href: "/solutions/real-estate", // Add when destination page is ready.
+    href: "/solutions/real-estate", // Add when destination page is ready.
   },
 ];
 
@@ -118,9 +118,11 @@ export default function ValuationPage() {
                   <div className="valuation-service-card__content">
                     <h3>{service.title}</h3>
                     <p>{service.description}</p>
-                    <span className="valuation-service-card__link">
-                      {/* Learn more <span aria-hidden="true">→</span> */}
-                    </span>
+                    <Link href={service.href} className="valuation-service-card__link">
+                      <span className="valuation-service-card__link">
+                        Learn more <span aria-hidden="true">→</span>
+                      </span>
+                    </Link>
                   </div>
                 </article>
               ))}

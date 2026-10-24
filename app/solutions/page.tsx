@@ -5,32 +5,31 @@ import Footer from "../components/layout/Footer";
 
 const expertiseCards = [
   {
-    eyebrow: "Disputes & Quantum",
-    title: "Disputes & Quantum",
+    eyebrow: "Valuation",
+    title: "Valuation",
     description:
-      "Loss quantification, shareholder matters, and complex financial disputes.",
-    image: "/images/solutions/disputes.jpeg",
-    imageAlt: "Classical courthouse columns",
-    href: "/solutions/disputes",
+      "Independent analysis of businesses, assets, and financial interests.",
+    image: "/images/solutions/NYSE.jpeg",
+    imageAlt: "Financial market data on a screen",
+    href: "/solutions/valuation",
   },
   {
     eyebrow: "Transaction Advisory",
     title: "Transaction Advisory",
     description:
       "Decision support for investment committees, portfolios, and transactions.",
-    image: "/images/solutions/images.jpg",
+    image: "/images/solutions/transaction-home.jpeg",
     imageAlt: "Modern city skyline at dusk",
-    // Update this destination when the dedicated Investment Advisory page is redesigned.
-    href: "/solutions/investment",
+    href: "/solutions/transaction-advisory",
   },
   {
-    eyebrow: "Valuation",
-    title: "Valuation",
+    eyebrow: "Disputes",
+    title: "Disputes",
     description:
-      "Independent analysis of businesses, assets, and financial interests.",
-    image: "/images/solutions/valuation.jpeg",
-    imageAlt: "Financial market data on a screen",
-    href: "/solutions/valuation",
+      "Loss quantification, shareholder matters, and complex financial disputes.",
+    image: "/images/solutions/disputes-home.jpeg",
+    imageAlt: "Classical courthouse columns",
+    href: "/solutions/disputes",
   },
 ];
 

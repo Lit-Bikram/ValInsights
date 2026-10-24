@@ -11,7 +11,7 @@ export default function ContactPage() {
       <main className="contact-page">
         <section className="contact-hero">
           <Image
-            src="/images/shared/inner-page-banner.jpg"
+            src="/images/contact/contact.jpeg"
             alt=""
             fill
             priority

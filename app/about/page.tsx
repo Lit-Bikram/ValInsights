@@ -61,7 +61,7 @@ export default function AboutPage() {
       <main className="about-page">
         <section className="about-hero">
           <Image
-            src="/images/shared/inner-page-banner.jpg"
+            src="/images/about/about-us.jpeg"
             alt=""
             fill
             priority
@@ -291,11 +291,7 @@ export default function AboutPage() {
           <div className="about-shell about-discuss__inner">
             <h2>Discuss a Requirement</h2>
             <p>
-              If you are considering a valuation assignment, transaction,
-              reporting
-              <br className="about-desktop-break" /> matter, or dispute, we
-              would be pleased to understand the
-              <br className="about-desktop-break" /> requirement.
+              If you are considering a valuation assignment, transaction, reporting matter, or dispute, we would be pleased to understand the requirement.
             </p>
             <Link href="/contact" className="about-discuss__button">
               Contact us

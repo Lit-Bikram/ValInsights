@@ -13,22 +13,23 @@ const solutions = [
     title: "Valuation",
     description:
       "Complex financial and valuation analyses for litigation, arbitration, expert determination and settlement — bringing an investor-grade perspective to value assessment.",
-    image: "/images/solutions/real-estate.jpg",
-    href: "/solutions/real-estate",
+    image: "/images/solutions/NYSE.jpeg",
+    href: "/solutions/NYSE.jpeg",
   },
 
   {
     title: "Transaction Advisory",
     description:
       "Supporting investment committees on strategic investment and exit decisions; fair value assessments for global portfolios; valuation and reporting frameworks for complex structures.",
-    image: "/images/solutions/securities-financial-assets.jpg",
+    image: "/images/solutions/transaction-home.jpeg",
     href: "/solutions/securities-financial-assets",
   },
+
   {
     title: "Disputes",
     description:
       "Loss quantification, shareholder negotiations and disputes, contentious restructurings and cross-border mediations across India, Europe and the Middle East.",
-    image: "/images/solutions/litigation-support.jpg",
+    image: "/images/solutions/disputes-home.jpeg",
     href: "/solutions/disputes-litigation-support",
   },
 ];
