@@ -12,7 +12,7 @@ const solutions = [
   {
     title: "Valuation",
     description:
-      "Complex financial and valuation analyses for litigation, arbitration, expert determination and settlement — bringing an investor-grade perspective to value assessment.",
+      "Independent valuations of businesses, investments, and assets, grounded in rigorous analysis and informed judgement for transactions, reporting, and strategic decisions.",
     image: "/images/solutions/NYSE.jpeg",
     href: "/solutions/NYSE.jpeg",
   },
@@ -20,7 +20,7 @@ const solutions = [
   {
     title: "Transaction Advisory",
     description:
-      "Supporting investment committees on strategic investment and exit decisions; fair value assessments for global portfolios; valuation and reporting frameworks for complex structures.",
+      "Institutional-grade transaction analysis, assessing earnings sustainability, cash conversion, and financial exposures to inform underwriting, deal structuring, and negotiations.",
     image: "/images/solutions/transaction-home.jpeg",
     href: "/solutions/securities-financial-assets",
   },
@@ -28,7 +28,7 @@ const solutions = [
   {
     title: "Disputes",
     description:
-      "Loss quantification, shareholder negotiations and disputes, contentious restructurings and cross-border mediations across India, Europe and the Middle East.",
+      "Support the full lifecycle of financial disputes — from initial quantification through to expert testimony, arbitration, and final settlement.",
     image: "/images/solutions/disputes-home.jpeg",
     href: "/solutions/disputes-litigation-support",
   },
@@ -313,14 +313,17 @@ export default function Home() {
               <div className="home-who-we-are__copy">
                 <p>
                   Valuation Insights is a boutique advisory firm specialising in
-                  Valuation, Disputes, and Investment Advisory — bringing over
-                  two decades of investor-grade insight to complex mandates
-                  across India, Europe and the Middle East.
+                  Valuation, Disputes, and Transaction Advisory — bringing over
+                  two decades of investor-grade insights to complex mandates
+                  across India, Europe, and the Middle East.
                   <br />
                   <br />
                   Our work combines technical analysis and commercial judgement
                   - delivering clear, defensible perspectives that support
                   informed decision-making
+                  <Link href="/about" className="home-meet-firm">
+                    Meet the Firm →
+                  </Link>
                 </p>
               </div>
 
@@ -354,12 +357,12 @@ export default function Home() {
         <section className="home-services">
           <div className="home-shell">
             <div className="home-section-heading">
-              <h2 className="home-section-label">Areas of Core Expertise</h2>
+              <h2 className="home-section-label">Areas of Expertise</h2>
 
               <p>
-                A multidisciplinary practice spanning financial disputes,
-                complex valuation and Investment Advisory — with a consistent
-                focus on delivering rigorous, defensible analysis in high-stakes
+                A multidisciplinary practice spanning complex valuations,
+                disputes, and transaction advisory — with a consistent focus on
+                delivering rigorous, defensible analysis in high-stakes
                 environments.
               </p>
             </div>
@@ -387,7 +390,7 @@ export default function Home() {
                     <p>{solution.description}</p>
 
                     <span className="home-card-link">
-                      Explore Service <span>→</span>
+                      Explore {solution.title} <span>→</span>
                     </span>
                   </div>
                 </Link>
@@ -425,9 +428,9 @@ export default function Home() {
             <h2>Insights &amp; Market Intelligence</h2>
 
             <p>
-              In-depth analysis, valuation benchmarks, and strategic research
-              exploring evolving capital market dynamics, regulatory changes,
-              and corporate transaction trends.
+              Research-led perspectives on valuation, transactions, and
+              disputes, examining market dynamics and their implications for
+              investment strategy, capital allocation, and financial risk.
             </p>
 
             <Link href="/insights" className="home-button">

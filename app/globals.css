@@ -49,8 +49,8 @@ h6,
 
     /* Body copy */
     --type-body: 16px;
-    --type-body-large: 17px;
-    --type-body-small: 15px;
+    --type-body-large: 18px;
+    --type-body-small: 14px;
 
     /* Navigation / controls */
     --type-small: 14px;
@@ -61,7 +61,7 @@ h6,
 
     /* Supporting text */
     --type-caption: 12px;
-    --type-tiny: 11px;
+    --type-tiny: 16px;
 
     /* Specialized roles */
     --type-logo: 25px;
@@ -1567,7 +1567,7 @@ html::-webkit-scrollbar {
   margin: 0;
     color: #051c2c;
     font-family: var(--site-heading-font-family);
-    font-size: 18px;
+    font-size: 20px;
   
     font-weight: 700;
   
@@ -1580,7 +1580,7 @@ html::-webkit-scrollbar {
   margin: 0;
     color: #475569;
     font-family: var(--site-font-family);
-    font-size: 14px;
+    font-size: 16px;
   
     font-weight: 400;
   
@@ -1689,7 +1689,7 @@ html::-webkit-scrollbar {
 }
 
 .home-insights__content > p:not(.home-eyebrow) {
-  width: 750px;
+  width: 770px;
     max-width: 100%;
     margin: 0;
     color: #94a3b8;
@@ -2335,7 +2335,7 @@ html:has(.about-page)::-webkit-scrollbar {
 .about-founder__qualifications p {
   margin: 0;
     color: #647184;
-    font-size: 13px;
+    font-size: 12px;
   
     line-height: 1.8;
 }
@@ -2377,7 +2377,7 @@ html:has(.about-page)::-webkit-scrollbar {
 .about-founder__content h2 {
   margin: 5px 0 3px;
     color: #1e293b;
-    font-size: 31px;
+    font-size: 32px;
   
     line-height: 1.35;
     font-weight: 600;
@@ -2389,14 +2389,18 @@ html:has(.about-page)::-webkit-scrollbar {
     font-size: 12px;
 }
 
+/* .about-founder__content p:not(:first-child) {
+  font-size: 18px;
+} */
 .about-founder__content
   > p:not(.about-section-kicker):not(.about-founder__title) {
   margin: 0 0 13px;
     color: #647184;
-    font-size: 14px;
+    font-size: 16px;
   
     line-height: 1.75;
 }
+
 
 .about-founder__linkedin {
   display: inline-flex;
@@ -2441,7 +2445,7 @@ html:has(.about-page)::-webkit-scrollbar {
   max-width: 1250px;
     margin: 0 0 34px;
     color: #647184;
-    font-size: 14px;
+    font-size: 18px;
   
     line-height: 1.75;
 }
@@ -2548,7 +2552,7 @@ html:has(.about-page)::-webkit-scrollbar {
 .about-client-card h3 {
   margin: 13px 0 8px;
     color: #334155;
-    font-size: 13px;
+    font-size: 18px;
   
     font-weight: 600;
   
@@ -2558,7 +2562,7 @@ html:has(.about-page)::-webkit-scrollbar {
 .about-client-card p {
   margin: 0;
     color: #647184;
-    font-size: 12px;
+    font-size: 14px;
   
     line-height: 1.65;
 }
@@ -2581,7 +2585,7 @@ html:has(.about-page)::-webkit-scrollbar {
 .about-discuss h2 {
   margin: 0;
     color: #f8faff;
-    font-size: 30px;
+    font-size: 35px;
   
     font-weight: 600;
   
@@ -2591,7 +2595,7 @@ html:has(.about-page)::-webkit-scrollbar {
 .about-discuss__inner > p {
   margin: 15px 0 0;
     color: #94a3b8;
-    font-size: 14px;
+    font-size: 16px;
   
     line-height: 1.7;
 }
@@ -3148,7 +3152,7 @@ html:has(.about-page)::-webkit-scrollbar {
     padding-top: 23.85px;
     color: #526173;
     font-family: var(--site-font-family);
-    font-size: 13.9px;
+    font-size: 16px;
   
     font-weight: 400;
   
@@ -7531,7 +7535,7 @@ html:has(.about-page)::-webkit-scrollbar {
   margin: 12px 0 0;
     color: #607184;
     font-family: var(--site-font-family);
-    font-size: var(--type-tiny);
+    font-size: 18px;
     line-height: 1.65;
 }
 
@@ -9389,7 +9393,7 @@ html:has(.about-page)::-webkit-scrollbar {
 .home-page .home-section-heading > p,
 .home-page .home-insights__content > p:not(.home-eyebrow),
 .home-page .home-cta__content > p {
-  font-size: 17.6px;
+  font-size: 18px;
   font-weight: 400;
   color: #64748b;
 }
@@ -9486,7 +9490,7 @@ html:has(.about-page)::-webkit-scrollbar {
   margin: 0 0 12px;
   color: #374151;
   font-family: var(--site-heading-font-family) !important;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -9495,7 +9499,7 @@ html:has(.about-page)::-webkit-scrollbar {
   margin: 0;
   color: #647184;
   font-family: var(--site-font-family);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.7;
 }
@@ -9660,7 +9664,7 @@ html:has(.about-page)::-webkit-scrollbar {
   margin: 0;
   color: #051c2c;
   font-family: var(--site-heading-font-family) !important;
-  font-size: 18px;
+  font-size: 23px;
   font-weight: 700;
   line-height: 32px;
   letter-spacing: 0;
@@ -9676,7 +9680,7 @@ html:has(.about-page)::-webkit-scrollbar {
   padding-top: 0;
   color: #475569;
   font-family: var(--site-font-family);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 28.2px;
   text-align: justify;
@@ -10172,7 +10176,7 @@ html:has(.about-page)::-webkit-scrollbar {
 .insights-page .insights-publication-grid .publication-card h2 {
   color: #051c2c;
   font-family: var(--site-heading-font-family) !important;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.6;
   letter-spacing: 0;
@@ -11003,4 +11007,1595 @@ body::-webkit-scrollbar,
   margin-right: auto;
   text-align: center;
   text-wrap: pretty;
+}
+
+.home-meet-firm {
+  display: inline-block;
+  margin-top: 18px;
+  color: #a87f3e;
+  font-family: var(--site-font-family);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.home-meet-firm:hover {
+  color: #051c2c;
+}
+
+/* =========================================================
+   SOLUTIONS HOME — CARD PROPORTIONS AND ADDITIONAL SECTIONS
+   Scoped to the Solutions landing page only.
+   ========================================================= */
+.solutions-page .solutions-shell {
+  width: 90%;
+  max-width: 1522.8125px;
+  margin-inline: auto;
+}
+
+.solutions-page .solutions-core {
+  padding: 72px 0 76px;
+}
+
+.solutions-page .solutions-core__heading {
+  display: block;
+  min-height: 0;
+}
+
+.solutions-page .solutions-core__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.solutions-page .solutions-service-card {
+  height: auto;
+  min-height: 400.48px;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.solutions-page .solutions-service-card__image {
+  height: 190px;
+  flex: 0 0 190px;
+}
+
+.solutions-page .solutions-service-card__content {
+  min-height: 0;
+  padding: 28px 28px 28.925px;
+  gap: 11.3px;
+  border-top: 2px solid #c5a059;
+}
+
+.solutions-page .solutions-service-card__content h3 {
+  height: auto;
+  flex: 0 0 auto;
+  padding: 0;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.solutions-page .solutions-service-card__content > p:not(.solutions-service-card__eyebrow) {
+  height: auto;
+  flex: 0 0 auto;
+  padding: 0;
+  font-size: 16px;
+  line-height: 28.2px;
+}
+
+.solutions-how-we-work {
+  padding: 58px 0 64px;
+  background: #f8fafc;
+}
+
+.solutions-section-heading {
+  margin-bottom: 26px;
+}
+
+.solutions-section-heading h2 {
+  margin: 12px 0 0;
+  color: #051c2c;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.solutions-how-we-work__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 28px;
+}
+
+.solutions-how-we-work__card {
+  min-width: 0;
+  min-height: 124px;
+  padding: 25px 24px 23px;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #c5a059;
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.solutions-how-we-work__card h3 {
+  margin: 0 0 10px;
+  color: #051c2c;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.solutions-how-we-work__card p {
+  margin: 0;
+  color: #475569;
+  font-family: var(--site-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28.2px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.solutions-how-we-work__card strong {
+  font-weight: 700;
+}
+
+.solutions-selected-perspectives {
+  padding: 58px 0 72px;
+  background: #ffffff;
+}
+
+.solutions-selected-perspectives__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.solutions-perspective-card {
+  min-width: 0;
+  padding: 26px 24px 24px;
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid #c5a059;
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.solutions-perspective-card__category {
+  margin: 0 0 12px;
+  color: #a47f39;
+  font-family: var(--site-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.solutions-perspective-card h3 {
+  margin: 0;
+  color: #051c2c;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.solutions-perspective-card__placeholder {
+  margin: 14px 0 0;
+  color: #64748b;
+  font-family: var(--site-font-family);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .solutions-page .solutions-core__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solutions-page .solutions-service-card {
+    min-height: 400px;
+  }
+
+  .solutions-page .solutions-service-card__content {
+    padding: 24px 22px;
+  }
+
+  .solutions-how-we-work__grid,
+  .solutions-selected-perspectives__grid {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .solutions-page .solutions-shell {
+    width: calc(100% - 36px);
+  }
+
+  .solutions-page .solutions-core {
+    padding: 48px 0 52px;
+  }
+
+  .solutions-page .solutions-core__grid,
+  .solutions-how-we-work__grid,
+  .solutions-selected-perspectives__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .solutions-page .solutions-service-card__image {
+    height: 190px;
+    flex-basis: 190px;
+  }
+
+  .solutions-how-we-work,
+  .solutions-selected-perspectives {
+    padding: 40px 0 44px;
+  }
+
+  .solutions-section-heading h2 {
+    font-size: 25px;
+    line-height: 1.4;
+  }
+
+  .solutions-how-we-work__card,
+  .solutions-perspective-card {
+    padding: 22px 20px;
+  }
+}
+
+
+
+/* =========================================================
+   SOLUTIONS PAGE — HOW WE WORK
+   Uses the Valuation "Purposes of Valuation" card treatment
+   ========================================================= */
+
+.solutions-how-we-work {
+  width: 100%;
+  padding: 48px 0 52px;
+  background: #f8fafc;
+}
+
+.solutions-how-we-work .solutions-section-heading {
+  margin-bottom: 26px;
+}
+
+.solutions-how-we-work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding-top: 4px;
+}
+
+.solutions-how-we-work__card {
+  min-width: 0;
+  min-height: 176px;
+  padding: 27px 24px 25px;
+  border-left: 3px solid #051c2c;
+  border-radius: 3px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 12%);
+}
+
+.solutions-how-we-work__card h3 {
+  margin: 0 0 13px;
+  color: #051c2c;
+  font-family: var(--site-heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.solutions-how-we-work__card p {
+  margin: 0;
+  color: #475569;
+  font-family: var(--site-font-family);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   SOLUTIONS PAGE — SELECTED PERSPECTIVES
+   Uses the same publication-card layout as the Insights page.
+   ========================================================= */
+
+.solutions-perspectives {
+  width: 100%;
+  padding: 64px 0 72px;
+  background: #ffffff;
+}
+
+.solutions-perspectives .solutions-shell {
+  width: 90%;
+  max-width: 1522.8125px;
+  margin-inline: auto;
+}
+
+.solutions-perspectives .solutions-section-heading {
+  display: block;
+  margin: 0 0 32px;
+}
+
+.solutions-perspectives .solutions-section-heading h2 {
+  margin: 12px 0 0;
+  color: #051c2c;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 35.2px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Match the Insights page publication grid and card dimensions. */
+.solutions-perspectives .insights-publication-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 26px;
+  width: 100%;
+}
+
+.solutions-perspectives .publication-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #dce3e8;
+  border-radius: 0;
+  background: #ffffff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solutions-perspectives .publication-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(7, 30, 47, 0.08);
+}
+
+.solutions-perspectives .publication-card__image {
+  position: relative;
+  width: 100%;
+  height: 174px;
+  flex: 0 0 174px;
+  overflow: hidden;
+  background: #0a2637;
+}
+
+.solutions-perspectives .publication-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.solutions-perspectives .publication-card:hover .publication-card__image img {
+  transform: scale(1.035);
+}
+
+.solutions-perspectives .publication-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 245px;
+  padding: 18px 19px 19px;
+}
+
+.solutions-perspectives .publication-card__meta {
+  margin: 0 0 10px;
+  color: #c99d4f;
+  font-family: var(--site-font-family) !important;
+  font-size: var(--type-caption);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.solutions-perspectives .publication-card h2 {
+  margin: 0;
+  color: #0a2637;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: var(--type-body-large);
+  font-weight: 700;
+  line-height: 1.18;
+  text-transform: uppercase;
+}
+
+.solutions-perspectives .publication-card__excerpt {
+  margin: 12px 0 0;
+  color: #607184;
+  font-family: var(--site-font-family) !important;
+  font-size: var(--type-tiny);
+  line-height: 1.65;
+}
+
+.solutions-perspectives .publication-card__link {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 18px;
+  color: #102d40;
+  font-family: var(--site-font-family) !important;
+  font-size: var(--type-tiny);
+  font-weight: 700;
+}
+
+.solutions-perspectives__all {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+
+.solutions-perspectives__all a {
+  color: #051c2c;
+  font-family: var(--site-font-family);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.solutions-perspectives__all a:hover {
+  color: #a47f39;
+}
+
+/* =========================================================
+   SOLUTIONS PAGE — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .solutions-how-we-work__grid {
+    gap: 16px;
+  }
+
+  .solutions-perspectives .solutions-shell {
+    width: min(calc(100% - 56px), 1320px);
+  }
+
+  .solutions-perspectives .insights-publication-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .solutions-how-we-work__card {
+    padding: 22px 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  .solutions-how-we-work,
+  .solutions-perspectives {
+    padding: 36px 0;
+  }
+
+  .solutions-perspectives .solutions-shell {
+    width: calc(100% - 36px);
+  }
+
+  .solutions-how-we-work__grid,
+  .solutions-perspectives .insights-publication-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .solutions-how-we-work__card {
+    min-height: 0;
+    padding: 22px 20px;
+  }
+
+  .solutions-perspectives .solutions-section-heading {
+    margin-bottom: 24px;
+  }
+
+  .solutions-perspectives .solutions-section-heading h2 {
+    font-size: 25px;
+    line-height: 1.4;
+  }
+
+  .solutions-perspectives .publication-card__image {
+    height: 215px;
+    flex-basis: 215px;
+  }
+
+  .solutions-perspectives .publication-card__body {
+    min-height: 220px;
+  }
+}
+
+/* =========================================================
+   TRANSACTION ADVISORY PAGE
+   Page-specific layout. Shared header, footer, hero image,
+   publication cards and CTA components remain unchanged.
+   ========================================================= */
+
+.transaction-advisory-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #051c2c;
+}
+
+.transaction-advisory-shell {
+  width: 90%;
+  max-width: 1522.8125px;
+  margin: 0 auto;
+}
+
+.transaction-advisory-page .transaction-advisory-hero {
+  height: var(--inner-page-hero-height);
+  min-height: var(--inner-page-hero-height);
+  max-height: var(--inner-page-hero-height);
+}
+
+.transaction-advisory-page .transaction-advisory-hero__content {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 1522.8125px;
+  height: 100%;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 55px 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.transaction-advisory-page .service-breadcrumb {
+  margin: 0;
+  color: #c59f59;
+  font-family: var(--site-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.transaction-advisory-page .transaction-advisory-hero h1 {
+  max-width: 850px;
+  margin: 13px 0 0;
+  color: #f8faff;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 43px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.transaction-advisory-page .service-hero__intro {
+  max-width: 790px;
+  margin: 10px 0 0;
+  color: #d0d9e2;
+  font-family: var(--site-font-family) !important;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.transaction-advisory-hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  margin-top: 18px;
+  padding: 12px 24px;
+  border: 1px solid #c59f59;
+  border-radius: 3px;
+  background: #c59f59;
+  color: #051c2c;
+  font-family: var(--site-font-family) !important;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.transaction-advisory-hero__button:hover {
+  transform: translateY(-2px);
+  background: #d4b477;
+}
+
+/* Shared section heading treatment */
+.transaction-advisory-section-heading {
+  margin: 0 0 30px;
+}
+
+.transaction-advisory-kicker {
+  margin: 0;
+  color: #a47f39;
+  font-family: var(--site-font-family) !important;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.transaction-advisory-section-heading h2 {
+  margin: 10px 0 0;
+  color: #051c2c;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Areas of Expertise: same three-image-card pattern as Solutions home */
+.transaction-advisory-expertise {
+  padding: 68px 0 74px;
+  background: #ffffff;
+}
+
+.transaction-advisory-expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.transaction-advisory-expertise-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 3px;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(5, 28, 44, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.transaction-advisory-expertise-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(5, 28, 44, 0.12);
+}
+
+.transaction-advisory-expertise-card__image {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  flex: 0 0 190px;
+  overflow: hidden;
+  background: #e8edf1;
+}
+
+.transaction-advisory-expertise-card__image img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 350ms ease;
+}
+
+.transaction-advisory-expertise-card:hover
+.transaction-advisory-expertise-card__image img {
+  transform: scale(1.035);
+}
+
+.transaction-advisory-expertise-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 23px 24px 26px;
+}
+
+.transaction-advisory-expertise-card__content h3 {
+  margin: 0 0 10px;
+  color: #051c2c;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.transaction-advisory-expertise-card__content p {
+  margin: 0;
+  color: #475569;
+  font-family: var(--site-font-family) !important;
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Transaction Contexts: About Us client cards in a 3 x 2 grid */
+.transaction-advisory-contexts {
+  padding: 68px 0 76px;
+  background: #f8fafc;
+}
+
+.transaction-advisory-contexts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #e5e7eb;
+  border-left: 1px solid #e5e7eb;
+}
+
+.transaction-advisory-context-card {
+  position: relative;
+  min-width: 0;
+  min-height: 205px;
+  padding: 24px 24px 22px;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.transaction-advisory-context-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: #c59f59;
+}
+
+.transaction-advisory-context-card__number {
+  color: #a47f39;
+  font-family: var(--site-font-family) !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.transaction-advisory-context-card h3 {
+  margin: 13px 0 8px;
+  color: #334155;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.transaction-advisory-context-card p {
+  margin: 0;
+  color: #647184;
+  font-family: var(--site-font-family) !important;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* How We Work: same two-column approach card pattern as Valuation */
+.transaction-advisory-approach {
+  margin: 0 auto;
+  padding: 62px 0 68px;
+  background: #ffffff;
+}
+
+.transaction-advisory-section-heading--approach {
+  margin-bottom: 26px;
+}
+
+.transaction-advisory-section-heading--approach
+.transaction-advisory-approach__intro {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-family: var(--site-font-family) !important;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.transaction-advisory-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 28px;
+}
+
+.transaction-advisory-approach-card {
+  min-width: 0;
+  min-height: 124px;
+  padding: 25px 24px 23px;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #c5a059;
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.transaction-advisory-approach-card h3 {
+  margin: 0 0 10px;
+  color: #051c2c;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.transaction-advisory-approach-card p {
+  margin: 0;
+  color: #475569;
+  font-family: var(--site-font-family) !important;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Transaction Perspectives: reuse Insights publication cards */
+.transaction-advisory-perspectives {
+  padding: 66px 0 72px;
+  background: #f8fafc;
+}
+
+.transaction-advisory-perspectives .insights-publication-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 26px;
+}
+
+.transaction-advisory-perspectives .publication-card {
+  min-width: 0;
+  height: 100%;
+  border-radius: 0;
+  background: #ffffff;
+}
+
+.transaction-advisory-perspectives__empty {
+  margin: 0;
+  padding: 28px;
+  border: 1px solid #dce3e8;
+  background: #ffffff;
+  color: #64748b;
+  font-family: var(--site-font-family) !important;
+  font-size: 14px;
+}
+
+.transaction-advisory-perspectives__all {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+
+.transaction-advisory-perspectives__all a {
+  color: #051c2c;
+  font-family: var(--site-font-family) !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.transaction-advisory-perspectives__all a:hover {
+  color: #a47f39;
+}
+
+/* Final CTA uses the established individual-service CTA component */
+.transaction-advisory-page .transaction-advisory-cta .service-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.transaction-advisory-page .transaction-advisory-cta .service-cta__inner > p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .transaction-advisory-shell,
+  .transaction-advisory-page .transaction-advisory-hero__content {
+    width: min(calc(100% - 48px), 1200px);
+  }
+
+  .transaction-advisory-expertise-grid {
+    gap: 16px;
+  }
+
+  .transaction-advisory-expertise-card__content {
+    padding: 21px 18px 22px;
+  }
+
+  .transaction-advisory-context-card {
+    min-height: 220px;
+    padding: 20px 18px;
+  }
+
+  .transaction-advisory-approach-grid {
+    gap: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+  .transaction-advisory-shell,
+  .transaction-advisory-page .transaction-advisory-hero__content {
+    width: calc(100% - 36px);
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero {
+    height: auto;
+    min-height: 430px;
+    max-height: none;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero__content {
+    height: auto;
+    min-height: 430px;
+    padding: 48px 0 42px;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero h1 {
+    margin-top: 14px;
+    font-size: clamp(29px, 7vw, 38px);
+    line-height: 1.25;
+  }
+
+  .transaction-advisory-page .service-hero__intro {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .transaction-advisory-hero__button {
+    min-height: 46px;
+    margin-top: 18px;
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+
+  .transaction-advisory-expertise,
+  .transaction-advisory-contexts,
+  .transaction-advisory-approach,
+  .transaction-advisory-perspectives {
+    padding: 42px 0 46px;
+  }
+
+  .transaction-advisory-section-heading {
+    margin-bottom: 22px;
+  }
+
+  .transaction-advisory-section-heading h2 {
+    font-size: 25px;
+    line-height: 1.4;
+  }
+
+  .transaction-advisory-section-heading--approach
+  .transaction-advisory-approach__intro {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .transaction-advisory-expertise-grid,
+  .transaction-advisory-contexts-grid,
+  .transaction-advisory-approach-grid,
+  .transaction-advisory-perspectives .insights-publication-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .transaction-advisory-expertise-card__image {
+    height: 190px;
+    flex-basis: 190px;
+  }
+
+  .transaction-advisory-expertise-card__content {
+    padding: 21px 20px 23px;
+  }
+
+  .transaction-advisory-context-card {
+    min-height: 0;
+    padding: 21px 20px;
+  }
+
+  .transaction-advisory-context-card h3 {
+    font-size: 14px;
+  }
+
+  .transaction-advisory-approach-card {
+    min-height: 0;
+    padding: 22px 20px;
+  }
+
+  .transaction-advisory-approach-card h3 {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .transaction-advisory-perspectives .publication-card__image {
+    height: 215px;
+  }
+
+  .transaction-advisory-perspectives .publication-card__body {
+    min-height: 220px;
+  }
+}
+
+/* =========================================================
+   TRANSACTION ADVISORY HERO — VISIBILITY / STACKING FIX
+   Keep the image behind the overlay and all hero content.
+   ========================================================= */
+
+.transaction-advisory-page .transaction-advisory-hero {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.transaction-advisory-page .transaction-advisory-hero .service-hero__image {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero .service-hero__overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  display: block !important;
+  visibility: visible !important;
+  background: linear-gradient(
+    100deg,
+    rgb(5 28 44 / 96%) 0%,
+    rgb(5 28 44 / 88%) 58%,
+    rgb(5 28 44 / 76%) 100%
+  ) !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero__content {
+  position: relative !important;
+  z-index: 2 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  width: 90% !important;
+  max-width: 1522.8125px !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  padding: 30px 0 !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero__content .service-breadcrumb,
+.transaction-advisory-page .transaction-advisory-hero__content h1,
+.transaction-advisory-page .transaction-advisory-hero__content .service-hero__intro,
+.transaction-advisory-page .transaction-advisory-hero__content .transaction-advisory-hero__button {
+  position: relative !important;
+  z-index: 3 !important;
+  display: block;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero__content .service-breadcrumb {
+  margin: 0 0 10px !important;
+  color: #c59f59 !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero__content h1 {
+  max-width: 850px !important;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: clamp(32px, 3.4vw, 46px) !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero__content .service-hero__intro {
+  max-width: 790px !important;
+  margin: 12px 0 0 !important;
+  color: #f0f4f8 !important;
+  font-family: var(--site-font-family) !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero__content .transaction-advisory-hero__button {
+  display: inline-flex !important;
+  width: fit-content !important;
+  margin-top: 18px !important;
+}
+
+@media (max-width: 900px) {
+  .transaction-advisory-page .transaction-advisory-hero {
+    height: auto !important;
+    min-height: 360px !important;
+    max-height: none !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero__content {
+    width: calc(100% - 48px) !important;
+    min-height: 360px !important;
+    height: auto !important;
+    padding: 38px 0 !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .transaction-advisory-page .transaction-advisory-hero {
+    min-height: 420px !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero__content {
+    width: calc(100% - 36px) !important;
+    min-height: 420px !important;
+    padding: 42px 0 !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero__content h1 {
+    font-size: clamp(28px, 7vw, 36px) !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero__content .service-hero__intro {
+    font-size: 14px !important;
+  }
+}
+
+/* =========================================================
+   TRANSACTION ADVISORY HERO — MATCH EXISTING INNER HERO
+   Use the same typography, spacing and CTA treatment as the
+   Valuation inner-page banner and the home-page hero button.
+   ========================================================= */
+
+.transaction-advisory-page .transaction-advisory-hero {
+  position: relative !important;
+  height: var(--inner-page-hero-height, 330px) !important;
+  min-height: var(--inner-page-hero-height, 330px) !important;
+  max-height: var(--inner-page-hero-height, 330px) !important;
+  overflow: hidden !important;
+  isolation: isolate;
+}
+
+.transaction-advisory-page .transaction-advisory-hero .service-hero__image {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 45% !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero .service-hero__overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  display: block !important;
+  background: linear-gradient(
+    112deg,
+    rgb(5 28 44 / 96%) 0%,
+    rgb(5 28 44 / 88%) 58%,
+    rgb(5 28 44 / 76%) 100%
+  ) !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  width: min(1200px, calc(100% - 80px)) !important;
+  max-width: 1200px !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  padding: 29px 0 24px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero-content .service-breadcrumb {
+  display: block !important;
+  margin: 0 0 2px !important;
+  padding: 0 !important;
+  color: #c59f59 !important;
+  font-family: var(--site-font-family) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero-content h1 {
+  display: block !important;
+  width: 100% !important;
+  max-width: 720px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #f8faff !important;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: clamp(32px, 3.4vw, 44px) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero-content .service-hero__intro {
+  display: block !important;
+  width: min(700px, 100%) !important;
+  max-width: 700px !important;
+  margin: 1px 0 0 !important;
+  padding: 0 !important;
+  color: #94a3b8 !important;
+  font-family: var(--site-font-family) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Exact home-page hero CTA style */
+.transaction-advisory-page .transaction-advisory-hero-content .home-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: fit-content !important;
+  height: 53.2px !important;
+  min-height: 53.2px !important;
+  margin-top: 17px !important;
+  padding: 13.6px 32px !important;
+  border: 0 !important;
+  border-radius: 3px !important;
+  background: #c59f59 !important;
+  color: #051c2c !important;
+  font-family: var(--site-font-family) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 25.6px !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: opacity 180ms ease !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+.transaction-advisory-page .transaction-advisory-hero-content .home-button:hover {
+  opacity: 0.92 !important;
+  transform: none !important;
+}
+
+@media (max-width: 900px) {
+  .transaction-advisory-page .transaction-advisory-hero {
+    height: var(--inner-page-hero-height, 330px) !important;
+    min-height: var(--inner-page-hero-height, 330px) !important;
+    max-height: var(--inner-page-hero-height, 330px) !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero-content {
+    width: calc(100% - 48px) !important;
+    padding: 26px 0 22px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .transaction-advisory-page .transaction-advisory-hero {
+    height: auto !important;
+    min-height: 390px !important;
+    max-height: none !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero-content {
+    width: calc(100% - 36px) !important;
+    height: auto !important;
+    min-height: 390px !important;
+    padding: 34px 0 !important;
+    gap: 8px !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero-content h1 {
+    font-size: clamp(28px, 7vw, 36px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero-content .service-hero__intro {
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+  }
+
+  .transaction-advisory-page .transaction-advisory-hero-content .home-button {
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 11px 22px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* =========================================================
+   VALUATION PAGE
+   Reuses Transaction Advisory section components and sizing.
+   All page-specific selectors are scoped to .valuation-page.
+   ========================================================= */
+
+.valuation-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #051c2c;
+}
+
+.valuation-page .valuation-page__hero {
+  position: relative;
+  height: var(--inner-page-hero-height, 330px);
+  min-height: var(--inner-page-hero-height, 330px);
+  max-height: var(--inner-page-hero-height, 330px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.valuation-page .valuation-page__hero .service-hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.valuation-page .valuation-page__hero .service-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    112deg,
+    rgb(5 28 44 / 96%) 0%,
+    rgb(5 28 44 / 88%) 58%,
+    rgb(5 28 44 / 76%) 100%
+  );
+}
+
+.valuation-page .valuation-page__hero-content {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 9px;
+  width: min(1200px, calc(100% - 80px));
+  max-width: 1200px;
+  height: 100%;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 29px 0 24px;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  animation: none;
+}
+
+.valuation-page .valuation-page__hero-content .service-breadcrumb {
+  display: block;
+  margin: 0 0 2px;
+  padding: 0;
+  color: #c59f59;
+  font-family: var(--site-font-family) !important;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.valuation-page .valuation-page__hero-content h1 {
+  display: block;
+  width: 100%;
+  max-width: 780px;
+  margin: 0;
+  padding: 0;
+  color: #f8faff;
+  font-family: var(--site-heading-font-family) !important;
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.valuation-page .valuation-page__hero-content .service-hero__intro {
+  display: block;
+  width: min(700px, 100%);
+  max-width: 700px;
+  margin: 1px 0 0;
+  padding: 0;
+  color: #94a3b8;
+  font-family: var(--site-font-family) !important;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.valuation-page .valuation-page__hero-content .home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 53.2px;
+  min-height: 53.2px;
+  margin-top: 17px;
+  padding: 13.6px 32px;
+  border: 0;
+  border-radius: 3px;
+  background: #c59f59;
+  color: #051c2c;
+  font-family: var(--site-font-family) !important;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25.6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 180ms ease;
+}
+
+.valuation-page .valuation-page__hero-content .home-button:hover {
+  opacity: 0.92;
+}
+
+/* Match the Transaction Advisory expertise section exactly. */
+.valuation-page .valuation-expertise {
+  padding: 68px 0 74px;
+  background: #ffffff;
+}
+
+.valuation-page .valuation-expertise__intro {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-family: var(--site-font-family) !important;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Match Transaction Contexts card grid: three columns, two rows. */
+.valuation-page .valuation-purposes {
+  padding: 68px 0 76px;
+  background: #f8fafc;
+}
+
+.valuation-page .valuation-purposes__intro {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-family: var(--site-font-family) !important;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Match Transaction Advisory How We Work card layout. */
+.valuation-page .valuation-approach {
+  margin: 0;
+  padding: 62px 0 68px;
+  background: #ffffff;
+}
+
+/* Match Transaction Perspectives publication cards. */
+.valuation-page .valuation-perspectives {
+  padding: 66px 0 72px;
+  background: #f8fafc;
+}
+
+.valuation-page .valuation-perspectives .insights-publication-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 26px;
+}
+
+.valuation-page .valuation-perspectives .publication-card {
+  min-width: 0;
+  height: 100%;
+  border-radius: 0;
+  background: #ffffff;
+}
+
+.valuation-page .valuation-page__cta {
+  margin-top: 0;
+}
+
+.valuation-page .service-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.valuation-page .service-cta__inner > p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .valuation-page .valuation-page__hero-content {
+    width: calc(100% - 48px);
+  }
+
+  .valuation-page .valuation-expertise,
+  .valuation-page .valuation-purposes {
+    padding-top: 60px;
+    padding-bottom: 64px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 680px) {
+  .valuation-page .valuation-page__hero {
+    height: auto;
+    min-height: 390px;
+    max-height: none;
+  }
+
+  .valuation-page .valuation-page__hero-content {
+    width: calc(100% - 36px);
+    height: auto;
+    min-height: 390px;
+    padding: 34px 0;
+    gap: 8px;
+  }
+
+  .valuation-page .valuation-page__hero-content h1 {
+    font-size: clamp(28px, 7vw, 36px);
+    line-height: 1.2;
+  }
+
+  .valuation-page .valuation-page__hero-content .service-hero__intro {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .valuation-page .valuation-page__hero-content .home-button {
+    height: 48px;
+    min-height: 48px;
+    padding: 11px 22px;
+    font-size: 14px;
+  }
+
+  .valuation-page .valuation-expertise,
+  .valuation-page .valuation-purposes,
+  .valuation-page .valuation-approach,
+  .valuation-page .valuation-perspectives {
+    padding: 42px 0 46px;
+  }
+
+  .valuation-page .valuation-expertise__intro,
+  .valuation-page .valuation-purposes__intro,
+  .valuation-page .transaction-advisory-approach__intro {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .valuation-page .valuation-perspectives .insights-publication-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .valuation-page .valuation-perspectives .publication-card__image {
+    height: 215px;
+  }
+
+  .valuation-page .valuation-perspectives .publication-card__body {
+    min-height: 220px;
+  }
 }

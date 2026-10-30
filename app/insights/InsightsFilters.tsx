@@ -208,8 +208,8 @@ export default function InsightsFilters({
         />
 
         <FilterDropdown
-          label="Core Service"
-          placeholder="All Services"
+          label="Core Solutions"
+          placeholder="All Solutions"
           value={selectedService}
           items={services}
           open={openFilter === "service"}

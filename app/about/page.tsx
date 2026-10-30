@@ -80,28 +80,33 @@ export default function AboutPage() {
 
         <section className="about-institutional">
           <div className="about-shell">
-            <p className="about-section-kicker">About Us</p>
+            {/* <p className="about-section-kicker">About Us</p> */}
 
-            <h2>Experience Across Markets and Mandates</h2>
+            <h2>THE FIRM</h2>
 
             <p className="about-institutional__intro">
               Valuation Insights advises institutional investors, corporates,
-              and sophisticated private clients on complex valuation,
-              investment, and dispute-related matters. Drawing on more than 100
-              years of combined professional experience, the firm brings
+              and sophisticated private clients on complex valuations,
+              transactions, and dispute-related matters. Drawing on more than
+              100 years of combined professional experience, the firm brings
               specialist expertise, commercial perspective, and disciplined
               analysis to each mandate. Across markets and mandates, we focus on
               the commercial, financial, and market considerations that shape
               value, risk, and decision-making.
             </p>
 
+            <br />
+            <h2>Experience Across Markets and Mandates</h2>
+            <br />
+           
+            
             <div className="about-institutional__grid about-institutional__grid--contribution-style">
               <article>
                 <h3>Global Portfolio Valuations</h3>
                 <p>
-                  Fair value assessment of client`s international
-                  investment portfolios, maintaining rigorous compliance and
-                  reporting standards.
+                  Fair value assessment of client`s international investment
+                  portfolios, maintaining rigorous compliance and reporting
+                  standards.
                 </p>
               </article>
 
@@ -125,33 +130,6 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <br />
-        <br />
-        {/* <section className="about-firm">
-          <div className="about-shell about-firm__grid">
-            <div className="about-firm__heading">
-              <p className="about-section-kicker">About the Firm</p>
-              <h2>
-                A Specialist
-                <br />
-                Valuation Practice
-              </h2>
-            </div>
-            <div className="about-firm__copy">
-              <p>
-                Valuation Insights is a partner-led valuation firm serving
-                institutional and sophisticated private clients. We combine
-                specialist technical knowledge with a commercial understanding
-                of the businesses, assets, and markets under review.
-              </p>
-              <p>
-                Our work is designed for situations where valuation affects
-                reporting, investment, ownership, transaction structure, or the
-                resolution of a contested matter.
-              </p>
-            </div>
-          </div>
-        </section> */}
 
         <section className="about-founder">
           <div className="about-shell about-founder__inner">
@@ -171,11 +149,9 @@ export default function AboutPage() {
                     <p>Chartered Accountant</p>
                     <p>MBA from London Business School</p>
                     <p>
-                      Registered Valuer-Securities &amp;
-                      Financial Assets
-                      <br/>
+                      Registered Valuer - Securities &amp; Financial Assets
+                      <br />
                       <b>IBBI/RV/06/2023/15215</b>
-                      
                     </p>
                   </div>
                 </div>
@@ -191,37 +167,38 @@ export default function AboutPage() {
                 <p className="about-section-kicker">Founder</p>
                 <h2>Amit Sultania</h2>
                 {/* <p className="about-founder__title">
-                  Founder and Managing Director, Valuation Insights
+                  Founder and Managing Director
                 </p> */}
                 <p>
-                  Amit Sultania is a Chartered Accountant, holds an MBA from
-                  London Business School, and is a Registered Valuer with IBBI
-                  in the Securities or Financial Assets asset class. He brings
-                  more than 23 years of professional experience, including over
-                  a decade focused on valuation.
+                  Amit Sultania is the Founder and Managing Director of
+                  Valuation Insights. He brings more than 23 years of
+                  professional experience, including over a decade specialising
+                  in valuation. Before establishing Valuation Insights, Amit
+                  held senior roles at leading advisory firms, building
+                  expertise in valuation methodology, financial modelling,
+                  transaction advisory, and cross-border assignments.
                 </p>
                 <p>
-                  Before founding Valuation Insights, Amit held senior
-                  roles at leading advisory firms, developing experience in
-                  valuation methodology, financial modelling, transaction
-                  advisory, and cross-border assignments.
+                  His experience encompasses the valuation of businesses,
+                  securities, and intangible assets, including valuations for
+                  financial reporting. His work also includes fairness and
+                  solvency opinions, transaction-related assignments, and
+                  financial disputes.
                 </p>
                 <p>
-                  His work has covered businesses, securities, intangible
-                  assets, financial reporting valuations, fairness and solvency
-                  opinions, transactions, and disputes. He has worked with
-                  corporate, private equity, family-office, board, and legal
-                  stakeholders on matters where assumptions, evidence, and
-                  professional judgement must withstand detailed review.
+                  Amit has worked with corporates, private equity investors,
+                  family offices, boards, and legal advisers on matters
+                  requiring rigorous examination of assumptions, supporting
+                  evidence, and professional judgement.
                 </p>
-                <a
+                {/* <a
                   href="https://www.linkedin.com/"
                   target="_blank"
                   rel="noreferrer"
                   className="about-founder__linkedin"
                 >
                   <span aria-hidden="true">in</span> View LinkedIn Profile
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -263,9 +240,7 @@ export default function AboutPage() {
             <div className="about-clients__heading">
               <div>
                 <p className="about-section-kicker">Clients We Serve</p>
-                <h2>
-                  Niche Advisory for Different Stakeholders
-                </h2>
+                <h2>Advisory for Different Stakeholders</h2>
               </div>
               {/* <p className="about-clients__intro about-clients__intro--justified">
                 We work with parties who require specialist valuation analysis
@@ -291,7 +266,9 @@ export default function AboutPage() {
           <div className="about-shell about-discuss__inner">
             <h2>Discuss a Requirement</h2>
             <p>
-              If you are considering a valuation assignment, transaction, reporting matter, or dispute, we would be pleased to understand the requirement.
+              If you are considering a valuation assignment, transaction,
+              reporting matter, or dispute, we would be pleased to understand
+              the requirement.
             </p>
             <Link href="/contact" className="about-discuss__button">
               Contact us
